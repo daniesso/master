@@ -135,7 +135,7 @@ class RNNPBNMT(NMTBase):
 
 
     def encode(self, A_X):
-        return (self.B.initialize_hidden_state(batch_size=A_X.shape[0]), self.A.recognize(A_X, max_iters=self.max_recog_epochs))
+        return (self.B.initialize_hidden_state(batch_size=A_X.shape[0]), self.A.recognize(A_X, iters=83))
 
 
     def decode(self, dec_x, hidden):
