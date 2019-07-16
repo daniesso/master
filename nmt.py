@@ -24,7 +24,7 @@ def set_device(device):
         tf.config.experimental.set_visible_devices([devices[0], devices[1+gpu]])
 
 
-def training(model_params, model_name, train_set1, train_set2, dev_set1, dev_set2, working_dir, warm_start = False, length_limit = 10**3, vocab1_max=10**6, vocab2_max=10**6, sample=None, reverse_source=False, max_epochs = 0, early_stopping_steps = 0, easy_subset=None):
+def training(model_params, model_name, train_set1, train_set2, dev_set1, dev_set2, working_dir, warm_start = False, length_limit = 10**3, vocab1_max=10**6, vocab2_max=10**6, sample=None, reverse_source=False, max_epochs = 0, early_stopping_steps = 0, easy_subset=None, mono_set1 = None, mono_set2 = None):
 
     print("Starting training procedure.")
 
@@ -59,8 +59,25 @@ def training(model_params, model_name, train_set1, train_set2, dev_set1, dev_set
     dev = Dataset(path1=dev_set1, path2=dev_set2, batch_size = batch_size, 
                   length_limit = length_limit, vocab = (train.first, train.second), 
                   reverse_source=reverse_source)
-    
-    model_params["num_training_sequences"] = len(train.X)
+
+    assert not ((not mono_set1) ^ (not mono_set2))
+    if mono_set1:
+        print("Loading mono set...")
+        if model_name != "rnnpbnmt":
+            print("Error: Only RNNPBNMT supports monolingual training")
+            exit(1)
+
+        offset = len(train.X)
+        bind_hard = model_params["bind_hard"]
+
+        mono = Dataset(path1=mono_set1, path2=mono_set2, batch_size=batch_size,
+                       length_limit = length_limit, vocab = (train.first, train.second),
+                       reverse_source=reverse_source, mono = (offset, bind_hard))
+
+        model_params["num_training_sequences"] = len(train.X) + (len(mono.X) if not bind_hard else 2*len(mono.X))
+    else:
+        mono = None
+        model_params["num_training_sequences"] = len(train.X)
 
     if not warm_start:
         print("Writing params file...")
@@ -100,7 +117,7 @@ def training(model_params, model_name, train_set1, train_set2, dev_set1, dev_set
     print("Warm start:", warm_start)
     print()
 
-    maximized_dev = model.do_training(train, dev, max_epochs = max_epochs, early_stopping_steps = early_stopping_steps, warm_start=warm_start)
+    maximized_dev = model.do_training(train, dev, mono, max_epochs = max_epochs, early_stopping_steps = early_stopping_steps, warm_start=warm_start)
 
     if maximized_dev:
         print("Finished training after development set stopped improving.")
@@ -231,7 +248,7 @@ model_optional = ["dropout"]
 
 rnnpb_param_names = ["binding_strength", "num_PB", "pb_learning_rate", "max_recog_epochs"]
 rnnpb_flags = ["bind_hard", "autoencode"]
-rnnpb_optional = ["sigma", "p_reset"]
+rnnpb_optional = ["sigma", "p_reset", "p_mono"]
 
 def get_model_params(optd):
 
@@ -252,7 +269,7 @@ def get_model_params(optd):
 def main(args):
 
     try: 
-        opts, args = getopt.getopt(args, "", ["do_training", "train_set1=", "train_set2=", "dev_set1=", "dev_set2=", "do_testing", "test_set=", "model_name=", "vocab1_max=", "vocab2_max=", "sample=", "max_epochs=", "early_stopping_steps=", "working_dir=", "warm_start", "reverse_source", "query=", "beam_size=", "easy_subset=", "device="] + [x+"=" for x in model_param_names+rnnpb_param_names+rnnpb_optional+model_optional]+model_flags+rnnpb_flags)
+        opts, args = getopt.getopt(args, "", ["do_training", "train_set1=", "train_set2=", "dev_set1=", "dev_set2=", "do_testing", "test_set=", "model_name=", "vocab1_max=", "vocab2_max=", "sample=", "max_epochs=", "early_stopping_steps=", "working_dir=", "warm_start", "reverse_source", "query=", "beam_size=", "easy_subset=", "device=", "mono_set1=", "mono_set2="] + [x+"=" for x in model_param_names+rnnpb_param_names+rnnpb_optional+model_optional]+model_flags+rnnpb_flags)
 
     except getopt.GetoptError as e:
         print("Error:", e)
@@ -277,7 +294,7 @@ def main(args):
         check_require(optd, train_require)
 
         train_optional = ["length_limit", "vocab1_max", "vocab2_max", "sample", "max_epochs", "early_stopping_steps", 
-                          "warm_start", "reverse_source", "easy_subset"]
+                          "warm_start", "reverse_source", "easy_subset", "mono_set1", "mono_set2"]
 
         model_params = get_model_params(optd)
 

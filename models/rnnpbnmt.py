@@ -6,7 +6,7 @@ import tensorflow_addons as tfa
 
 class RNNPBNMT(NMTBase):
 
-    def __init__(self, num_PB, binding_strength, pb_learning_rate, max_recog_epochs, bind_hard=False, autoencode=False, p_reset = 0, sigma = 0, **kwargs):
+    def __init__(self, num_PB, binding_strength, pb_learning_rate, max_recog_epochs, bind_hard=False, autoencode=False, p_reset = 0, sigma = 0, p_mono = 0, **kwargs):
         
         self.num_PB = num_PB
         self.binding_strength = binding_strength
@@ -17,6 +17,8 @@ class RNNPBNMT(NMTBase):
 
         self.p_reset = p_reset
         self.sigma = sigma
+
+        self.p_mono = p_mono
 
         if self.autoencode: assert self.bind_hard
 
@@ -75,43 +77,108 @@ class RNNPBNMT(NMTBase):
 
         return self.joint_loss(A_logits, A_PB, A_Y, X_lengths-1, B_logits, B_PB, B_Y, Y_lengths-1)
 
-    def do_epoch(self, train, epoch_state = None):
+
+    def do_epoch(self, train, mono, epoch_state = None):
 
         if epoch_state is None:
             print("Initializing epoch state")
             epoch_state = {'optimizer_w' : tfa.optimizers.LazyAdam(self.learning_rate),
-                           'optimizer_pb' : tfa.optimizers.LazyAdam(self.pb_lr)}
+                           'optimizer_pb' : tfa.optimizers.LazyAdam(self.pb_lr),
+                           'optimizer_w_mono' : tfa.optimizers.LazyAdam(self.learning_rate),
+                           'optimizer_pb_mono' : tfa.optimizers.LazyAdam(self.pb_lr)}
 
         epoch_perplexity = 0
         batch_losses = []
 
-        for batch, (X, X_lengths, Y, Y_lengths, ids) in enumerate(train):
+        def get_mono_row():
+            try:
+                return next(get_mono_row.mono_iter)
+            except (StopIteration, AttributeError):
+                get_mono_row.mono_iter = iter(mono)
+                return get_mono_row()
 
-            X, Y = self.trim_padding(X, X_lengths, Y, Y_lengths)
+        batch = 0
+        mono_batch_loss = -1
+        train_iter = iter(train)
+        while True:
+            if np.random.uniform(0, 1) < self.p_mono:
+                mono_batch_loss = self.train_mono(epoch_state, mono.offset1, mono.offset2, *get_mono_row())
+            else:
+                try:
+                    train_row = next(train_iter)
+                except StopIteration:
+                    break
+                batch_loss, batch_perplexity = self.train_parallel(epoch_state, *train_row)
 
-            with tf.GradientTape() as tape:
-                batch_loss, batch_perplexity = self.train_step(X, X_lengths, Y, Y_lengths, ids)
+                epoch_perplexity += batch_perplexity
 
-            w_vars = self.get_variables()
-            pb_vars = self.A.pb_embedding.variables + self.B.pb_embedding.variables
-            w_vars = [var for var in w_vars if var is not pb_vars[0] and var is not pb_vars[1]]
+                batch_losses.append((batch+1, float(batch_loss)))
 
-            w_grads, pb_grads = tape.gradient(batch_loss, [w_vars, pb_vars])
+                if batch % 100 == 0:
+                    print('  Batch {} Loss {:.4f} Mono loss {:.4f}'.format(batch, batch_loss, mono_batch_loss))
 
-            if self.gradient_clip != 0:
-                w_grads, _ = tf.clip_by_global_norm(w_grads, self.gradient_clip)
-                pb_grads, _ = tf.clip_by_global_norm(pb_grads, self.gradient_clip)
+                batch += 1
 
-            epoch_state['optimizer_w'].apply_gradients(zip(w_grads, w_vars))
-            epoch_state['optimizer_pb'].apply_gradients(zip(pb_grads, pb_vars))
-
-            epoch_perplexity += batch_perplexity
-
-            batch_losses.append((batch+1, float(batch_loss)))
-            if batch % 100 == 0:
-                print('  Batch {} Loss {:.4f}'.format(batch, batch_loss))
+        mono.tf_dataset.shuffle(len(mono.X))
 
         return epoch_perplexity, batch_losses, epoch_state
+
+
+    def train_mono(self, epoch_state, offset1, offset2, X, X_lengths, Y, Y_lengths, ids):
+
+        X, Y = self.trim_padding(X, X_lengths, Y, Y_lengths)
+
+        A_X = X[:, :-1]
+        A_Y = X[:, 1:]
+
+        B_X = Y[:, :-1]
+        B_Y = Y[:, 1:]
+
+        with tf.GradientTape() as tape:
+            A_logits, _ , _ = self.A(A_X, ids=ids + offset1, training=True)
+            B_logits, _ , _ = self.B(B_X, ids=ids + offset2, training=True)
+
+            pred_loss_A, _ = self.loss(logits=A_logits, targets=A_Y, target_lengths=X_lengths-1)
+            pred_loss_B, _ = self.loss(logits=B_logits, targets=B_Y, target_lengths=Y_lengths-1)
+
+            batch_loss = (pred_loss_A + pred_loss_B) / 2
+
+        w_vars = self.get_variables()
+        pb_vars = self.A.pb_embedding.variables + self.B.pb_embedding.variables
+        w_vars = [var for var in w_vars if var is not pb_vars[0] and var is not pb_vars[1]]
+
+        w_grads, pb_grads = tape.gradient(batch_loss, [w_vars, pb_vars])
+
+        if self.gradient_clip != 0:
+            w_grads, _ = tf.clip_by_global_norm(w_grads, self.gradient_clip)
+            pb_grads, _ = tf.clip_by_global_norm(pb_grads, self.gradient_clip)
+
+        epoch_state['optimizer_w_mono'].apply_gradients(zip(w_grads, w_vars))
+        epoch_state['optimizer_pb_mono'].apply_gradients(zip(pb_grads, pb_vars))
+
+        return batch_loss
+    
+    def train_parallel(self, epoch_state, X, X_lengths, Y, Y_lengths, ids):
+
+        X, Y = self.trim_padding(X, X_lengths, Y, Y_lengths)
+
+        with tf.GradientTape() as tape:
+            batch_loss, batch_perplexity = self.train_step(X, X_lengths, Y, Y_lengths, ids)
+
+        w_vars = self.get_variables()
+        pb_vars = self.A.pb_embedding.variables + self.B.pb_embedding.variables
+        w_vars = [var for var in w_vars if var is not pb_vars[0] and var is not pb_vars[1]]
+
+        w_grads, pb_grads = tape.gradient(batch_loss, [w_vars, pb_vars])
+
+        if self.gradient_clip != 0:
+            w_grads, _ = tf.clip_by_global_norm(w_grads, self.gradient_clip)
+            pb_grads, _ = tf.clip_by_global_norm(pb_grads, self.gradient_clip)
+
+        epoch_state['optimizer_w'].apply_gradients(zip(w_grads, w_vars))
+        epoch_state['optimizer_pb'].apply_gradients(zip(pb_grads, pb_vars))
+
+        return batch_loss, batch_perplexity
 
 
     def handle_post_epoch(self):
@@ -189,5 +256,7 @@ class RNNPBNMT(NMTBase):
         print("Sigma:", self.sigma)
         print("p_reset:", self.p_reset)
         print("Max recog epochs:", self.max_recog_epochs)
+        print("p_mono:", self.p_mono)
+
 
 

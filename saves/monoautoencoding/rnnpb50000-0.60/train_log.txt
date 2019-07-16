@@ -1,0 +1,3092 @@
+2019-07-04 05:25:42.916824: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcuda.so.1
+2019-07-04 05:25:42.925789: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties: 
+name: Tesla V100-PCIE-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.38
+pciBusID: 0000:3b:00.0
+2019-07-04 05:25:42.926654: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 1 with properties: 
+name: Tesla V100-PCIE-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.38
+pciBusID: 0000:d8:00.0
+2019-07-04 05:25:42.926853: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0
+2019-07-04 05:25:42.928257: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcublas.so.10.0
+2019-07-04 05:25:42.929675: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcufft.so.10.0
+2019-07-04 05:25:42.929988: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcurand.so.10.0
+2019-07-04 05:25:42.931411: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusolver.so.10.0
+2019-07-04 05:25:42.932713: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusparse.so.10.0
+2019-07-04 05:25:42.935833: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudnn.so.7
+2019-07-04 05:25:42.938696: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1763] Adding visible gpu devices: 0, 1
+Starting training procedure.
+Loading training set...
+2019-07-04 05:25:44.010213: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2019-07-04 05:25:44.355160: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x3111a40 executing computations on platform CUDA. Devices:
+2019-07-04 05:25:44.355234: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): Tesla V100-PCIE-32GB, Compute Capability 7.0
+2019-07-04 05:25:44.377014: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2600000000 Hz
+2019-07-04 05:25:44.380583: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x3118570 executing computations on platform Host. Devices:
+2019-07-04 05:25:44.380635: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+2019-07-04 05:25:44.381720: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties: 
+name: Tesla V100-PCIE-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.38
+pciBusID: 0000:d8:00.0
+2019-07-04 05:25:44.381793: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0
+2019-07-04 05:25:44.381807: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcublas.so.10.0
+2019-07-04 05:25:44.381818: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcufft.so.10.0
+2019-07-04 05:25:44.381830: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcurand.so.10.0
+2019-07-04 05:25:44.381840: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusolver.so.10.0
+2019-07-04 05:25:44.381852: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusparse.so.10.0
+2019-07-04 05:25:44.381865: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudnn.so.7
+2019-07-04 05:25:44.383390: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1763] Adding visible gpu devices: 1
+2019-07-04 05:25:44.383433: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0
+2019-07-04 05:25:44.385320: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-07-04 05:25:44.385355: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1187]      1 
+2019-07-04 05:25:44.385362: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1200] 1:   N 
+2019-07-04 05:25:44.387495: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1326] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30066 MB memory) -> physical GPU (device: 1, name: Tesla V100-PCIE-32GB, pci bus id: 0000:d8:00.0, compute capability: 7.0)
+Saving vocab defined by training set...
+Loading development set...
+Loading mono set...
+Writing params file...
+Instantiating model...
+Ready for training.
+
+Training summery:
+
+=== Data ===
+
+Training set:
+Source language:
+  Num sentences: 50000 (781 batches)
+  Num words: 468799
+  Num UNKS: 0 (0.0 per sentence)
+  Vocab size: 1385 (original 1381)
+  Longest: 30
+  Reversed: False
+
+Target language:
+  Num sentences: 50000 (781 batches)
+  Num words: 468799
+  Num UNKS: 0 (0.0 per sentence)
+  Vocab size: 1385 (original 1381)
+  Longest: 30
+
+
+Development set:
+Source language:
+  Num sentences: 256 (4 batches)
+  Num words: 2438
+  Num UNKS: 0 (0.0 per sentence)
+  Vocab size: 1385 (original 1381)
+  Longest: 30
+  Reversed: False
+
+Target language:
+  Num sentences: 256 (4 batches)
+  Num words: 2438
+  Num UNKS: 0 (0.0 per sentence)
+  Vocab size: 1385 (original 1381)
+  Longest: 30
+
+
+=== Model ===
+Name: rnnpbnmt
+Num layers: 2
+Units per layer: 256
+Embedding size: 128
+Batch size: 64
+Learning rate: 0.001
+Max translation ratio: 1.5
+Gradient clip: 1.0
+Dropout: 0.4
+Num PBs: 1024
+Bind hard: True
+Binding strength: 1.0
+Autoencode: False
+PB learning rate: 0.01
+Sigma: 0
+p_reset: 0.1
+Max recog epochs: 100
+p_mono: 0.6
+
+
+=== Training ===
+Max epochs: 0
+Early stopping steps: 20
+Warm start: False
+
+
+==== Starting epoch 1 ====
+Initializing epoch state
+2019-07-04 05:25:53.368863: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudnn.so.7
+2019-07-04 05:25:55.072276: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcublas.so.10.0
+WARNING: Logging before flag parsing goes to stderr.
+W0704 05:25:55.486585 140492683269952 deprecation.py:323] From /lhome/daniesso/venv/lib/python3.6/site-packages/tensorflow/python/ops/clip_ops.py:286: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+  Batch 0 Loss 61.9076 Mono loss 63.0667
+  Batch 100 Loss 33.3824 Mono loss 41.7587
+  Batch 200 Loss 34.5794 Mono loss 34.8464
+  Batch 300 Loss 32.1894 Mono loss 29.1567
+  Batch 400 Loss 29.2333 Mono loss 30.3422
+  Batch 500 Loss 27.9979 Mono loss 34.2794
+  Batch 600 Loss 29.6564 Mono loss 30.0141
+  Batch 700 Loss 25.4211 Mono loss 29.2318
+Resetting 25403 PBs
+Finished epoch 1 in 203.0 seconds
+Perplexity training: 63.244
+Measuring development set...
+Recognition iteration 0 Loss 28.326
+Recognition finished, iteration 100 Loss 25.386
+Recognition iteration 0 Loss 26.554
+Recognition finished, iteration 100 Loss 23.992
+Recognition iteration 0 Loss 27.395
+Recognition finished, iteration 100 Loss 24.300
+Recognition iteration 0 Loss 29.644
+Recognition finished, iteration 100 Loss 26.756
+Perplexity dev: 33.815
+
+==== Starting epoch 2 ====
+  Batch 0 Loss 28.7618 Mono loss 29.7625
+  Batch 100 Loss 25.4362 Mono loss 30.4702
+  Batch 200 Loss 28.5167 Mono loss 25.9597
+  Batch 300 Loss 25.2568 Mono loss 27.6147
+  Batch 400 Loss 24.5698 Mono loss 29.0068
+  Batch 500 Loss 24.1041 Mono loss 30.1413
+  Batch 600 Loss 25.6829 Mono loss 28.5223
+  Batch 700 Loss 21.4758 Mono loss 25.8807
+Resetting 25417 PBs
+Finished epoch 2 in 203.0 seconds
+Perplexity training: 25.259
+
+==== Starting epoch 3 ====
+  Batch 0 Loss 26.7750 Mono loss -1.0000
+  Batch 100 Loss 22.3393 Mono loss 29.3346
+  Batch 200 Loss 24.9222 Mono loss 22.2392
+  Batch 300 Loss 21.8910 Mono loss 31.2268
+  Batch 400 Loss 21.0846 Mono loss 23.4073
+  Batch 500 Loss 20.7683 Mono loss 26.0396
+  Batch 600 Loss 22.2700 Mono loss 25.9898
+  Batch 700 Loss 18.9654 Mono loss 24.0265
+Resetting 25300 PBs
+Finished epoch 3 in 199.0 seconds
+Perplexity training: 17.305
+Measuring development set...
+Recognition iteration 0 Loss 26.431
+Recognition finished, iteration 100 Loss 13.117
+Recognition iteration 0 Loss 24.050
+Recognition finished, iteration 100 Loss 12.073
+Recognition iteration 0 Loss 25.600
+Recognition finished, iteration 100 Loss 12.590
+Recognition iteration 0 Loss 27.281
+Recognition finished, iteration 100 Loss 13.917
+Perplexity dev: 14.025
+
+==== Starting epoch 4 ====
+  Batch 0 Loss 22.8382 Mono loss 23.8274
+  Batch 100 Loss 19.7471 Mono loss 26.2616
+  Batch 200 Loss 22.5328 Mono loss 23.1495
+  Batch 300 Loss 19.3888 Mono loss 23.5728
+  Batch 400 Loss 18.8600 Mono loss 23.3906
+  Batch 500 Loss 17.8056 Mono loss 23.0882
+  Batch 600 Loss 19.8714 Mono loss 24.0934
+  Batch 700 Loss 16.4916 Mono loss 21.2512
+Resetting 25510 PBs
+Finished epoch 4 in 200.0 seconds
+Perplexity training: 13.024
+
+==== Starting epoch 5 ====
+  Batch 0 Loss 19.4520 Mono loss -1.0000
+  Batch 100 Loss 18.5959 Mono loss 25.1580
+  Batch 200 Loss 20.4288 Mono loss 22.9508
+  Batch 300 Loss 17.2290 Mono loss 23.0693
+  Batch 400 Loss 16.6698 Mono loss 23.3718
+  Batch 500 Loss 16.3319 Mono loss 25.9877
+  Batch 600 Loss 18.1842 Mono loss 18.3954
+  Batch 700 Loss 15.4265 Mono loss 21.7344
+Resetting 25393 PBs
+Finished epoch 5 in 204.0 seconds
+Perplexity training: 10.547
+Measuring development set...
+Recognition iteration 0 Loss 25.450
+Recognition finished, iteration 100 Loss 8.372
+Recognition iteration 0 Loss 23.588
+Recognition finished, iteration 100 Loss 7.389
+Recognition iteration 0 Loss 25.025
+Recognition finished, iteration 100 Loss 8.088
+Recognition iteration 0 Loss 26.617
+Recognition finished, iteration 100 Loss 9.013
+Perplexity dev: 8.863
+
+==== Starting epoch 6 ====
+  Batch 0 Loss 17.3664 Mono loss 23.4409
+  Batch 100 Loss 16.0261 Mono loss 20.3652
+  Batch 200 Loss 19.0432 Mono loss 22.1652
+  Batch 300 Loss 16.3925 Mono loss 23.0691
+  Batch 400 Loss 15.3566 Mono loss 20.9010
+  Batch 500 Loss 14.9983 Mono loss 18.8421
+  Batch 600 Loss 16.9481 Mono loss 21.9976
+  Batch 700 Loss 13.9373 Mono loss 20.1542
+Resetting 25738 PBs
+Finished epoch 6 in 208.0 seconds
+Perplexity training: 9.067
+
+==== Starting epoch 7 ====
+  Batch 0 Loss 16.0107 Mono loss -1.0000
+  Batch 100 Loss 14.2463 Mono loss 20.6117
+  Batch 200 Loss 17.5122 Mono loss 19.1133
+  Batch 300 Loss 15.3814 Mono loss 19.3464
+  Batch 400 Loss 14.2741 Mono loss 18.5372
+  Batch 500 Loss 13.4822 Mono loss 20.8875
+  Batch 600 Loss 16.3971 Mono loss 18.8950
+  Batch 700 Loss 13.3357 Mono loss 18.2323
+Resetting 25683 PBs
+Finished epoch 7 in 201.0 seconds
+Perplexity training: 8.106
+Measuring development set...
+Recognition iteration 0 Loss 25.362
+Recognition finished, iteration 100 Loss 5.957
+Recognition iteration 0 Loss 23.451
+Recognition finished, iteration 100 Loss 5.003
+Recognition iteration 0 Loss 24.579
+Recognition finished, iteration 100 Loss 5.695
+Recognition iteration 0 Loss 26.496
+Recognition finished, iteration 100 Loss 6.332
+Perplexity dev: 7.510
+
+==== Starting epoch 8 ====
+  Batch 0 Loss 16.1399 Mono loss 17.6647
+  Batch 100 Loss 13.8999 Mono loss 18.8735
+  Batch 200 Loss 16.8100 Mono loss 18.4193
+  Batch 300 Loss 14.2566 Mono loss 22.2588
+  Batch 400 Loss 13.5661 Mono loss 17.2866
+  Batch 500 Loss 13.3406 Mono loss 16.7944
+  Batch 600 Loss 15.3703 Mono loss 15.6209
+  Batch 700 Loss 12.1009 Mono loss 17.3954
+Resetting 25327 PBs
+Finished epoch 8 in 210.0 seconds
+Perplexity training: 7.456
+
+==== Starting epoch 9 ====
+  Batch 0 Loss 14.6731 Mono loss 17.1873
+  Batch 100 Loss 13.4657 Mono loss 19.3743
+  Batch 200 Loss 15.5482 Mono loss 19.4316
+  Batch 300 Loss 13.5642 Mono loss 19.0320
+  Batch 400 Loss 13.5321 Mono loss 16.5341
+  Batch 500 Loss 12.1083 Mono loss 18.7881
+  Batch 600 Loss 15.0999 Mono loss 14.7616
+  Batch 700 Loss 12.0945 Mono loss 16.0390
+Resetting 25503 PBs
+Finished epoch 9 in 210.0 seconds
+Perplexity training: 6.848
+Measuring development set...
+Recognition iteration 0 Loss 25.004
+Recognition finished, iteration 100 Loss 4.121
+Recognition iteration 0 Loss 23.160
+Recognition finished, iteration 100 Loss 3.342
+Recognition iteration 0 Loss 24.195
+Recognition finished, iteration 100 Loss 3.858
+Recognition iteration 0 Loss 26.123
+Recognition finished, iteration 100 Loss 4.472
+Perplexity dev: 6.866
+
+==== Starting epoch 10 ====
+  Batch 0 Loss 14.8024 Mono loss 16.3366
+  Batch 100 Loss 12.6911 Mono loss 18.9012
+  Batch 200 Loss 14.2533 Mono loss 17.9345
+  Batch 300 Loss 13.0290 Mono loss 19.0203
+  Batch 400 Loss 12.3588 Mono loss 16.3753
+  Batch 500 Loss 11.0342 Mono loss 17.8890
+  Batch 600 Loss 14.2911 Mono loss 17.6475
+  Batch 700 Loss 12.2596 Mono loss 18.0746
+Resetting 25536 PBs
+Finished epoch 10 in 209.0 seconds
+Perplexity training: 6.442
+
+==== Starting epoch 11 ====
+  Batch 0 Loss 13.3666 Mono loss -1.0000
+  Batch 100 Loss 11.3887 Mono loss 16.6127
+  Batch 200 Loss 13.7171 Mono loss 15.5959
+  Batch 300 Loss 12.2538 Mono loss 17.6674
+  Batch 400 Loss 12.1313 Mono loss 16.6505
+  Batch 500 Loss 12.0246 Mono loss 15.1167
+  Batch 600 Loss 13.4344 Mono loss 17.3628
+  Batch 700 Loss 11.2513 Mono loss 16.8467
+Resetting 25685 PBs
+Finished epoch 11 in 225.0 seconds
+Perplexity training: 6.251
+Measuring development set...
+Recognition iteration 0 Loss 25.332
+Recognition finished, iteration 100 Loss 3.287
+Recognition iteration 0 Loss 23.410
+Recognition finished, iteration 100 Loss 2.416
+Recognition iteration 0 Loss 24.389
+Recognition finished, iteration 100 Loss 2.824
+Recognition iteration 0 Loss 26.216
+Recognition finished, iteration 100 Loss 3.400
+Perplexity dev: 5.945
+
+==== Starting epoch 12 ====
+  Batch 0 Loss 12.5616 Mono loss 13.6248
+  Batch 100 Loss 11.5394 Mono loss 16.4937
+  Batch 200 Loss 13.1233 Mono loss 16.1986
+  Batch 300 Loss 11.8186 Mono loss 15.2766
+  Batch 400 Loss 10.9192 Mono loss 15.5728
+  Batch 500 Loss 10.4140 Mono loss 16.4712
+  Batch 600 Loss 12.7632 Mono loss 18.8005
+  Batch 700 Loss 11.5803 Mono loss 17.3516
+Resetting 25397 PBs
+Finished epoch 12 in 229.0 seconds
+Perplexity training: 6.013
+
+==== Starting epoch 13 ====
+  Batch 0 Loss 11.3743 Mono loss -1.0000
+  Batch 100 Loss 11.1553 Mono loss 13.9598
+  Batch 200 Loss 12.4527 Mono loss 13.4122
+  Batch 300 Loss 11.6892 Mono loss 18.0341
+  Batch 400 Loss 11.4346 Mono loss 19.9238
+  Batch 500 Loss 10.3035 Mono loss 12.8322
+  Batch 600 Loss 11.7741 Mono loss 15.5176
+  Batch 700 Loss 11.0536 Mono loss 14.3275
+Resetting 25372 PBs
+Finished epoch 13 in 225.0 seconds
+Perplexity training: 5.778
+Measuring development set...
+Recognition iteration 0 Loss 24.388
+Recognition finished, iteration 100 Loss 2.178
+Recognition iteration 0 Loss 22.823
+Recognition finished, iteration 100 Loss 1.555
+Recognition iteration 0 Loss 23.970
+Recognition finished, iteration 100 Loss 1.888
+Recognition iteration 0 Loss 25.748
+Recognition finished, iteration 100 Loss 2.368
+Perplexity dev: 5.456
+
+==== Starting epoch 14 ====
+  Batch 0 Loss 10.2793 Mono loss 13.9574
+  Batch 100 Loss 10.6058 Mono loss 13.6885
+  Batch 200 Loss 12.4979 Mono loss 11.9910
+  Batch 300 Loss 10.7740 Mono loss 13.4123
+  Batch 400 Loss 10.7147 Mono loss 16.5301
+  Batch 500 Loss 10.2306 Mono loss 13.9861
+  Batch 600 Loss 11.0725 Mono loss 16.7108
+  Batch 700 Loss 8.9981 Mono loss 20.8798
+Resetting 25217 PBs
+Finished epoch 14 in 251.0 seconds
+Perplexity training: 5.550
+
+==== Starting epoch 15 ====
+  Batch 0 Loss 11.6938 Mono loss -1.0000
+  Batch 100 Loss 9.8429 Mono loss 14.6266
+  Batch 200 Loss 12.7572 Mono loss 13.9582
+  Batch 300 Loss 11.4581 Mono loss 11.9112
+  Batch 400 Loss 10.2809 Mono loss 15.6513
+  Batch 500 Loss 10.2978 Mono loss 16.9090
+  Batch 600 Loss 11.1869 Mono loss 13.9200
+  Batch 700 Loss 9.3046 Mono loss 14.5198
+Resetting 25322 PBs
+Finished epoch 15 in 232.0 seconds
+Perplexity training: 5.383
+Measuring development set...
+Recognition iteration 0 Loss 24.484
+Recognition finished, iteration 100 Loss 1.650
+Recognition iteration 0 Loss 22.255
+Recognition finished, iteration 100 Loss 0.981
+Recognition iteration 0 Loss 23.629
+Recognition finished, iteration 100 Loss 1.310
+Recognition iteration 0 Loss 25.294
+Recognition finished, iteration 100 Loss 1.651
+Perplexity dev: 5.182
+
+==== Starting epoch 16 ====
+  Batch 0 Loss 11.6213 Mono loss 13.3844
+  Batch 100 Loss 9.6268 Mono loss 12.5506
+  Batch 200 Loss 12.3703 Mono loss 14.6097
+  Batch 300 Loss 9.8878 Mono loss 16.0452
+  Batch 400 Loss 8.9509 Mono loss 14.4253
+  Batch 500 Loss 9.7959 Mono loss 13.1123
+  Batch 600 Loss 9.9642 Mono loss 13.5363
+  Batch 700 Loss 8.5325 Mono loss 13.6349
+Resetting 25616 PBs
+Finished epoch 16 in 235.0 seconds
+Perplexity training: 5.284
+
+==== Starting epoch 17 ====
+  Batch 0 Loss 11.6387 Mono loss 13.6219
+  Batch 100 Loss 8.6136 Mono loss 15.6979
+  Batch 200 Loss 11.3428 Mono loss 12.7666
+  Batch 300 Loss 10.0235 Mono loss 11.7027
+  Batch 400 Loss 8.2712 Mono loss 14.9234
+  Batch 500 Loss 8.9290 Mono loss 13.0785
+  Batch 600 Loss 10.3373 Mono loss 13.5450
+  Batch 700 Loss 8.0819 Mono loss 12.7396
+Resetting 25472 PBs
+Finished epoch 17 in 234.0 seconds
+Perplexity training: 5.129
+Measuring development set...
+Recognition iteration 0 Loss 24.601
+Recognition finished, iteration 100 Loss 1.272
+Recognition iteration 0 Loss 22.637
+Recognition finished, iteration 100 Loss 0.683
+Recognition iteration 0 Loss 23.767
+Recognition finished, iteration 100 Loss 0.906
+Recognition iteration 0 Loss 25.617
+Recognition finished, iteration 100 Loss 1.242
+Perplexity dev: 4.719
+
+==== Starting epoch 18 ====
+  Batch 0 Loss 10.4629 Mono loss 12.6571
+  Batch 100 Loss 8.2479 Mono loss 13.1784
+  Batch 200 Loss 11.6538 Mono loss 12.7955
+  Batch 300 Loss 9.5953 Mono loss 16.3998
+  Batch 400 Loss 9.3980 Mono loss 13.4640
+  Batch 500 Loss 9.1021 Mono loss 14.2243
+  Batch 600 Loss 11.1777 Mono loss 13.0949
+  Batch 700 Loss 8.3537 Mono loss 14.2753
+Resetting 25576 PBs
+Finished epoch 18 in 252.0 seconds
+Perplexity training: 4.988
+
+==== Starting epoch 19 ====
+  Batch 0 Loss 10.7508 Mono loss 11.8767
+  Batch 100 Loss 8.5396 Mono loss 13.7518
+  Batch 200 Loss 12.9579 Mono loss 12.2384
+  Batch 300 Loss 11.0963 Mono loss 13.6961
+  Batch 400 Loss 8.4352 Mono loss 14.6146
+  Batch 500 Loss 8.1984 Mono loss 13.2692
+  Batch 600 Loss 9.3794 Mono loss 12.9469
+  Batch 700 Loss 7.0790 Mono loss 14.3244
+Resetting 25274 PBs
+Finished epoch 19 in 248.0 seconds
+Perplexity training: 4.912
+Measuring development set...
+Recognition iteration 0 Loss 24.741
+Recognition finished, iteration 100 Loss 0.990
+Recognition iteration 0 Loss 22.512
+Recognition finished, iteration 100 Loss 0.478
+Recognition iteration 0 Loss 23.890
+Recognition finished, iteration 100 Loss 0.669
+Recognition iteration 0 Loss 25.673
+Recognition finished, iteration 100 Loss 0.902
+Perplexity dev: 4.082
+
+==== Starting epoch 20 ====
+  Batch 0 Loss 9.8013 Mono loss 11.1603
+  Batch 100 Loss 8.6884 Mono loss 10.3214
+  Batch 200 Loss 11.6552 Mono loss 11.0130
+  Batch 300 Loss 9.0147 Mono loss 15.7974
+  Batch 400 Loss 8.5228 Mono loss 11.9047
+  Batch 500 Loss 7.8994 Mono loss 14.5641
+  Batch 600 Loss 9.7290 Mono loss 13.5045
+  Batch 700 Loss 8.0854 Mono loss 13.4921
+Resetting 25517 PBs
+Finished epoch 20 in 250.0 seconds
+Perplexity training: 4.784
+
+==== Starting epoch 21 ====
+  Batch 0 Loss 8.5083 Mono loss 12.7188
+  Batch 100 Loss 8.7838 Mono loss 14.0418
+  Batch 200 Loss 10.3763 Mono loss 14.2337
+  Batch 300 Loss 9.1251 Mono loss 13.2365
+  Batch 400 Loss 8.3237 Mono loss 13.4308
+  Batch 500 Loss 6.9711 Mono loss 13.4598
+  Batch 600 Loss 9.2690 Mono loss 10.1056
+  Batch 700 Loss 7.9873 Mono loss 10.5815
+Resetting 25200 PBs
+Finished epoch 21 in 241.0 seconds
+Perplexity training: 4.753
+Measuring development set...
+Recognition iteration 0 Loss 24.061
+Recognition finished, iteration 100 Loss 0.688
+Recognition iteration 0 Loss 22.200
+Recognition finished, iteration 100 Loss 0.321
+Recognition iteration 0 Loss 23.370
+Recognition finished, iteration 100 Loss 0.472
+Recognition iteration 0 Loss 25.300
+Recognition finished, iteration 100 Loss 0.704
+Perplexity dev: 4.187
+
+==== Starting epoch 22 ====
+  Batch 0 Loss 8.2366 Mono loss 12.1726
+  Batch 100 Loss 8.2789 Mono loss 11.0353
+  Batch 200 Loss 11.5937 Mono loss 12.1736
+  Batch 300 Loss 7.4701 Mono loss 14.9443
+  Batch 400 Loss 8.1670 Mono loss 9.6708
+  Batch 500 Loss 7.7850 Mono loss 12.3068
+  Batch 600 Loss 8.3875 Mono loss 11.7974
+  Batch 700 Loss 6.4314 Mono loss 13.1349
+Resetting 25463 PBs
+Finished epoch 22 in 263.0 seconds
+Perplexity training: 4.557
+
+==== Starting epoch 23 ====
+  Batch 0 Loss 8.6472 Mono loss 11.5986
+  Batch 100 Loss 7.5605 Mono loss 13.1828
+  Batch 200 Loss 11.0455 Mono loss 12.5635
+  Batch 300 Loss 8.0654 Mono loss 12.3461
+  Batch 400 Loss 8.4767 Mono loss 16.0089
+  Batch 500 Loss 6.6752 Mono loss 12.2900
+  Batch 600 Loss 8.4516 Mono loss 12.7584
+  Batch 700 Loss 6.1134 Mono loss 12.0046
+Resetting 25563 PBs
+Finished epoch 23 in 273.0 seconds
+Perplexity training: 4.557
+Measuring development set...
+Recognition iteration 0 Loss 24.748
+Recognition finished, iteration 100 Loss 0.559
+Recognition iteration 0 Loss 22.761
+Recognition finished, iteration 100 Loss 0.250
+Recognition iteration 0 Loss 23.698
+Recognition finished, iteration 100 Loss 0.338
+Recognition iteration 0 Loss 25.874
+Recognition finished, iteration 100 Loss 0.528
+Perplexity dev: 3.946
+
+==== Starting epoch 24 ====
+  Batch 0 Loss 8.3012 Mono loss 11.2735
+  Batch 100 Loss 7.0978 Mono loss 12.4773
+  Batch 200 Loss 9.8699 Mono loss 13.8766
+  Batch 300 Loss 7.0834 Mono loss 13.2320
+  Batch 400 Loss 7.0051 Mono loss 9.9390
+  Batch 500 Loss 6.3925 Mono loss 16.7640
+  Batch 600 Loss 8.3425 Mono loss 13.5893
+  Batch 700 Loss 6.6664 Mono loss 13.3490
+Resetting 25601 PBs
+Finished epoch 24 in 281.0 seconds
+Perplexity training: 4.463
+
+==== Starting epoch 25 ====
+  Batch 0 Loss 8.7213 Mono loss 11.0850
+  Batch 100 Loss 7.7144 Mono loss 13.3262
+  Batch 200 Loss 9.7847 Mono loss 13.6149
+  Batch 300 Loss 7.4134 Mono loss 10.2509
+  Batch 400 Loss 7.6377 Mono loss 13.2145
+  Batch 500 Loss 7.4334 Mono loss 12.5063
+  Batch 600 Loss 9.5220 Mono loss 11.1950
+  Batch 700 Loss 6.4427 Mono loss 10.6217
+Resetting 25689 PBs
+Finished epoch 25 in 282.0 seconds
+Perplexity training: 4.457
+Measuring development set...
+Recognition iteration 0 Loss 24.337
+Recognition finished, iteration 100 Loss 0.442
+Recognition iteration 0 Loss 22.525
+Recognition finished, iteration 100 Loss 0.181
+Recognition iteration 0 Loss 23.832
+Recognition finished, iteration 100 Loss 0.277
+Recognition iteration 0 Loss 25.472
+Recognition finished, iteration 100 Loss 0.428
+Perplexity dev: 3.421
+
+==== Starting epoch 26 ====
+  Batch 0 Loss 9.5701 Mono loss 11.2230
+  Batch 100 Loss 8.3306 Mono loss 10.1676
+  Batch 200 Loss 9.3552 Mono loss 9.3741
+  Batch 300 Loss 6.0644 Mono loss 10.8112
+  Batch 400 Loss 7.1124 Mono loss 10.8767
+  Batch 500 Loss 6.7260 Mono loss 13.1721
+  Batch 600 Loss 9.7951 Mono loss 11.1897
+  Batch 700 Loss 5.9010 Mono loss 14.1504
+Resetting 25385 PBs
+Finished epoch 26 in 277.0 seconds
+Perplexity training: 4.442
+
+==== Starting epoch 27 ====
+  Batch 0 Loss 8.1049 Mono loss -1.0000
+  Batch 100 Loss 6.7147 Mono loss 10.2521
+  Batch 200 Loss 8.4403 Mono loss 11.7934
+  Batch 300 Loss 7.6228 Mono loss 9.8694
+  Batch 400 Loss 6.9193 Mono loss 10.4403
+  Batch 500 Loss 6.8978 Mono loss 11.3749
+  Batch 600 Loss 9.4369 Mono loss 12.4944
+  Batch 700 Loss 7.0881 Mono loss 13.6480
+Resetting 25561 PBs
+Finished epoch 27 in 293.0 seconds
+Perplexity training: 4.283
+Measuring development set...
+Recognition iteration 0 Loss 24.206
+Recognition finished, iteration 100 Loss 0.326
+Recognition iteration 0 Loss 22.396
+Recognition finished, iteration 100 Loss 0.138
+Recognition iteration 0 Loss 23.695
+Recognition finished, iteration 100 Loss 0.193
+Recognition iteration 0 Loss 25.252
+Recognition finished, iteration 100 Loss 0.345
+Perplexity dev: 3.643
+
+==== Starting epoch 28 ====
+  Batch 0 Loss 7.0663 Mono loss 13.0395
+  Batch 100 Loss 7.6873 Mono loss 10.5978
+  Batch 200 Loss 8.3652 Mono loss 8.8663
+  Batch 300 Loss 7.4214 Mono loss 10.2119
+  Batch 400 Loss 6.9115 Mono loss 9.7236
+  Batch 500 Loss 7.4504 Mono loss 11.9057
+  Batch 600 Loss 9.9369 Mono loss 10.6175
+  Batch 700 Loss 6.3395 Mono loss 11.2715
+Resetting 25530 PBs
+Finished epoch 28 in 293.0 seconds
+Perplexity training: 4.232
+
+==== Starting epoch 29 ====
+  Batch 0 Loss 6.6366 Mono loss 9.6282
+  Batch 100 Loss 7.0597 Mono loss 9.6384
+  Batch 200 Loss 9.8245 Mono loss 10.0629
+  Batch 300 Loss 6.8735 Mono loss 10.0517
+  Batch 400 Loss 7.0028 Mono loss 9.2321
+  Batch 500 Loss 6.5369 Mono loss 12.6561
+  Batch 600 Loss 8.0816 Mono loss 9.9211
+  Batch 700 Loss 5.9028 Mono loss 10.1176
+Resetting 25630 PBs
+Finished epoch 29 in 289.0 seconds
+Perplexity training: 4.258
+Measuring development set...
+Recognition iteration 0 Loss 24.281
+Recognition finished, iteration 100 Loss 0.241
+Recognition iteration 0 Loss 22.584
+Recognition finished, iteration 100 Loss 0.101
+Recognition iteration 0 Loss 23.625
+Recognition finished, iteration 100 Loss 0.127
+Recognition iteration 0 Loss 25.480
+Recognition finished, iteration 100 Loss 0.246
+Perplexity dev: 3.619
+
+==== Starting epoch 30 ====
+  Batch 0 Loss 8.0838 Mono loss -1.0000
+  Batch 100 Loss 6.8287 Mono loss 11.6149
+  Batch 200 Loss 7.8008 Mono loss 10.4985
+  Batch 300 Loss 6.9766 Mono loss 10.4426
+  Batch 400 Loss 6.7332 Mono loss 12.5267
+  Batch 500 Loss 6.7786 Mono loss 9.8881
+  Batch 600 Loss 6.5481 Mono loss 10.6004
+  Batch 700 Loss 5.9832 Mono loss 10.2381
+Resetting 25296 PBs
+Finished epoch 30 in 291.0 seconds
+Perplexity training: 4.174
+
+==== Starting epoch 31 ====
+  Batch 0 Loss 6.6509 Mono loss -1.0000
+  Batch 100 Loss 5.9831 Mono loss 10.1176
+  Batch 200 Loss 8.0592 Mono loss 11.0961
+  Batch 300 Loss 6.7814 Mono loss 11.0802
+  Batch 400 Loss 6.9105 Mono loss 13.9807
+  Batch 500 Loss 6.9288 Mono loss 10.9896
+  Batch 600 Loss 8.0057 Mono loss 11.6213
+  Batch 700 Loss 5.5146 Mono loss 16.2835
+Resetting 25700 PBs
+Finished epoch 31 in 319.0 seconds
+Perplexity training: 4.100
+Measuring development set...
+Recognition iteration 0 Loss 24.342
+Recognition finished, iteration 100 Loss 0.237
+Recognition iteration 0 Loss 22.790
+Recognition finished, iteration 100 Loss 0.095
+Recognition iteration 0 Loss 24.062
+Recognition finished, iteration 100 Loss 0.136
+Recognition iteration 0 Loss 25.417
+Recognition finished, iteration 100 Loss 0.242
+Perplexity dev: 3.160
+
+==== Starting epoch 32 ====
+  Batch 0 Loss 9.2745 Mono loss -1.0000
+  Batch 100 Loss 6.8016 Mono loss 9.4897
+  Batch 200 Loss 9.8491 Mono loss 9.3836
+  Batch 300 Loss 5.2813 Mono loss 11.1942
+  Batch 400 Loss 6.5549 Mono loss 12.4785
+  Batch 500 Loss 5.8898 Mono loss 9.9430
+  Batch 600 Loss 6.7280 Mono loss 11.0527
+  Batch 700 Loss 4.4565 Mono loss 10.6502
+Resetting 25535 PBs
+Finished epoch 32 in 304.0 seconds
+Perplexity training: 4.096
+
+==== Starting epoch 33 ====
+  Batch 0 Loss 7.9986 Mono loss -1.0000
+  Batch 100 Loss 7.3231 Mono loss 9.7090
+  Batch 200 Loss 6.9927 Mono loss 9.5670
+  Batch 300 Loss 6.5191 Mono loss 8.9749
+  Batch 400 Loss 6.4101 Mono loss 9.9880
+  Batch 500 Loss 5.8373 Mono loss 10.3200
+  Batch 600 Loss 7.7135 Mono loss 9.0647
+  Batch 700 Loss 4.5361 Mono loss 11.1817
+Resetting 25258 PBs
+Finished epoch 33 in 317.0 seconds
+Perplexity training: 3.915
+Measuring development set...
+Recognition iteration 0 Loss 24.318
+Recognition finished, iteration 100 Loss 0.159
+Recognition iteration 0 Loss 22.474
+Recognition finished, iteration 100 Loss 0.066
+Recognition iteration 0 Loss 23.700
+Recognition finished, iteration 100 Loss 0.094
+Recognition iteration 0 Loss 25.227
+Recognition finished, iteration 100 Loss 0.170
+Perplexity dev: 3.003
+
+==== Starting epoch 34 ====
+  Batch 0 Loss 7.8194 Mono loss 9.1543
+  Batch 100 Loss 6.6469 Mono loss 12.3764
+  Batch 200 Loss 6.6839 Mono loss 10.3177
+  Batch 300 Loss 6.9991 Mono loss 9.3422
+  Batch 400 Loss 6.4617 Mono loss 8.0582
+  Batch 500 Loss 3.8207 Mono loss 10.9233
+  Batch 600 Loss 7.2328 Mono loss 10.3745
+  Batch 700 Loss 5.0644 Mono loss 9.8622
+Resetting 25317 PBs
+Finished epoch 34 in 302.0 seconds
+Perplexity training: 3.950
+
+==== Starting epoch 35 ====
+  Batch 0 Loss 6.6476 Mono loss 7.8301
+  Batch 100 Loss 5.5240 Mono loss 10.5855
+  Batch 200 Loss 7.3967 Mono loss 10.8554
+  Batch 300 Loss 6.9394 Mono loss 14.5967
+  Batch 400 Loss 6.9918 Mono loss 10.6390
+  Batch 500 Loss 5.3744 Mono loss 9.1484
+  Batch 600 Loss 7.4291 Mono loss 11.3757
+  Batch 700 Loss 4.9481 Mono loss 9.0903
+Resetting 25261 PBs
+Finished epoch 35 in 319.0 seconds
+Perplexity training: 4.002
+Measuring development set...
+Recognition iteration 0 Loss 24.485
+Recognition finished, iteration 100 Loss 0.133
+Recognition iteration 0 Loss 22.769
+Recognition finished, iteration 100 Loss 0.053
+Recognition iteration 0 Loss 24.086
+Recognition finished, iteration 100 Loss 0.076
+Recognition iteration 0 Loss 25.603
+Recognition finished, iteration 100 Loss 0.150
+Perplexity dev: 2.738
+
+==== Starting epoch 36 ====
+  Batch 0 Loss 8.0458 Mono loss -1.0000
+  Batch 100 Loss 6.7504 Mono loss 9.7114
+  Batch 200 Loss 7.0239 Mono loss 10.0535
+  Batch 300 Loss 6.1566 Mono loss 11.0700
+  Batch 400 Loss 5.9654 Mono loss 8.0575
+  Batch 500 Loss 5.3207 Mono loss 8.8885
+  Batch 600 Loss 6.5604 Mono loss 11.3708
+  Batch 700 Loss 5.6357 Mono loss 7.5461
+Resetting 25381 PBs
+Finished epoch 36 in 311.0 seconds
+Perplexity training: 3.889
+
+==== Starting epoch 37 ====
+  Batch 0 Loss 7.8161 Mono loss -1.0000
+  Batch 100 Loss 6.5703 Mono loss 9.5178
+  Batch 200 Loss 8.0692 Mono loss 8.7714
+  Batch 300 Loss 5.0013 Mono loss 11.5578
+  Batch 400 Loss 5.4637 Mono loss 7.9728
+  Batch 500 Loss 5.4487 Mono loss 8.9031
+  Batch 600 Loss 5.9908 Mono loss 10.5449
+  Batch 700 Loss 3.3837 Mono loss 10.5049
+Resetting 25241 PBs
+Finished epoch 37 in 303.0 seconds
+Perplexity training: 3.869
+Measuring development set...
+Recognition iteration 0 Loss 24.129
+Recognition finished, iteration 100 Loss 0.104
+Recognition iteration 0 Loss 22.281
+Recognition finished, iteration 100 Loss 0.039
+Recognition iteration 0 Loss 23.486
+Recognition finished, iteration 100 Loss 0.061
+Recognition iteration 0 Loss 25.185
+Recognition finished, iteration 100 Loss 0.110
+Perplexity dev: 3.043
+
+==== Starting epoch 38 ====
+  Batch 0 Loss 8.3776 Mono loss 7.6756
+  Batch 100 Loss 5.9201 Mono loss 11.4128
+  Batch 200 Loss 9.6513 Mono loss 9.0646
+  Batch 300 Loss 5.5469 Mono loss 9.7422
+  Batch 400 Loss 4.6820 Mono loss 10.2720
+  Batch 500 Loss 6.1694 Mono loss 9.0748
+  Batch 600 Loss 7.0018 Mono loss 9.2627
+  Batch 700 Loss 4.7867 Mono loss 8.2824
+Resetting 25373 PBs
+Finished epoch 38 in 312.0 seconds
+Perplexity training: 3.888
+
+==== Starting epoch 39 ====
+  Batch 0 Loss 6.5764 Mono loss 8.3647
+  Batch 100 Loss 6.0571 Mono loss 10.4508
+  Batch 200 Loss 7.7776 Mono loss 7.9144
+  Batch 300 Loss 6.2369 Mono loss 11.0847
+  Batch 400 Loss 6.0479 Mono loss 10.0580
+  Batch 500 Loss 7.5270 Mono loss 8.5762
+  Batch 600 Loss 6.3710 Mono loss 9.6532
+  Batch 700 Loss 5.5864 Mono loss 9.1290
+Resetting 25423 PBs
+Finished epoch 39 in 319.0 seconds
+Perplexity training: 3.779
+Measuring development set...
+Recognition iteration 0 Loss 23.830
+Recognition finished, iteration 100 Loss 0.099
+Recognition iteration 0 Loss 22.183
+Recognition finished, iteration 100 Loss 0.035
+Recognition iteration 0 Loss 23.382
+Recognition finished, iteration 100 Loss 0.048
+Recognition iteration 0 Loss 24.947
+Recognition finished, iteration 100 Loss 0.090
+Perplexity dev: 2.918
+
+==== Starting epoch 40 ====
+  Batch 0 Loss 7.4102 Mono loss 9.4740
+  Batch 100 Loss 5.6027 Mono loss 10.0354
+  Batch 200 Loss 7.4889 Mono loss 9.8141
+  Batch 300 Loss 5.5658 Mono loss 9.7264
+  Batch 400 Loss 5.1500 Mono loss 8.9806
+  Batch 500 Loss 5.7950 Mono loss 9.8039
+  Batch 600 Loss 6.8318 Mono loss 10.5308
+  Batch 700 Loss 5.1582 Mono loss 10.5218
+Resetting 25632 PBs
+Finished epoch 40 in 320.0 seconds
+Perplexity training: 3.775
+
+==== Starting epoch 41 ====
+  Batch 0 Loss 5.9365 Mono loss 8.5301
+  Batch 100 Loss 7.5409 Mono loss 10.3621
+  Batch 200 Loss 7.6624 Mono loss 8.2677
+  Batch 300 Loss 6.3473 Mono loss 7.8234
+  Batch 400 Loss 4.4798 Mono loss 8.7571
+  Batch 500 Loss 4.4183 Mono loss 10.8772
+  Batch 600 Loss 7.1782 Mono loss 8.3143
+  Batch 700 Loss 5.0230 Mono loss 9.2703
+Resetting 25502 PBs
+Finished epoch 41 in 334.0 seconds
+Perplexity training: 3.768
+Measuring development set...
+Recognition iteration 0 Loss 24.105
+Recognition finished, iteration 100 Loss 0.073
+Recognition iteration 0 Loss 22.409
+Recognition finished, iteration 100 Loss 0.031
+Recognition iteration 0 Loss 23.719
+Recognition finished, iteration 100 Loss 0.043
+Recognition iteration 0 Loss 25.114
+Recognition finished, iteration 100 Loss 0.075
+Perplexity dev: 2.519
+
+==== Starting epoch 42 ====
+  Batch 0 Loss 6.4547 Mono loss 6.7031
+  Batch 100 Loss 5.5882 Mono loss 9.6620
+  Batch 200 Loss 7.6815 Mono loss 8.3882
+  Batch 300 Loss 5.8386 Mono loss 8.8756
+  Batch 400 Loss 7.0161 Mono loss 10.1328
+  Batch 500 Loss 4.4413 Mono loss 7.8426
+  Batch 600 Loss 7.6416 Mono loss 7.9226
+  Batch 700 Loss 5.1261 Mono loss 21.5994
+Resetting 25287 PBs
+Finished epoch 42 in 362.0 seconds
+Perplexity training: 3.805
+
+==== Starting epoch 43 ====
+  Batch 0 Loss 6.9002 Mono loss -1.0000
+  Batch 100 Loss 5.4973 Mono loss 9.0038
+  Batch 200 Loss 5.9809 Mono loss 8.9875
+  Batch 300 Loss 5.2389 Mono loss 6.5414
+  Batch 400 Loss 6.9596 Mono loss 8.6424
+  Batch 500 Loss 4.2757 Mono loss 7.6979
+  Batch 600 Loss 6.0375 Mono loss 7.7567
+  Batch 700 Loss 4.1106 Mono loss 10.3009
+Resetting 25819 PBs
+Finished epoch 43 in 395.0 seconds
+Perplexity training: 3.721
+Measuring development set...
+Recognition iteration 0 Loss 23.779
+Recognition finished, iteration 100 Loss 0.066
+Recognition iteration 0 Loss 22.487
+Recognition finished, iteration 100 Loss 0.028
+Recognition iteration 0 Loss 23.311
+Recognition finished, iteration 100 Loss 0.037
+Recognition iteration 0 Loss 24.896
+Recognition finished, iteration 100 Loss 0.069
+Perplexity dev: 2.375
+
+==== Starting epoch 44 ====
+  Batch 0 Loss 6.1072 Mono loss 9.9166
+  Batch 100 Loss 4.6383 Mono loss 8.5098
+  Batch 200 Loss 8.3085 Mono loss 10.6991
+  Batch 300 Loss 6.4113 Mono loss 8.9945
+  Batch 400 Loss 6.3104 Mono loss 8.3911
+  Batch 500 Loss 5.1655 Mono loss 8.9446
+  Batch 600 Loss 4.9901 Mono loss 10.8103
+  Batch 700 Loss 4.0125 Mono loss 9.9151
+Resetting 25490 PBs
+Finished epoch 44 in 379.0 seconds
+Perplexity training: 3.743
+
+==== Starting epoch 45 ====
+  Batch 0 Loss 5.9741 Mono loss 7.2499
+  Batch 100 Loss 5.7393 Mono loss 9.7543
+  Batch 200 Loss 6.9762 Mono loss 7.3499
+  Batch 300 Loss 6.0133 Mono loss 8.6906
+  Batch 400 Loss 4.5502 Mono loss 4.7726
+  Batch 500 Loss 4.2032 Mono loss 8.6423
+  Batch 600 Loss 5.4830 Mono loss 7.6047
+  Batch 700 Loss 4.2976 Mono loss 7.6688
+Resetting 25564 PBs
+Finished epoch 45 in 378.0 seconds
+Perplexity training: 3.744
+Measuring development set...
+Recognition iteration 0 Loss 23.398
+Recognition finished, iteration 100 Loss 0.056
+Recognition iteration 0 Loss 21.861
+Recognition finished, iteration 100 Loss 0.022
+Recognition iteration 0 Loss 23.027
+Recognition finished, iteration 100 Loss 0.030
+Recognition iteration 0 Loss 24.646
+Recognition finished, iteration 100 Loss 0.050
+Perplexity dev: 2.519
+
+==== Starting epoch 46 ====
+  Batch 0 Loss 5.8934 Mono loss 9.3914
+  Batch 100 Loss 5.8214 Mono loss 9.9584
+  Batch 200 Loss 6.7584 Mono loss 11.1068
+  Batch 300 Loss 5.8951 Mono loss 8.8916
+  Batch 400 Loss 4.4637 Mono loss 11.0071
+  Batch 500 Loss 3.2436 Mono loss 9.1097
+  Batch 600 Loss 5.3845 Mono loss 9.5965
+  Batch 700 Loss 5.5605 Mono loss 8.6378
+Resetting 25644 PBs
+Finished epoch 46 in 377.0 seconds
+Perplexity training: 3.709
+
+==== Starting epoch 47 ====
+  Batch 0 Loss 6.1526 Mono loss 6.4305
+  Batch 100 Loss 4.5166 Mono loss 5.9973
+  Batch 200 Loss 5.4157 Mono loss 8.3896
+  Batch 300 Loss 5.7160 Mono loss 8.1102
+  Batch 400 Loss 5.2928 Mono loss 8.3344
+  Batch 500 Loss 4.6141 Mono loss 7.2119
+  Batch 600 Loss 6.4790 Mono loss 8.9569
+  Batch 700 Loss 4.5704 Mono loss 8.1040
+Resetting 25329 PBs
+Finished epoch 47 in 401.0 seconds
+Perplexity training: 3.715
+Measuring development set...
+Recognition iteration 0 Loss 23.680
+Recognition finished, iteration 100 Loss 0.067
+Recognition iteration 0 Loss 22.143
+Recognition finished, iteration 100 Loss 0.021
+Recognition iteration 0 Loss 23.461
+Recognition finished, iteration 100 Loss 0.033
+Recognition iteration 0 Loss 24.997
+Recognition finished, iteration 100 Loss 0.056
+Perplexity dev: 2.251
+
+==== Starting epoch 48 ====
+  Batch 0 Loss 5.3482 Mono loss -1.0000
+  Batch 100 Loss 4.5420 Mono loss 8.8074
+  Batch 200 Loss 6.4147 Mono loss 7.0765
+  Batch 300 Loss 5.4494 Mono loss 9.6580
+  Batch 400 Loss 5.5476 Mono loss 7.3649
+  Batch 500 Loss 4.1904 Mono loss 7.4657
+  Batch 600 Loss 5.1606 Mono loss 9.4489
+  Batch 700 Loss 5.1993 Mono loss 8.7466
+Resetting 25558 PBs
+Finished epoch 48 in 387.0 seconds
+Perplexity training: 3.687
+
+==== Starting epoch 49 ====
+  Batch 0 Loss 6.2282 Mono loss 7.3071
+  Batch 100 Loss 5.5537 Mono loss 8.0314
+  Batch 200 Loss 4.9857 Mono loss 10.0556
+  Batch 300 Loss 4.8769 Mono loss 9.2804
+  Batch 400 Loss 4.1381 Mono loss 8.4126
+  Batch 500 Loss 5.9745 Mono loss 8.5634
+  Batch 600 Loss 6.5705 Mono loss 9.0504
+  Batch 700 Loss 4.9885 Mono loss 7.9225
+Resetting 25430 PBs
+Finished epoch 49 in 393.0 seconds
+Perplexity training: 3.640
+Measuring development set...
+Recognition iteration 0 Loss 23.774
+Recognition finished, iteration 100 Loss 0.044
+Recognition iteration 0 Loss 22.451
+Recognition finished, iteration 100 Loss 0.017
+Recognition iteration 0 Loss 23.595
+Recognition finished, iteration 100 Loss 0.024
+Recognition iteration 0 Loss 25.350
+Recognition finished, iteration 100 Loss 0.044
+Perplexity dev: 2.239
+
+==== Starting epoch 50 ====
+  Batch 0 Loss 6.3317 Mono loss 6.1811
+  Batch 100 Loss 3.5415 Mono loss 10.4345
+  Batch 200 Loss 6.5584 Mono loss 8.6491
+  Batch 300 Loss 5.2832 Mono loss 7.5481
+  Batch 400 Loss 3.1242 Mono loss 6.4636
+  Batch 500 Loss 2.6730 Mono loss 8.0310
+  Batch 600 Loss 4.2315 Mono loss 9.9980
+  Batch 700 Loss 3.6885 Mono loss 11.1031
+Resetting 25644 PBs
+Finished epoch 50 in 394.0 seconds
+Perplexity training: 3.576
+
+==== Starting epoch 51 ====
+  Batch 0 Loss 5.2906 Mono loss 7.2188
+  Batch 100 Loss 4.6839 Mono loss 8.7021
+  Batch 200 Loss 6.0601 Mono loss 9.0331
+  Batch 300 Loss 4.0653 Mono loss 10.0044
+  Batch 400 Loss 5.5620 Mono loss 7.9393
+  Batch 500 Loss 2.5651 Mono loss 8.6119
+  Batch 600 Loss 6.4362 Mono loss 7.5813
+  Batch 700 Loss 4.6498 Mono loss 8.9530
+Resetting 25344 PBs
+Finished epoch 51 in 407.0 seconds
+Perplexity training: 3.624
+Measuring development set...
+Recognition iteration 0 Loss 23.493
+Recognition finished, iteration 100 Loss 0.041
+Recognition iteration 0 Loss 21.691
+Recognition finished, iteration 100 Loss 0.015
+Recognition iteration 0 Loss 23.067
+Recognition finished, iteration 100 Loss 0.020
+Recognition iteration 0 Loss 24.756
+Recognition finished, iteration 100 Loss 0.037
+Perplexity dev: 2.313
+
+==== Starting epoch 52 ====
+  Batch 0 Loss 6.0024 Mono loss -1.0000
+  Batch 100 Loss 5.6861 Mono loss 6.4676
+  Batch 200 Loss 5.2656 Mono loss 7.5743
+  Batch 300 Loss 5.5236 Mono loss 9.7016
+  Batch 400 Loss 5.8928 Mono loss 8.4714
+  Batch 500 Loss 4.1608 Mono loss 11.5018
+  Batch 600 Loss 3.8196 Mono loss 6.7560
+  Batch 700 Loss 3.2571 Mono loss 8.4524
+Resetting 25636 PBs
+Finished epoch 52 in 412.0 seconds
+Perplexity training: 3.617
+
+==== Starting epoch 53 ====
+  Batch 0 Loss 4.6703 Mono loss 7.4702
+  Batch 100 Loss 5.3228 Mono loss 9.6194
+  Batch 200 Loss 5.7720 Mono loss 6.9697
+  Batch 300 Loss 4.2568 Mono loss 6.4434
+  Batch 400 Loss 4.3607 Mono loss 8.8212
+  Batch 500 Loss 3.6535 Mono loss 8.8239
+  Batch 600 Loss 5.5706 Mono loss 7.0507
+  Batch 700 Loss 4.3815 Mono loss 9.1845
+Resetting 25373 PBs
+Finished epoch 53 in 424.0 seconds
+Perplexity training: 3.557
+Measuring development set...
+Recognition iteration 0 Loss 23.778
+Recognition finished, iteration 100 Loss 0.039
+Recognition iteration 0 Loss 22.090
+Recognition finished, iteration 100 Loss 0.014
+Recognition iteration 0 Loss 23.380
+Recognition finished, iteration 100 Loss 0.020
+Recognition iteration 0 Loss 25.000
+Recognition finished, iteration 100 Loss 0.039
+Perplexity dev: 2.107
+
+==== Starting epoch 54 ====
+  Batch 0 Loss 5.8826 Mono loss -1.0000
+  Batch 100 Loss 4.2413 Mono loss 9.1607
+  Batch 200 Loss 6.5305 Mono loss 9.7028
+  Batch 300 Loss 5.0245 Mono loss 6.0155
+  Batch 400 Loss 6.5296 Mono loss 6.6460
+  Batch 500 Loss 3.6528 Mono loss 7.7432
+  Batch 600 Loss 5.1846 Mono loss 8.2114
+  Batch 700 Loss 3.4454 Mono loss 8.1452
+Resetting 25544 PBs
+Finished epoch 54 in 436.0 seconds
+Perplexity training: 3.647
+
+==== Starting epoch 55 ====
+  Batch 0 Loss 5.5052 Mono loss 7.1862
+  Batch 100 Loss 5.2696 Mono loss 9.5547
+  Batch 200 Loss 7.8587 Mono loss 8.0428
+  Batch 300 Loss 3.9727 Mono loss 6.7240
+  Batch 400 Loss 5.8683 Mono loss 12.6984
+  Batch 500 Loss 4.0220 Mono loss 10.3242
+  Batch 600 Loss 5.0839 Mono loss 7.6039
+  Batch 700 Loss 4.0311 Mono loss 6.8056
+Resetting 25578 PBs
+Finished epoch 55 in 408.0 seconds
+Perplexity training: 3.541
+Measuring development set...
+Recognition iteration 0 Loss 23.390
+Recognition finished, iteration 100 Loss 0.030
+Recognition iteration 0 Loss 21.553
+Recognition finished, iteration 100 Loss 0.011
+Recognition iteration 0 Loss 23.036
+Recognition finished, iteration 100 Loss 0.017
+Recognition iteration 0 Loss 24.591
+Recognition finished, iteration 100 Loss 0.030
+Perplexity dev: 2.372
+
+==== Starting epoch 56 ====
+  Batch 0 Loss 5.5790 Mono loss 7.4979
+  Batch 100 Loss 5.5543 Mono loss 8.4093
+  Batch 200 Loss 5.6007 Mono loss 9.4335
+  Batch 300 Loss 4.0514 Mono loss 7.3648
+  Batch 400 Loss 4.0707 Mono loss 8.7718
+  Batch 500 Loss 4.4453 Mono loss 8.6738
+  Batch 600 Loss 4.1689 Mono loss 9.7770
+  Batch 700 Loss 3.2856 Mono loss 11.1897
+Resetting 25460 PBs
+Finished epoch 56 in 446.0 seconds
+Perplexity training: 3.578
+
+==== Starting epoch 57 ====
+  Batch 0 Loss 4.5366 Mono loss -1.0000
+  Batch 100 Loss 3.9485 Mono loss 8.4143
+  Batch 200 Loss 4.5783 Mono loss 7.5920
+  Batch 300 Loss 4.9978 Mono loss 7.4215
+  Batch 400 Loss 5.2875 Mono loss 8.0292
+  Batch 500 Loss 2.2530 Mono loss 8.2622
+  Batch 600 Loss 6.0046 Mono loss 7.7441
+  Batch 700 Loss 3.6901 Mono loss 7.6853
+Resetting 25495 PBs
+Finished epoch 57 in 443.0 seconds
+Perplexity training: 3.548
+Measuring development set...
+Recognition iteration 0 Loss 23.534
+Recognition finished, iteration 100 Loss 0.030
+Recognition iteration 0 Loss 21.710
+Recognition finished, iteration 100 Loss 0.010
+Recognition iteration 0 Loss 23.281
+Recognition finished, iteration 100 Loss 0.015
+Recognition iteration 0 Loss 24.732
+Recognition finished, iteration 100 Loss 0.028
+Perplexity dev: 2.048
+
+==== Starting epoch 58 ====
+  Batch 0 Loss 3.7454 Mono loss 9.6274
+  Batch 100 Loss 4.6446 Mono loss 7.4936
+  Batch 200 Loss 5.5645 Mono loss 7.2814
+  Batch 300 Loss 5.8429 Mono loss 8.9309
+  Batch 400 Loss 4.1594 Mono loss 7.8388
+  Batch 500 Loss 2.2152 Mono loss 7.4420
+  Batch 600 Loss 4.7084 Mono loss 8.3036
+  Batch 700 Loss 4.7427 Mono loss 7.4102
+Resetting 25490 PBs
+Finished epoch 58 in 437.0 seconds
+Perplexity training: 3.542
+
+==== Starting epoch 59 ====
+  Batch 0 Loss 4.1974 Mono loss 6.6106
+  Batch 100 Loss 6.6898 Mono loss 8.4634
+  Batch 200 Loss 5.6522 Mono loss 8.7728
+  Batch 300 Loss 5.1224 Mono loss 7.0939
+  Batch 400 Loss 2.9561 Mono loss 8.6170
+  Batch 500 Loss 4.0377 Mono loss 7.5729
+  Batch 600 Loss 4.8650 Mono loss 7.2010
+  Batch 700 Loss 3.3309 Mono loss 9.0479
+Resetting 25460 PBs
+Finished epoch 59 in 412.0 seconds
+Perplexity training: 3.495
+Measuring development set...
+Recognition iteration 0 Loss 23.604
+Recognition finished, iteration 100 Loss 0.024
+Recognition iteration 0 Loss 21.713
+Recognition finished, iteration 100 Loss 0.009
+Recognition iteration 0 Loss 23.329
+Recognition finished, iteration 100 Loss 0.012
+Recognition iteration 0 Loss 24.760
+Recognition finished, iteration 100 Loss 0.027
+Perplexity dev: 2.062
+
+==== Starting epoch 60 ====
+  Batch 0 Loss 5.1258 Mono loss 8.7528
+  Batch 100 Loss 5.3811 Mono loss 8.4279
+  Batch 200 Loss 4.9377 Mono loss 5.4788
+  Batch 300 Loss 4.1929 Mono loss 7.1843
+  Batch 400 Loss 4.2798 Mono loss 7.6484
+  Batch 500 Loss 4.5127 Mono loss 10.1106
+  Batch 600 Loss 5.6651 Mono loss 7.3170
+  Batch 700 Loss 4.1371 Mono loss 8.9681
+Resetting 25629 PBs
+Finished epoch 60 in 448.0 seconds
+Perplexity training: 3.516
+
+==== Starting epoch 61 ====
+  Batch 0 Loss 4.1601 Mono loss 6.7291
+  Batch 100 Loss 5.2455 Mono loss 7.2078
+  Batch 200 Loss 4.9509 Mono loss 7.8951
+  Batch 300 Loss 4.9623 Mono loss 7.7384
+  Batch 400 Loss 5.2844 Mono loss 6.7392
+  Batch 500 Loss 3.9461 Mono loss 7.8127
+  Batch 600 Loss 4.4721 Mono loss 6.1316
+  Batch 700 Loss 3.8968 Mono loss 7.3386
+Resetting 25363 PBs
+Finished epoch 61 in 410.0 seconds
+Perplexity training: 3.473
+Measuring development set...
+Recognition iteration 0 Loss 23.663
+Recognition finished, iteration 100 Loss 0.021
+Recognition iteration 0 Loss 22.137
+Recognition finished, iteration 100 Loss 0.009
+Recognition iteration 0 Loss 23.297
+Recognition finished, iteration 100 Loss 0.011
+Recognition iteration 0 Loss 25.065
+Recognition finished, iteration 100 Loss 0.025
+Perplexity dev: 2.192
+
+==== Starting epoch 62 ====
+  Batch 0 Loss 3.6387 Mono loss 6.3667
+  Batch 100 Loss 4.9385 Mono loss 6.5624
+  Batch 200 Loss 5.3504 Mono loss 7.7181
+  Batch 300 Loss 4.5469 Mono loss 8.4409
+  Batch 400 Loss 4.6902 Mono loss 7.4662
+  Batch 500 Loss 2.9495 Mono loss 7.4100
+  Batch 600 Loss 4.6539 Mono loss 7.0277
+  Batch 700 Loss 3.9392 Mono loss 8.7797
+Resetting 25514 PBs
+Finished epoch 62 in 437.0 seconds
+Perplexity training: 3.427
+
+==== Starting epoch 63 ====
+  Batch 0 Loss 5.7102 Mono loss -1.0000
+  Batch 100 Loss 4.4799 Mono loss 8.3480
+  Batch 200 Loss 7.3024 Mono loss 7.1472
+  Batch 300 Loss 4.6381 Mono loss 8.0628
+  Batch 400 Loss 4.2135 Mono loss 7.0877
+  Batch 500 Loss 2.8832 Mono loss 6.9886
+  Batch 600 Loss 5.6117 Mono loss 6.6061
+  Batch 700 Loss 3.2315 Mono loss 7.7581
+Resetting 25463 PBs
+Finished epoch 63 in 425.0 seconds
+Perplexity training: 3.422
+Measuring development set...
+Recognition iteration 0 Loss 23.471
+Recognition finished, iteration 100 Loss 0.022
+Recognition iteration 0 Loss 22.048
+Recognition finished, iteration 100 Loss 0.008
+Recognition iteration 0 Loss 23.460
+Recognition finished, iteration 100 Loss 0.011
+Recognition iteration 0 Loss 25.092
+Recognition finished, iteration 100 Loss 0.024
+Perplexity dev: 2.100
+
+==== Starting epoch 64 ====
+  Batch 0 Loss 6.7971 Mono loss 7.3858
+  Batch 100 Loss 3.5508 Mono loss 8.1443
+  Batch 200 Loss 6.3726 Mono loss 11.0713
+  Batch 300 Loss 4.2156 Mono loss 6.9275
+  Batch 400 Loss 5.3897 Mono loss 6.6808
+  Batch 500 Loss 3.1369 Mono loss 6.6624
+  Batch 600 Loss 4.3041 Mono loss 7.1820
+  Batch 700 Loss 2.8594 Mono loss 5.5849
+Resetting 25409 PBs
+Finished epoch 64 in 439.0 seconds
+Perplexity training: 3.425
+
+==== Starting epoch 65 ====
+  Batch 0 Loss 6.1337 Mono loss 7.0893
+  Batch 100 Loss 4.1690 Mono loss 7.6917
+  Batch 200 Loss 6.7896 Mono loss 6.2244
+  Batch 300 Loss 5.1692 Mono loss 7.3857
+  Batch 400 Loss 5.7206 Mono loss 6.1157
+  Batch 500 Loss 2.7789 Mono loss 6.8413
+  Batch 600 Loss 4.4360 Mono loss 6.7118
+  Batch 700 Loss 2.2295 Mono loss 10.7405
+Resetting 25516 PBs
+Finished epoch 65 in 452.0 seconds
+Perplexity training: 3.434
+Measuring development set...
+Recognition iteration 0 Loss 23.678
+Recognition finished, iteration 100 Loss 0.021
+Recognition iteration 0 Loss 22.403
+Recognition finished, iteration 100 Loss 0.008
+Recognition iteration 0 Loss 23.602
+Recognition finished, iteration 100 Loss 0.011
+Recognition iteration 0 Loss 25.225
+Recognition finished, iteration 100 Loss 0.021
+Perplexity dev: 2.109
+
+==== Starting epoch 66 ====
+  Batch 0 Loss 5.0636 Mono loss -1.0000
+  Batch 100 Loss 4.3160 Mono loss 6.4691
+  Batch 200 Loss 5.5109 Mono loss 8.1026
+  Batch 300 Loss 3.9534 Mono loss 7.0764
+  Batch 400 Loss 4.9346 Mono loss 5.7464
+  Batch 500 Loss 3.7671 Mono loss 7.4885
+  Batch 600 Loss 5.0829 Mono loss 7.3721
+  Batch 700 Loss 4.3156 Mono loss 8.7749
+Resetting 25459 PBs
+Finished epoch 66 in 476.0 seconds
+Perplexity training: 3.454
+
+==== Starting epoch 67 ====
+  Batch 0 Loss 6.1448 Mono loss 7.8155
+  Batch 100 Loss 4.2818 Mono loss 7.4475
+  Batch 200 Loss 5.4561 Mono loss 5.9516
+  Batch 300 Loss 2.9787 Mono loss 6.9600
+  Batch 400 Loss 4.5355 Mono loss 5.6223
+  Batch 500 Loss 3.9473 Mono loss 6.6160
+  Batch 600 Loss 3.8831 Mono loss 6.0996
+  Batch 700 Loss 2.9531 Mono loss 7.9684
+Resetting 25610 PBs
+Finished epoch 67 in 488.0 seconds
+Perplexity training: 3.349
+Measuring development set...
+Recognition iteration 0 Loss 23.410
+Recognition finished, iteration 100 Loss 0.018
+Recognition iteration 0 Loss 22.041
+Recognition finished, iteration 100 Loss 0.007
+Recognition iteration 0 Loss 23.270
+Recognition finished, iteration 100 Loss 0.009
+Recognition iteration 0 Loss 25.048
+Recognition finished, iteration 100 Loss 0.020
+Perplexity dev: 2.069
+
+==== Starting epoch 68 ====
+  Batch 0 Loss 5.1062 Mono loss 6.8843
+  Batch 100 Loss 4.1897 Mono loss 6.8084
+  Batch 200 Loss 5.1677 Mono loss 8.5497
+  Batch 300 Loss 3.7001 Mono loss 8.2308
+  Batch 400 Loss 4.4104 Mono loss 8.9270
+  Batch 500 Loss 4.6443 Mono loss 7.5336
+  Batch 600 Loss 4.4411 Mono loss 6.8803
+  Batch 700 Loss 2.9990 Mono loss 7.4461
+Resetting 25506 PBs
+Finished epoch 68 in 464.0 seconds
+Perplexity training: 3.420
+
+==== Starting epoch 69 ====
+  Batch 0 Loss 4.6770 Mono loss 5.4692
+  Batch 100 Loss 4.3481 Mono loss 6.0441
+  Batch 200 Loss 5.1565 Mono loss 7.8282
+  Batch 300 Loss 4.1734 Mono loss 7.0254
+  Batch 400 Loss 2.9579 Mono loss 8.4263
+  Batch 500 Loss 3.1586 Mono loss 8.1035
+  Batch 600 Loss 4.8141 Mono loss 7.4619
+  Batch 700 Loss 3.8108 Mono loss 7.3607
+Resetting 25340 PBs
+Finished epoch 69 in 470.0 seconds
+Perplexity training: 3.390
+Measuring development set...
+Recognition iteration 0 Loss 23.094
+Recognition finished, iteration 100 Loss 0.015
+Recognition iteration 0 Loss 21.629
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 23.038
+Recognition finished, iteration 100 Loss 0.009
+Recognition iteration 0 Loss 24.281
+Recognition finished, iteration 100 Loss 0.017
+Perplexity dev: 2.067
+
+==== Starting epoch 70 ====
+  Batch 0 Loss 3.8800 Mono loss -1.0000
+  Batch 100 Loss 5.2182 Mono loss 7.6035
+  Batch 200 Loss 4.8861 Mono loss 6.2594
+  Batch 300 Loss 5.0556 Mono loss 6.1751
+  Batch 400 Loss 3.5425 Mono loss 7.3837
+  Batch 500 Loss 5.6587 Mono loss 7.8063
+  Batch 600 Loss 4.9109 Mono loss 7.1763
+  Batch 700 Loss 3.7824 Mono loss 9.7044
+Resetting 25426 PBs
+Finished epoch 70 in 460.0 seconds
+Perplexity training: 3.416
+
+==== Starting epoch 71 ====
+  Batch 0 Loss 5.0311 Mono loss 6.3719
+  Batch 100 Loss 6.4076 Mono loss 7.6833
+  Batch 200 Loss 3.9501 Mono loss 7.8292
+  Batch 300 Loss 5.8956 Mono loss 6.1746
+  Batch 400 Loss 3.0487 Mono loss 7.2527
+  Batch 500 Loss 5.2377 Mono loss 7.2953
+  Batch 600 Loss 5.8438 Mono loss 6.9989
+  Batch 700 Loss 4.1826 Mono loss 7.1784
+Resetting 25268 PBs
+Finished epoch 71 in 463.0 seconds
+Perplexity training: 3.290
+Measuring development set...
+Recognition iteration 0 Loss 23.491
+Recognition finished, iteration 100 Loss 0.015
+Recognition iteration 0 Loss 22.209
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 23.202
+Recognition finished, iteration 100 Loss 0.008
+Recognition iteration 0 Loss 25.159
+Recognition finished, iteration 100 Loss 0.015
+Perplexity dev: 1.958
+
+==== Starting epoch 72 ====
+  Batch 0 Loss 4.8374 Mono loss 7.0931
+  Batch 100 Loss 4.3876 Mono loss 8.2443
+  Batch 200 Loss 4.9329 Mono loss 4.4155
+  Batch 300 Loss 3.9472 Mono loss 9.3678
+  Batch 400 Loss 4.7798 Mono loss 9.5880
+  Batch 500 Loss 4.2214 Mono loss 7.8655
+  Batch 600 Loss 4.5218 Mono loss 7.4735
+  Batch 700 Loss 5.4666 Mono loss 8.6949
+Resetting 25452 PBs
+Finished epoch 72 in 439.0 seconds
+Perplexity training: 3.378
+
+==== Starting epoch 73 ====
+  Batch 0 Loss 4.4106 Mono loss 5.7877
+  Batch 100 Loss 5.2077 Mono loss 7.6709
+  Batch 200 Loss 4.9983 Mono loss 6.4484
+  Batch 300 Loss 5.0238 Mono loss 9.5305
+  Batch 400 Loss 3.1923 Mono loss 8.6705
+  Batch 500 Loss 4.3829 Mono loss 6.9939
+  Batch 600 Loss 3.2062 Mono loss 7.4644
+  Batch 700 Loss 4.3612 Mono loss 9.5257
+Resetting 25720 PBs
+Finished epoch 73 in 438.0 seconds
+Perplexity training: 3.372
+Measuring development set...
+Recognition iteration 0 Loss 23.950
+Recognition finished, iteration 100 Loss 0.015
+Recognition iteration 0 Loss 22.584
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 23.675
+Recognition finished, iteration 100 Loss 0.007
+Recognition iteration 0 Loss 25.487
+Recognition finished, iteration 100 Loss 0.014
+Perplexity dev: 1.926
+
+==== Starting epoch 74 ====
+  Batch 0 Loss 6.1611 Mono loss 6.4188
+  Batch 100 Loss 5.7157 Mono loss 7.7334
+  Batch 200 Loss 4.7669 Mono loss 7.8578
+  Batch 300 Loss 3.9810 Mono loss 8.7034
+  Batch 400 Loss 3.1462 Mono loss 8.0778
+  Batch 500 Loss 5.8213 Mono loss 7.4941
+  Batch 600 Loss 3.8333 Mono loss 6.1789
+  Batch 700 Loss 3.1220 Mono loss 6.7375
+Resetting 25332 PBs
+Finished epoch 74 in 452.0 seconds
+Perplexity training: 3.394
+
+==== Starting epoch 75 ====
+  Batch 0 Loss 4.3495 Mono loss 6.0630
+  Batch 100 Loss 4.0129 Mono loss 7.9118
+  Batch 200 Loss 3.4107 Mono loss 4.6936
+  Batch 300 Loss 4.6095 Mono loss 7.3566
+  Batch 400 Loss 3.1275 Mono loss 7.4658
+  Batch 500 Loss 4.1400 Mono loss 8.3107
+  Batch 600 Loss 3.6069 Mono loss 7.0622
+  Batch 700 Loss 3.8533 Mono loss 6.5263
+Resetting 25439 PBs
+Finished epoch 75 in 474.0 seconds
+Perplexity training: 3.384
+Measuring development set...
+Recognition iteration 0 Loss 23.281
+Recognition finished, iteration 100 Loss 0.014
+Recognition iteration 0 Loss 22.061
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 23.168
+Recognition finished, iteration 100 Loss 0.007
+Recognition iteration 0 Loss 24.908
+Recognition finished, iteration 100 Loss 0.014
+Perplexity dev: 1.890
+
+==== Starting epoch 76 ====
+  Batch 0 Loss 3.5780 Mono loss -1.0000
+  Batch 100 Loss 3.7674 Mono loss 6.4919
+  Batch 200 Loss 5.1827 Mono loss 7.0894
+  Batch 300 Loss 4.0468 Mono loss 5.9947
+  Batch 400 Loss 2.5388 Mono loss 8.5209
+  Batch 500 Loss 5.3639 Mono loss 6.2659
+  Batch 600 Loss 4.5957 Mono loss 5.5029
+  Batch 700 Loss 3.7993 Mono loss 8.6212
+Resetting 25431 PBs
+Finished epoch 76 in 456.0 seconds
+Perplexity training: 3.313
+
+==== Starting epoch 77 ====
+  Batch 0 Loss 3.3759 Mono loss 6.7356
+  Batch 100 Loss 4.6463 Mono loss 6.0467
+  Batch 200 Loss 4.5802 Mono loss 4.8312
+  Batch 300 Loss 2.3290 Mono loss 6.3881
+  Batch 400 Loss 3.9591 Mono loss 6.4087
+  Batch 500 Loss 3.1428 Mono loss 9.7732
+  Batch 600 Loss 6.2030 Mono loss 6.7381
+  Batch 700 Loss 3.8175 Mono loss 8.7800
+Resetting 25384 PBs
+Finished epoch 77 in 495.0 seconds
+Perplexity training: 3.378
+Measuring development set...
+Recognition iteration 0 Loss 24.715
+Recognition finished, iteration 100 Loss 0.013
+Recognition iteration 0 Loss 23.382
+Recognition finished, iteration 99 Loss 0.004
+Recognition iteration 0 Loss 24.390
+Recognition finished, iteration 100 Loss 0.007
+Recognition iteration 0 Loss 26.117
+Recognition finished, iteration 100 Loss 0.014
+Perplexity dev: 1.866
+
+==== Starting epoch 78 ====
+  Batch 0 Loss 4.2341 Mono loss 9.3515
+  Batch 100 Loss 2.9868 Mono loss 5.8575
+  Batch 200 Loss 4.2655 Mono loss 7.6054
+  Batch 300 Loss 3.0057 Mono loss 8.6109
+  Batch 400 Loss 4.4594 Mono loss 7.3766
+  Batch 500 Loss 3.8243 Mono loss 8.1512
+  Batch 600 Loss 4.3236 Mono loss 5.4483
+  Batch 700 Loss 4.2580 Mono loss 4.9086
+Resetting 25445 PBs
+Finished epoch 78 in 471.0 seconds
+Perplexity training: 3.361
+
+==== Starting epoch 79 ====
+  Batch 0 Loss 5.9526 Mono loss 6.4322
+  Batch 100 Loss 3.2168 Mono loss 9.1853
+  Batch 200 Loss 4.6712 Mono loss 5.1655
+  Batch 300 Loss 3.3594 Mono loss 7.2466
+  Batch 400 Loss 3.4820 Mono loss 6.5807
+  Batch 500 Loss 4.0201 Mono loss 6.5333
+  Batch 600 Loss 6.7735 Mono loss 5.5403
+  Batch 700 Loss 2.6350 Mono loss 6.8277
+Resetting 25230 PBs
+Finished epoch 79 in 495.0 seconds
+Perplexity training: 3.352
+Measuring development set...
+Recognition iteration 0 Loss 23.567
+Recognition finished, iteration 100 Loss 0.013
+Recognition iteration 0 Loss 22.476
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 23.503
+Recognition finished, iteration 100 Loss 0.007
+Recognition iteration 0 Loss 25.365
+Recognition finished, iteration 100 Loss 0.014
+Perplexity dev: 1.853
+
+==== Starting epoch 80 ====
+  Batch 0 Loss 6.0639 Mono loss 6.2029
+  Batch 100 Loss 2.8820 Mono loss 6.3327
+  Batch 200 Loss 4.2771 Mono loss 6.1919
+  Batch 300 Loss 2.7900 Mono loss 6.4893
+  Batch 400 Loss 4.2357 Mono loss 6.0198
+  Batch 500 Loss 3.2559 Mono loss 8.0135
+  Batch 600 Loss 6.2537 Mono loss 6.7186
+  Batch 700 Loss 5.1122 Mono loss 7.0095
+Resetting 25284 PBs
+Finished epoch 80 in 463.0 seconds
+Perplexity training: 3.216
+
+==== Starting epoch 81 ====
+  Batch 0 Loss 5.7325 Mono loss 6.9850
+  Batch 100 Loss 5.1876 Mono loss 8.9180
+  Batch 200 Loss 5.7919 Mono loss 5.9610
+  Batch 300 Loss 2.7733 Mono loss 7.3848
+  Batch 400 Loss 4.7949 Mono loss 6.1753
+  Batch 500 Loss 2.2595 Mono loss 7.3848
+  Batch 600 Loss 4.6959 Mono loss 5.8846
+  Batch 700 Loss 4.4789 Mono loss 6.1856
+Resetting 25265 PBs
+Finished epoch 81 in 479.0 seconds
+Perplexity training: 3.289
+Measuring development set...
+Recognition iteration 0 Loss 23.231
+Recognition finished, iteration 100 Loss 0.011
+Recognition iteration 0 Loss 22.172
+Recognition finished, iteration 94 Loss 0.004
+Recognition iteration 0 Loss 23.031
+Recognition finished, iteration 100 Loss 0.006
+Recognition iteration 0 Loss 25.104
+Recognition finished, iteration 100 Loss 0.011
+Perplexity dev: 1.722
+
+==== Starting epoch 82 ====
+  Batch 0 Loss 5.4634 Mono loss -1.0000
+  Batch 100 Loss 3.3465 Mono loss 9.0440
+  Batch 200 Loss 4.6958 Mono loss 7.3204
+  Batch 300 Loss 5.7424 Mono loss 6.9323
+  Batch 400 Loss 4.3361 Mono loss 7.5811
+  Batch 500 Loss 3.9946 Mono loss 5.4905
+  Batch 600 Loss 5.3015 Mono loss 5.4714
+  Batch 700 Loss 4.1305 Mono loss 6.2375
+Resetting 25367 PBs
+Finished epoch 82 in 489.0 seconds
+Perplexity training: 3.304
+
+==== Starting epoch 83 ====
+  Batch 0 Loss 4.1840 Mono loss -1.0000
+  Batch 100 Loss 3.7520 Mono loss 6.7138
+  Batch 200 Loss 4.2665 Mono loss 6.9015
+  Batch 300 Loss 4.1913 Mono loss 5.8393
+  Batch 400 Loss 3.4429 Mono loss 5.9058
+  Batch 500 Loss 3.2499 Mono loss 7.1419
+  Batch 600 Loss 5.1338 Mono loss 8.0498
+  Batch 700 Loss 4.4292 Mono loss 6.3642
+Resetting 25479 PBs
+Finished epoch 83 in 491.0 seconds
+Perplexity training: 3.281
+Measuring development set...
+Recognition iteration 0 Loss 23.500
+Recognition finished, iteration 100 Loss 0.010
+Recognition iteration 0 Loss 22.217
+Recognition finished, iteration 86 Loss 0.004
+Recognition iteration 0 Loss 23.252
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 25.405
+Recognition finished, iteration 100 Loss 0.010
+Perplexity dev: 1.866
+
+==== Starting epoch 84 ====
+  Batch 0 Loss 4.7452 Mono loss 5.3207
+  Batch 100 Loss 3.2934 Mono loss 7.3050
+  Batch 200 Loss 4.2187 Mono loss 7.2479
+  Batch 300 Loss 3.5442 Mono loss 6.5780
+  Batch 400 Loss 2.5572 Mono loss 6.1048
+  Batch 500 Loss 3.9657 Mono loss 7.0209
+  Batch 600 Loss 4.0205 Mono loss 4.2614
+  Batch 700 Loss 3.7764 Mono loss 6.0728
+Resetting 25378 PBs
+Finished epoch 84 in 556.0 seconds
+Perplexity training: 3.316
+
+==== Starting epoch 85 ====
+  Batch 0 Loss 4.2742 Mono loss -1.0000
+  Batch 100 Loss 3.5972 Mono loss 5.2941
+  Batch 200 Loss 6.3638 Mono loss 6.1256
+  Batch 300 Loss 4.6456 Mono loss 7.8778
+  Batch 400 Loss 2.6153 Mono loss 5.4975
+  Batch 500 Loss 4.0630 Mono loss 7.3345
+  Batch 600 Loss 5.1194 Mono loss 6.4878
+  Batch 700 Loss 3.6228 Mono loss 6.2415
+Resetting 25324 PBs
+Finished epoch 85 in 596.0 seconds
+Perplexity training: 3.249
+Measuring development set...
+Recognition iteration 0 Loss 24.192
+Recognition finished, iteration 100 Loss 0.011
+Recognition iteration 0 Loss 23.042
+Recognition finished, iteration 87 Loss 0.004
+Recognition iteration 0 Loss 24.178
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 25.854
+Recognition finished, iteration 100 Loss 0.011
+Perplexity dev: 1.792
+
+==== Starting epoch 86 ====
+  Batch 0 Loss 3.5964 Mono loss 5.8312
+  Batch 100 Loss 3.8206 Mono loss 5.2579
+  Batch 200 Loss 5.8461 Mono loss 6.2974
+  Batch 300 Loss 2.9695 Mono loss 7.6682
+  Batch 400 Loss 5.4654 Mono loss 5.5454
+  Batch 500 Loss 3.4422 Mono loss 8.0001
+  Batch 600 Loss 4.3260 Mono loss 7.8556
+  Batch 700 Loss 3.3783 Mono loss 6.9865
+Resetting 25537 PBs
+Finished epoch 86 in 838.0 seconds
+Perplexity training: 3.244
+
+==== Starting epoch 87 ====
+  Batch 0 Loss 3.5305 Mono loss -1.0000
+  Batch 100 Loss 4.4174 Mono loss 7.7836
+  Batch 200 Loss 6.3480 Mono loss 8.6148
+  Batch 300 Loss 4.3005 Mono loss 7.1178
+  Batch 400 Loss 4.5896 Mono loss 6.8157
+  Batch 500 Loss 2.4446 Mono loss 7.0819
+  Batch 600 Loss 3.7495 Mono loss 7.1972
+  Batch 700 Loss 2.6985 Mono loss 8.8326
+Resetting 25710 PBs
+Finished epoch 87 in 696.0 seconds
+Perplexity training: 3.314
+Measuring development set...
+Recognition iteration 0 Loss 23.932
+Recognition finished, iteration 100 Loss 0.009
+Recognition iteration 0 Loss 22.582
+Recognition finished, iteration 80 Loss 0.004
+Recognition iteration 0 Loss 23.468
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 25.801
+Recognition finished, iteration 100 Loss 0.008
+Perplexity dev: 1.798
+
+==== Starting epoch 88 ====
+  Batch 0 Loss 5.6570 Mono loss -1.0000
+  Batch 100 Loss 3.3657 Mono loss 6.7881
+  Batch 200 Loss 6.0109 Mono loss 6.1587
+  Batch 300 Loss 4.2671 Mono loss 7.3973
+  Batch 400 Loss 5.5810 Mono loss 6.9453
+  Batch 500 Loss 3.6653 Mono loss 6.6490
+  Batch 600 Loss 4.7458 Mono loss 7.1374
+  Batch 700 Loss 3.0061 Mono loss 7.5969
+Resetting 25765 PBs
+Finished epoch 88 in 664.0 seconds
+Perplexity training: 3.357
+
+==== Starting epoch 89 ====
+  Batch 0 Loss 3.7708 Mono loss 8.2957
+  Batch 100 Loss 5.0509 Mono loss 9.3692
+  Batch 200 Loss 4.1229 Mono loss 6.9443
+  Batch 300 Loss 5.5728 Mono loss 7.5295
+  Batch 400 Loss 4.3997 Mono loss 6.3415
+  Batch 500 Loss 3.8563 Mono loss 7.9087
+  Batch 600 Loss 6.2210 Mono loss 7.2629
+  Batch 700 Loss 3.8300 Mono loss 6.9052
+Resetting 25438 PBs
+Finished epoch 89 in 708.0 seconds
+Perplexity training: 3.287
+Measuring development set...
+Recognition iteration 0 Loss 23.871
+Recognition finished, iteration 100 Loss 0.009
+Recognition iteration 0 Loss 22.452
+Recognition finished, iteration 88 Loss 0.004
+Recognition iteration 0 Loss 23.751
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 25.558
+Recognition finished, iteration 100 Loss 0.010
+Perplexity dev: 1.830
+
+==== Starting epoch 90 ====
+  Batch 0 Loss 2.5123 Mono loss -1.0000
+  Batch 100 Loss 3.8748 Mono loss 6.7932
+  Batch 200 Loss 5.3983 Mono loss 8.1434
+  Batch 300 Loss 3.8828 Mono loss 7.3558
+  Batch 400 Loss 4.6694 Mono loss 8.5471
+  Batch 500 Loss 3.3579 Mono loss 6.9278
+  Batch 600 Loss 5.7660 Mono loss 7.1680
+  Batch 700 Loss 1.9610 Mono loss 7.2198
+Resetting 25510 PBs
+Finished epoch 90 in 686.0 seconds
+Perplexity training: 3.201
+
+==== Starting epoch 91 ====
+  Batch 0 Loss 3.5046 Mono loss -1.0000
+  Batch 100 Loss 3.6394 Mono loss 5.6771
+  Batch 200 Loss 4.1667 Mono loss 5.8972
+  Batch 300 Loss 3.9708 Mono loss 8.2029
+  Batch 400 Loss 3.5924 Mono loss 8.0632
+  Batch 500 Loss 4.8379 Mono loss 7.5583
+  Batch 600 Loss 3.9123 Mono loss 8.1739
+  Batch 700 Loss 3.7236 Mono loss 5.0654
+Resetting 25334 PBs
+Finished epoch 91 in 708.0 seconds
+Perplexity training: 3.303
+Measuring development set...
+Recognition iteration 0 Loss 23.261
+Recognition finished, iteration 100 Loss 0.008
+Recognition iteration 0 Loss 21.735
+Recognition finished, iteration 77 Loss 0.003
+Recognition iteration 0 Loss 22.984
+Recognition finished, iteration 99 Loss 0.005
+Recognition iteration 0 Loss 24.756
+Recognition finished, iteration 100 Loss 0.008
+Perplexity dev: 1.789
+
+==== Starting epoch 92 ====
+  Batch 0 Loss 5.0875 Mono loss 7.7531
+  Batch 100 Loss 4.1856 Mono loss 7.8504
+  Batch 200 Loss 3.0752 Mono loss 6.8436
+  Batch 300 Loss 4.7167 Mono loss 5.6847
+  Batch 400 Loss 3.7047 Mono loss 6.1231
+  Batch 500 Loss 2.7369 Mono loss 5.9962
+  Batch 600 Loss 4.0786 Mono loss 6.5497
+  Batch 700 Loss 4.3331 Mono loss 6.3177
+Resetting 25434 PBs
+Finished epoch 92 in 694.0 seconds
+Perplexity training: 3.295
+
+==== Starting epoch 93 ====
+  Batch 0 Loss 3.8637 Mono loss 5.2750
+  Batch 100 Loss 4.5764 Mono loss 8.9289
+  Batch 200 Loss 4.5126 Mono loss 6.2950
+  Batch 300 Loss 4.2990 Mono loss 7.8074
+  Batch 400 Loss 3.3119 Mono loss 8.2984
+  Batch 500 Loss 4.0085 Mono loss 7.2106
+  Batch 600 Loss 4.2321 Mono loss 4.7678
+  Batch 700 Loss 1.5288 Mono loss 5.4151
+Resetting 25186 PBs
+Finished epoch 93 in 700.0 seconds
+Perplexity training: 3.285
+Measuring development set...
+Recognition iteration 0 Loss 23.376
+Recognition finished, iteration 100 Loss 0.008
+Recognition iteration 0 Loss 21.994
+Recognition finished, iteration 80 Loss 0.003
+Recognition iteration 0 Loss 22.998
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 24.897
+Recognition finished, iteration 100 Loss 0.008
+Perplexity dev: 1.826
+
+==== Starting epoch 94 ====
+  Batch 0 Loss 2.2991 Mono loss -1.0000
+  Batch 100 Loss 3.5797 Mono loss 4.6362
+  Batch 200 Loss 4.3799 Mono loss 6.8133
+  Batch 300 Loss 4.3428 Mono loss 4.9180
+  Batch 400 Loss 3.2102 Mono loss 6.5503
+  Batch 500 Loss 2.9346 Mono loss 5.2350
+  Batch 600 Loss 3.6847 Mono loss 5.1292
+  Batch 700 Loss 2.8481 Mono loss 6.9950
+Resetting 25634 PBs
+Finished epoch 94 in 687.0 seconds
+Perplexity training: 3.189
+
+==== Starting epoch 95 ====
+  Batch 0 Loss 2.9436 Mono loss 4.2860
+  Batch 100 Loss 3.3500 Mono loss 7.7952
+  Batch 200 Loss 4.4054 Mono loss 5.3489
+  Batch 300 Loss 3.9488 Mono loss 7.1585
+  Batch 400 Loss 4.5545 Mono loss 7.7098
+  Batch 500 Loss 3.9128 Mono loss 9.4196
+  Batch 600 Loss 2.9767 Mono loss 8.5650
+  Batch 700 Loss 3.6776 Mono loss 8.4446
+Resetting 25530 PBs
+Finished epoch 95 in 712.0 seconds
+Perplexity training: 3.228
+Measuring development set...
+Recognition iteration 0 Loss 23.166
+Recognition finished, iteration 100 Loss 0.008
+Recognition iteration 0 Loss 21.964
+Recognition finished, iteration 73 Loss 0.003
+Recognition iteration 0 Loss 22.941
+Recognition finished, iteration 96 Loss 0.004
+Recognition iteration 0 Loss 24.674
+Recognition finished, iteration 100 Loss 0.008
+Perplexity dev: 1.683
+
+==== Starting epoch 96 ====
+  Batch 0 Loss 3.7305 Mono loss -1.0000
+  Batch 100 Loss 4.4209 Mono loss 5.3239
+  Batch 200 Loss 3.7694 Mono loss 8.5911
+  Batch 300 Loss 3.9843 Mono loss 6.1203
+  Batch 400 Loss 3.6011 Mono loss 5.3710
+  Batch 500 Loss 3.0368 Mono loss 5.5211
+  Batch 600 Loss 3.4375 Mono loss 6.0375
+  Batch 700 Loss 2.8646 Mono loss 6.4109
+Resetting 25368 PBs
+Finished epoch 96 in 681.0 seconds
+Perplexity training: 3.230
+
+==== Starting epoch 97 ====
+  Batch 0 Loss 3.6990 Mono loss 9.3563
+  Batch 100 Loss 3.9972 Mono loss 6.9810
+  Batch 200 Loss 3.9059 Mono loss 5.0940
+  Batch 300 Loss 4.2372 Mono loss 6.9419
+  Batch 400 Loss 3.8646 Mono loss 10.6295
+  Batch 500 Loss 2.0759 Mono loss 6.8476
+  Batch 600 Loss 3.5588 Mono loss 5.4490
+  Batch 700 Loss 2.6861 Mono loss 6.4877
+Resetting 25188 PBs
+Finished epoch 97 in 732.0 seconds
+Perplexity training: 3.267
+Measuring development set...
+Recognition iteration 0 Loss 23.852
+Recognition finished, iteration 100 Loss 0.007
+Recognition iteration 0 Loss 22.244
+Recognition finished, iteration 74 Loss 0.003
+Recognition iteration 0 Loss 23.497
+Recognition finished, iteration 90 Loss 0.004
+Recognition iteration 0 Loss 25.228
+Recognition finished, iteration 100 Loss 0.008
+Perplexity dev: 1.689
+
+==== Starting epoch 98 ====
+  Batch 0 Loss 4.6005 Mono loss 8.2058
+  Batch 100 Loss 5.3001 Mono loss 6.4585
+  Batch 200 Loss 4.6380 Mono loss 5.9454
+  Batch 300 Loss 3.7370 Mono loss 7.5415
+  Batch 400 Loss 5.9412 Mono loss 6.8122
+  Batch 500 Loss 2.1288 Mono loss 8.5795
+  Batch 600 Loss 4.9348 Mono loss 6.0030
+  Batch 700 Loss 3.6805 Mono loss 6.9002
+Resetting 25277 PBs
+Finished epoch 98 in 754.0 seconds
+Perplexity training: 3.204
+
+==== Starting epoch 99 ====
+  Batch 0 Loss 3.0631 Mono loss -1.0000
+  Batch 100 Loss 3.8531 Mono loss 6.3545
+  Batch 200 Loss 4.7942 Mono loss 6.7178
+  Batch 300 Loss 3.6030 Mono loss 4.8787
+  Batch 400 Loss 3.6809 Mono loss 7.6448
+  Batch 500 Loss 3.7583 Mono loss 6.2214
+  Batch 600 Loss 5.0389 Mono loss 6.5506
+  Batch 700 Loss 3.6041 Mono loss 6.2533
+Resetting 25446 PBs
+Finished epoch 99 in 721.0 seconds
+Perplexity training: 3.177
+Measuring development set...
+Recognition iteration 0 Loss 23.229
+Recognition finished, iteration 100 Loss 0.008
+Recognition iteration 0 Loss 22.004
+Recognition finished, iteration 68 Loss 0.003
+Recognition iteration 0 Loss 22.918
+Recognition finished, iteration 89 Loss 0.004
+Recognition iteration 0 Loss 24.506
+Recognition finished, iteration 100 Loss 0.007
+Perplexity dev: 1.640
+
+==== Starting epoch 100 ====
+  Batch 0 Loss 4.5593 Mono loss 5.2889
+  Batch 100 Loss 4.4362 Mono loss 9.6467
+  Batch 200 Loss 4.2241 Mono loss 9.2833
+  Batch 300 Loss 3.5428 Mono loss 5.4692
+  Batch 400 Loss 4.2827 Mono loss 7.4297
+  Batch 500 Loss 3.1505 Mono loss 10.1206
+  Batch 600 Loss 5.3844 Mono loss 7.5050
+  Batch 700 Loss 2.6645 Mono loss 7.2580
+Resetting 25967 PBs
+Finished epoch 100 in 713.0 seconds
+Perplexity training: 3.261
+
+==== Starting epoch 101 ====
+  Batch 0 Loss 3.8953 Mono loss 5.6802
+  Batch 100 Loss 4.2210 Mono loss 6.1225
+  Batch 200 Loss 6.2846 Mono loss 7.2338
+  Batch 300 Loss 3.9738 Mono loss 6.1530
+  Batch 400 Loss 4.7542 Mono loss 5.9514
+  Batch 500 Loss 5.5182 Mono loss 7.7383
+  Batch 600 Loss 5.6376 Mono loss 6.9056
+  Batch 700 Loss 3.1003 Mono loss 6.5022
+Resetting 25593 PBs
+Finished epoch 101 in 705.0 seconds
+Perplexity training: 3.361
+Measuring development set...
+Recognition iteration 0 Loss 23.215
+Recognition finished, iteration 100 Loss 0.006
+Recognition iteration 0 Loss 21.908
+Recognition finished, iteration 64 Loss 0.003
+Recognition iteration 0 Loss 22.740
+Recognition finished, iteration 91 Loss 0.004
+Recognition iteration 0 Loss 24.800
+Recognition finished, iteration 100 Loss 0.007
+Perplexity dev: 1.647
+
+==== Starting epoch 102 ====
+  Batch 0 Loss 5.7554 Mono loss 8.1763
+  Batch 100 Loss 3.1866 Mono loss 5.4776
+  Batch 200 Loss 5.6477 Mono loss 8.3157
+  Batch 300 Loss 3.9227 Mono loss 5.1021
+  Batch 400 Loss 3.8564 Mono loss 5.8834
+  Batch 500 Loss 2.8400 Mono loss 6.4742
+  Batch 600 Loss 6.3332 Mono loss 5.3783
+  Batch 700 Loss 3.2021 Mono loss 6.6527
+Resetting 25644 PBs
+Finished epoch 102 in 713.0 seconds
+Perplexity training: 3.235
+
+==== Starting epoch 103 ====
+  Batch 0 Loss 4.5880 Mono loss 5.7227
+  Batch 100 Loss 2.2470 Mono loss 7.1231
+  Batch 200 Loss 5.4775 Mono loss 7.7350
+  Batch 300 Loss 4.8976 Mono loss 7.2708
+  Batch 400 Loss 2.9221 Mono loss 6.8494
+  Batch 500 Loss 3.4822 Mono loss 7.5254
+  Batch 600 Loss 5.0694 Mono loss 6.3168
+  Batch 700 Loss 4.6243 Mono loss 8.4855
+Resetting 25423 PBs
+Finished epoch 103 in 754.0 seconds
+Perplexity training: 3.249
+Measuring development set...
+Recognition iteration 0 Loss 23.957
+Recognition finished, iteration 100 Loss 0.007
+Recognition iteration 0 Loss 22.548
+Recognition finished, iteration 71 Loss 0.003
+Recognition iteration 0 Loss 23.648
+Recognition finished, iteration 89 Loss 0.004
+Recognition iteration 0 Loss 25.408
+Recognition finished, iteration 100 Loss 0.007
+Perplexity dev: 1.810
+
+==== Starting epoch 104 ====
+  Batch 0 Loss 4.2637 Mono loss 5.1405
+  Batch 100 Loss 2.9199 Mono loss 7.5865
+  Batch 200 Loss 3.9413 Mono loss 5.7333
+  Batch 300 Loss 3.5012 Mono loss 5.2194
+  Batch 400 Loss 2.5236 Mono loss 6.5264
+  Batch 500 Loss 3.6815 Mono loss 7.3384
+  Batch 600 Loss 4.9273 Mono loss 6.8510
+  Batch 700 Loss 2.9099 Mono loss 5.6299
+Resetting 25646 PBs
+Finished epoch 104 in 715.0 seconds
+Perplexity training: 3.200
+
+==== Starting epoch 105 ====
+  Batch 0 Loss 4.0316 Mono loss 5.0419
+  Batch 100 Loss 3.8385 Mono loss 7.3617
+  Batch 200 Loss 3.1589 Mono loss 7.1893
+  Batch 300 Loss 2.6666 Mono loss 5.1572
+  Batch 400 Loss 3.3334 Mono loss 5.7117
+  Batch 500 Loss 3.0928 Mono loss 6.1278
+  Batch 600 Loss 3.7422 Mono loss 6.2174
+  Batch 700 Loss 4.3582 Mono loss 9.8034
+Resetting 25513 PBs
+Finished epoch 105 in 781.0 seconds
+Perplexity training: 3.215
+Measuring development set...
+Recognition iteration 0 Loss 23.113
+Recognition finished, iteration 100 Loss 0.006
+Recognition iteration 0 Loss 22.236
+Recognition finished, iteration 68 Loss 0.003
+Recognition iteration 0 Loss 23.072
+Recognition finished, iteration 89 Loss 0.004
+Recognition iteration 0 Loss 24.591
+Recognition finished, iteration 100 Loss 0.007
+Perplexity dev: 1.793
+
+==== Starting epoch 106 ====
+  Batch 0 Loss 4.5236 Mono loss 7.5148
+  Batch 100 Loss 3.5708 Mono loss 6.1262
+  Batch 200 Loss 2.8768 Mono loss 6.6000
+  Batch 300 Loss 4.0289 Mono loss 6.0885
+  Batch 400 Loss 3.0482 Mono loss 4.3022
+  Batch 500 Loss 3.7822 Mono loss 7.0389
+  Batch 600 Loss 3.8838 Mono loss 7.0893
+  Batch 700 Loss 3.9230 Mono loss 5.6370
+Resetting 25487 PBs
+Finished epoch 106 in 751.0 seconds
+Perplexity training: 3.165
+
+==== Starting epoch 107 ====
+  Batch 0 Loss 4.9858 Mono loss -1.0000
+  Batch 100 Loss 3.8679 Mono loss 7.7474
+  Batch 200 Loss 5.0985 Mono loss 5.5005
+  Batch 300 Loss 3.6690 Mono loss 7.1378
+  Batch 400 Loss 5.7475 Mono loss 7.0096
+  Batch 500 Loss 3.7420 Mono loss 5.6411
+  Batch 600 Loss 3.7631 Mono loss 7.0482
+  Batch 700 Loss 4.2138 Mono loss 9.7519
+Resetting 25732 PBs
+Finished epoch 107 in 761.0 seconds
+Perplexity training: 3.173
+Measuring development set...
+Recognition iteration 0 Loss 22.715
+Recognition finished, iteration 100 Loss 0.007
+Recognition iteration 0 Loss 21.639
+Recognition finished, iteration 68 Loss 0.003
+Recognition iteration 0 Loss 22.548
+Recognition finished, iteration 84 Loss 0.004
+Recognition iteration 0 Loss 24.240
+Recognition finished, iteration 100 Loss 0.006
+Perplexity dev: 1.630
+
+==== Starting epoch 108 ====
+  Batch 0 Loss 5.5357 Mono loss 6.4853
+  Batch 100 Loss 4.2620 Mono loss 6.9281
+  Batch 200 Loss 5.6895 Mono loss 8.3550
+  Batch 300 Loss 4.0185 Mono loss 5.8234
+  Batch 400 Loss 3.3617 Mono loss 7.4550
+  Batch 500 Loss 4.2624 Mono loss 6.7368
+  Batch 600 Loss 3.6327 Mono loss 8.1596
+  Batch 700 Loss 2.8459 Mono loss 6.3384
+Resetting 25371 PBs
+Finished epoch 108 in 750.0 seconds
+Perplexity training: 3.276
+
+==== Starting epoch 109 ====
+  Batch 0 Loss 4.8259 Mono loss 5.8309
+  Batch 100 Loss 4.0457 Mono loss 5.4105
+  Batch 200 Loss 4.5826 Mono loss 5.7437
+  Batch 300 Loss 4.9362 Mono loss 8.5702
+  Batch 400 Loss 2.9069 Mono loss 4.6960
+  Batch 500 Loss 1.8163 Mono loss 6.0291
+  Batch 600 Loss 4.7639 Mono loss 5.1479
+  Batch 700 Loss 1.5434 Mono loss 5.6142
+Resetting 25409 PBs
+Finished epoch 109 in 800.0 seconds
+Perplexity training: 3.244
+Measuring development set...
+Recognition iteration 0 Loss 23.644
+Recognition finished, iteration 100 Loss 0.007
+Recognition iteration 0 Loss 22.668
+Recognition finished, iteration 65 Loss 0.003
+Recognition iteration 0 Loss 23.878
+Recognition finished, iteration 85 Loss 0.004
+Recognition iteration 0 Loss 25.309
+Recognition finished, iteration 100 Loss 0.006
+Perplexity dev: 1.572
+
+==== Starting epoch 110 ====
+  Batch 0 Loss 5.4068 Mono loss -1.0000
+  Batch 100 Loss 4.0482 Mono loss 7.8974
+  Batch 200 Loss 3.9624 Mono loss 7.3095
+  Batch 300 Loss 4.1390 Mono loss 4.0717
+  Batch 400 Loss 3.1362 Mono loss 5.6375
+  Batch 500 Loss 1.8529 Mono loss 5.3011
+  Batch 600 Loss 2.8572 Mono loss 6.4563
+  Batch 700 Loss 3.5903 Mono loss 7.0541
+Resetting 25508 PBs
+Finished epoch 110 in 752.0 seconds
+Perplexity training: 3.187
+
+==== Starting epoch 111 ====
+  Batch 0 Loss 3.8270 Mono loss 6.8462
+  Batch 100 Loss 4.6661 Mono loss 7.1104
+  Batch 200 Loss 4.2609 Mono loss 7.0191
+  Batch 300 Loss 4.3230 Mono loss 6.4885
+  Batch 400 Loss 4.5901 Mono loss 4.3120
+  Batch 500 Loss 3.1366 Mono loss 8.2655
+  Batch 600 Loss 4.2498 Mono loss 6.7153
+  Batch 700 Loss 2.7654 Mono loss 7.3718
+Resetting 25302 PBs
+Finished epoch 111 in 781.0 seconds
+Perplexity training: 3.180
+Measuring development set...
+Recognition iteration 0 Loss 23.226
+Recognition finished, iteration 100 Loss 0.008
+Recognition iteration 0 Loss 22.308
+Recognition finished, iteration 73 Loss 0.003
+Recognition iteration 0 Loss 23.216
+Recognition finished, iteration 93 Loss 0.004
+Recognition iteration 0 Loss 24.666
+Recognition finished, iteration 100 Loss 0.007
+Perplexity dev: 1.637
+
+==== Starting epoch 112 ====
+  Batch 0 Loss 3.8837 Mono loss -1.0000
+  Batch 100 Loss 4.5226 Mono loss 5.9695
+  Batch 200 Loss 4.6234 Mono loss 6.0491
+  Batch 300 Loss 4.6538 Mono loss 6.1319
+  Batch 400 Loss 2.1402 Mono loss 5.2728
+  Batch 500 Loss 3.7946 Mono loss 6.4537
+  Batch 600 Loss 4.3217 Mono loss 6.3702
+  Batch 700 Loss 4.1622 Mono loss 5.1416
+Resetting 25921 PBs
+Finished epoch 112 in 720.0 seconds
+Perplexity training: 3.214
+
+==== Starting epoch 113 ====
+  Batch 0 Loss 3.2755 Mono loss -1.0000
+  Batch 100 Loss 4.2602 Mono loss 6.5702
+  Batch 200 Loss 6.9611 Mono loss 8.6473
+  Batch 300 Loss 4.9853 Mono loss 8.0998
+  Batch 400 Loss 2.5289 Mono loss 6.3463
+  Batch 500 Loss 3.3576 Mono loss 7.0272
+  Batch 600 Loss 4.0989 Mono loss 7.3821
+  Batch 700 Loss 4.5860 Mono loss 5.6808
+Resetting 25528 PBs
+Finished epoch 113 in 669.0 seconds
+Perplexity training: 3.287
+Measuring development set...
+Recognition iteration 0 Loss 22.789
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 21.720
+Recognition finished, iteration 57 Loss 0.002
+Recognition iteration 0 Loss 22.812
+Recognition finished, iteration 72 Loss 0.003
+Recognition iteration 0 Loss 24.126
+Recognition finished, iteration 100 Loss 0.005
+Perplexity dev: 1.706
+
+==== Starting epoch 114 ====
+  Batch 0 Loss 4.3592 Mono loss 6.3558
+  Batch 100 Loss 4.1562 Mono loss 4.2647
+  Batch 200 Loss 3.8432 Mono loss 6.9605
+  Batch 300 Loss 5.4688 Mono loss 4.6874
+  Batch 400 Loss 4.2779 Mono loss 8.2339
+  Batch 500 Loss 4.6092 Mono loss 5.2965
+  Batch 600 Loss 4.9499 Mono loss 5.5495
+  Batch 700 Loss 4.1254 Mono loss 6.2651
+Resetting 25514 PBs
+Finished epoch 114 in 653.0 seconds
+Perplexity training: 3.140
+
+==== Starting epoch 115 ====
+  Batch 0 Loss 4.3711 Mono loss 5.1491
+  Batch 100 Loss 3.5427 Mono loss 7.2121
+  Batch 200 Loss 4.9038 Mono loss 6.5435
+  Batch 300 Loss 3.5041 Mono loss 6.5537
+  Batch 400 Loss 2.3164 Mono loss 6.5867
+  Batch 500 Loss 2.3486 Mono loss 6.6084
+  Batch 600 Loss 4.0808 Mono loss 8.9062
+  Batch 700 Loss 3.7395 Mono loss 7.1302
+Resetting 25528 PBs
+Finished epoch 115 in 658.0 seconds
+Perplexity training: 3.138
+Measuring development set...
+Recognition iteration 0 Loss 23.013
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 21.719
+Recognition finished, iteration 62 Loss 0.002
+Recognition iteration 0 Loss 22.692
+Recognition finished, iteration 72 Loss 0.003
+Recognition iteration 0 Loss 24.229
+Recognition finished, iteration 100 Loss 0.005
+Perplexity dev: 1.574
+
+==== Starting epoch 116 ====
+  Batch 0 Loss 3.6694 Mono loss -1.0000
+  Batch 100 Loss 2.4634 Mono loss 5.2387
+  Batch 200 Loss 4.5644 Mono loss 5.0845
+  Batch 300 Loss 3.7086 Mono loss 8.9002
+  Batch 400 Loss 2.3836 Mono loss 6.4047
+  Batch 500 Loss 3.9091 Mono loss 7.3514
+  Batch 600 Loss 4.1435 Mono loss 6.0024
+  Batch 700 Loss 3.1683 Mono loss 8.4438
+Resetting 25504 PBs
+Finished epoch 116 in 675.0 seconds
+Perplexity training: 3.189
+
+==== Starting epoch 117 ====
+  Batch 0 Loss 5.3127 Mono loss -1.0000
+  Batch 100 Loss 2.8585 Mono loss 6.3756
+  Batch 200 Loss 4.1273 Mono loss 6.7123
+  Batch 300 Loss 3.3079 Mono loss 5.4624
+  Batch 400 Loss 3.9295 Mono loss 6.2991
+  Batch 500 Loss 3.1127 Mono loss 8.8371
+  Batch 600 Loss 4.1838 Mono loss 6.2043
+  Batch 700 Loss 3.8470 Mono loss 6.8792
+Resetting 25366 PBs
+Finished epoch 117 in 659.0 seconds
+Perplexity training: 3.175
+Measuring development set...
+Recognition iteration 0 Loss 22.877
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 21.466
+Recognition finished, iteration 62 Loss 0.002
+Recognition iteration 0 Loss 22.865
+Recognition finished, iteration 71 Loss 0.003
+Recognition iteration 0 Loss 23.896
+Recognition finished, iteration 100 Loss 0.004
+Perplexity dev: 1.711
+
+==== Starting epoch 118 ====
+  Batch 0 Loss 4.2823 Mono loss -1.0000
+  Batch 100 Loss 3.0265 Mono loss 6.7838
+  Batch 200 Loss 4.2347 Mono loss 8.2970
+  Batch 300 Loss 2.9615 Mono loss 7.6703
+  Batch 400 Loss 2.6393 Mono loss 6.1063
+  Batch 500 Loss 3.7841 Mono loss 5.5044
+  Batch 600 Loss 3.5848 Mono loss 6.0848
+  Batch 700 Loss 3.9194 Mono loss 4.8620
+Resetting 25572 PBs
+Finished epoch 118 in 659.0 seconds
+Perplexity training: 3.146
+
+==== Starting epoch 119 ====
+  Batch 0 Loss 3.9970 Mono loss -1.0000
+  Batch 100 Loss 3.8604 Mono loss 5.0418
+  Batch 200 Loss 6.8559 Mono loss 7.7891
+  Batch 300 Loss 3.2872 Mono loss 5.2712
+  Batch 400 Loss 4.0573 Mono loss 5.6319
+  Batch 500 Loss 3.6729 Mono loss 4.8510
+  Batch 600 Loss 3.7894 Mono loss 5.6879
+  Batch 700 Loss 3.3937 Mono loss 7.0176
+Resetting 25453 PBs
+Finished epoch 119 in 652.0 seconds
+Perplexity training: 3.151
+Measuring development set...
+Recognition iteration 0 Loss 23.203
+Recognition finished, iteration 100 Loss 0.004
+Recognition iteration 0 Loss 22.144
+Recognition finished, iteration 60 Loss 0.002
+Recognition iteration 0 Loss 23.001
+Recognition finished, iteration 71 Loss 0.003
+Recognition iteration 0 Loss 24.813
+Recognition finished, iteration 91 Loss 0.004
+Perplexity dev: 1.657
+
+==== Starting epoch 120 ====
+  Batch 0 Loss 3.4066 Mono loss -1.0000
+  Batch 100 Loss 2.1171 Mono loss 7.2823
+  Batch 200 Loss 4.9284 Mono loss 5.9935
+  Batch 300 Loss 3.2564 Mono loss 8.9459
+  Batch 400 Loss 5.1102 Mono loss 8.0394
+  Batch 500 Loss 4.8660 Mono loss 5.0259
+  Batch 600 Loss 3.3965 Mono loss 6.7709
+  Batch 700 Loss 3.3517 Mono loss 10.8081
+Resetting 25266 PBs
+Finished epoch 120 in 709.0 seconds
+Perplexity training: 3.159
+
+==== Starting epoch 121 ====
+  Batch 0 Loss 4.3452 Mono loss -1.0000
+  Batch 100 Loss 3.4710 Mono loss 7.4570
+  Batch 200 Loss 3.4664 Mono loss 5.5837
+  Batch 300 Loss 3.7206 Mono loss 7.5304
+  Batch 400 Loss 2.8689 Mono loss 5.7447
+  Batch 500 Loss 4.2214 Mono loss 6.0944
+  Batch 600 Loss 4.1377 Mono loss 7.3763
+  Batch 700 Loss 3.8029 Mono loss 6.8778
+Resetting 25455 PBs
+Finished epoch 121 in 674.0 seconds
+Perplexity training: 3.105
+Measuring development set...
+Recognition iteration 0 Loss 22.853
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 21.348
+Recognition finished, iteration 56 Loss 0.002
+Recognition iteration 0 Loss 22.656
+Recognition finished, iteration 68 Loss 0.003
+Recognition iteration 0 Loss 24.259
+Recognition finished, iteration 88 Loss 0.004
+Perplexity dev: 1.539
+
+==== Starting epoch 122 ====
+  Batch 0 Loss 3.8416 Mono loss -1.0000
+  Batch 100 Loss 3.3222 Mono loss 7.5031
+  Batch 200 Loss 4.5640 Mono loss 6.1625
+  Batch 300 Loss 3.2651 Mono loss 4.7001
+  Batch 400 Loss 4.4475 Mono loss 6.4884
+  Batch 500 Loss 5.4432 Mono loss 7.3187
+  Batch 600 Loss 3.5828 Mono loss 7.4235
+  Batch 700 Loss 2.6856 Mono loss 7.9884
+Resetting 25129 PBs
+Finished epoch 122 in 695.0 seconds
+Perplexity training: 3.113
+
+==== Starting epoch 123 ====
+  Batch 0 Loss 3.3255 Mono loss 5.8001
+  Batch 100 Loss 4.8512 Mono loss 6.4025
+  Batch 200 Loss 3.2771 Mono loss 6.3381
+  Batch 300 Loss 5.0169 Mono loss 5.1582
+  Batch 400 Loss 3.9178 Mono loss 5.9901
+  Batch 500 Loss 3.3524 Mono loss 6.1352
+  Batch 600 Loss 3.7555 Mono loss 6.0184
+  Batch 700 Loss 3.9118 Mono loss 5.2192
+Resetting 25647 PBs
+Finished epoch 123 in 693.0 seconds
+Perplexity training: 3.170
+Measuring development set...
+Recognition iteration 0 Loss 23.392
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 22.112
+Recognition finished, iteration 59 Loss 0.002
+Recognition iteration 0 Loss 23.204
+Recognition finished, iteration 72 Loss 0.003
+Recognition iteration 0 Loss 24.550
+Recognition finished, iteration 90 Loss 0.004
+Perplexity dev: 1.651
+
+==== Starting epoch 124 ====
+  Batch 0 Loss 2.5796 Mono loss -1.0000
+  Batch 100 Loss 4.2858 Mono loss 4.6210
+  Batch 200 Loss 3.8087 Mono loss 5.6545
+  Batch 300 Loss 3.2454 Mono loss 4.4873
+  Batch 400 Loss 4.5297 Mono loss 8.7162
+  Batch 500 Loss 4.9857 Mono loss 4.8845
+  Batch 600 Loss 4.5412 Mono loss 6.7431
+  Batch 700 Loss 3.1168 Mono loss 5.7681
+Resetting 25671 PBs
+Finished epoch 124 in 701.0 seconds
+Perplexity training: 3.148
+
+==== Starting epoch 125 ====
+  Batch 0 Loss 2.9477 Mono loss -1.0000
+  Batch 100 Loss 4.1068 Mono loss 4.5706
+  Batch 200 Loss 4.1760 Mono loss 5.4419
+  Batch 300 Loss 4.2529 Mono loss 5.4102
+  Batch 400 Loss 2.2731 Mono loss 5.2419
+  Batch 500 Loss 3.1335 Mono loss 5.6224
+  Batch 600 Loss 4.6283 Mono loss 5.5125
+  Batch 700 Loss 2.8393 Mono loss 6.3768
+Resetting 25658 PBs
+Finished epoch 125 in 722.0 seconds
+Perplexity training: 3.202
+Measuring development set...
+Recognition iteration 0 Loss 22.768
+Recognition finished, iteration 100 Loss 0.004
+Recognition iteration 0 Loss 21.911
+Recognition finished, iteration 58 Loss 0.002
+Recognition iteration 0 Loss 22.772
+Recognition finished, iteration 65 Loss 0.003
+Recognition iteration 0 Loss 24.345
+Recognition finished, iteration 86 Loss 0.004
+Perplexity dev: 1.614
+
+==== Starting epoch 126 ====
+  Batch 0 Loss 2.7445 Mono loss 7.0077
+  Batch 100 Loss 3.0478 Mono loss 6.0470
+  Batch 200 Loss 4.6816 Mono loss 4.4993
+  Batch 300 Loss 2.7754 Mono loss 7.0440
+  Batch 400 Loss 3.3905 Mono loss 4.5365
+  Batch 500 Loss 2.7169 Mono loss 7.3453
+  Batch 600 Loss 2.6713 Mono loss 6.0787
+  Batch 700 Loss 3.7071 Mono loss 6.9189
+Resetting 25369 PBs
+Finished epoch 126 in 800.0 seconds
+Perplexity training: 3.193
+
+==== Starting epoch 127 ====
+  Batch 0 Loss 4.3368 Mono loss 3.9699
+  Batch 100 Loss 3.6970 Mono loss 7.0739
+  Batch 200 Loss 2.4170 Mono loss 6.9641
+  Batch 300 Loss 3.7847 Mono loss 6.1943
+  Batch 400 Loss 1.4774 Mono loss 7.6698
+  Batch 500 Loss 1.7834 Mono loss 6.0071
+  Batch 600 Loss 2.9527 Mono loss 6.3377
+  Batch 700 Loss 1.8956 Mono loss 6.3482
+Resetting 25190 PBs
+Finished epoch 127 in 829.0 seconds
+Perplexity training: 3.160
+Measuring development set...
+Recognition iteration 0 Loss 23.359
+Recognition finished, iteration 100 Loss 0.004
+Recognition iteration 0 Loss 22.295
+Recognition finished, iteration 58 Loss 0.002
+Recognition iteration 0 Loss 23.632
+Recognition finished, iteration 70 Loss 0.003
+Recognition iteration 0 Loss 25.018
+Recognition finished, iteration 87 Loss 0.004
+Perplexity dev: 1.632
+
+==== Starting epoch 128 ====
+  Batch 0 Loss 4.1149 Mono loss -1.0000
+  Batch 100 Loss 3.9254 Mono loss 7.2615
+  Batch 200 Loss 3.8412 Mono loss 6.2789
+  Batch 300 Loss 3.7500 Mono loss 6.6835
+  Batch 400 Loss 2.9747 Mono loss 5.5847
+  Batch 500 Loss 3.3770 Mono loss 6.3749
+  Batch 600 Loss 3.1881 Mono loss 5.3886
+  Batch 700 Loss 2.1939 Mono loss 6.5193
+Resetting 25537 PBs
+Finished epoch 128 in 836.0 seconds
+Perplexity training: 3.131
+
+==== Starting epoch 129 ====
+  Batch 0 Loss 3.0807 Mono loss -1.0000
+  Batch 100 Loss 5.3828 Mono loss 6.3095
+  Batch 200 Loss 4.9003 Mono loss 4.6665
+  Batch 300 Loss 3.2739 Mono loss 4.2045
+  Batch 400 Loss 3.5055 Mono loss 4.9721
+  Batch 500 Loss 2.5413 Mono loss 7.7992
+  Batch 600 Loss 3.8035 Mono loss 5.4817
+  Batch 700 Loss 4.8870 Mono loss 6.1804
+Resetting 25291 PBs
+Finished epoch 129 in 821.0 seconds
+Perplexity training: 3.127
+Measuring development set...
+Recognition iteration 0 Loss 23.318
+Recognition finished, iteration 100 Loss 0.004
+Recognition iteration 0 Loss 22.103
+Recognition finished, iteration 56 Loss 0.002
+Recognition iteration 0 Loss 23.340
+Recognition finished, iteration 67 Loss 0.003
+Recognition iteration 0 Loss 24.815
+Recognition finished, iteration 89 Loss 0.004
+Perplexity dev: 1.524
+
+==== Starting epoch 130 ====
+  Batch 0 Loss 4.7085 Mono loss 4.5276
+  Batch 100 Loss 3.7417 Mono loss 6.2620
+  Batch 200 Loss 3.5280 Mono loss 6.7395
+  Batch 300 Loss 4.3087 Mono loss 9.8757
+  Batch 400 Loss 3.6974 Mono loss 6.2652
+  Batch 500 Loss 3.6902 Mono loss 6.8033
+  Batch 600 Loss 4.2566 Mono loss 6.8785
+  Batch 700 Loss 4.3806 Mono loss 6.0592
+Resetting 25240 PBs
+Finished epoch 130 in 746.0 seconds
+Perplexity training: 3.096
+
+==== Starting epoch 131 ====
+  Batch 0 Loss 3.4108 Mono loss -1.0000
+  Batch 100 Loss 4.8359 Mono loss 7.5967
+  Batch 200 Loss 3.9211 Mono loss 6.4845
+  Batch 300 Loss 3.5327 Mono loss 8.9707
+  Batch 400 Loss 2.3951 Mono loss 5.7930
+  Batch 500 Loss 4.1047 Mono loss 5.1465
+  Batch 600 Loss 2.7645 Mono loss 7.7072
+  Batch 700 Loss 3.4958 Mono loss 12.4833
+Resetting 25570 PBs
+Finished epoch 131 in 810.0 seconds
+Perplexity training: 3.058
+Measuring development set...
+Recognition iteration 0 Loss 23.231
+Recognition finished, iteration 91 Loss 0.004
+Recognition iteration 0 Loss 21.667
+Recognition finished, iteration 55 Loss 0.002
+Recognition iteration 0 Loss 23.087
+Recognition finished, iteration 62 Loss 0.003
+Recognition iteration 0 Loss 24.557
+Recognition finished, iteration 82 Loss 0.004
+Perplexity dev: 1.623
+
+==== Starting epoch 132 ====
+  Batch 0 Loss 3.5754 Mono loss 5.5291
+  Batch 100 Loss 4.8375 Mono loss 6.9010
+  Batch 200 Loss 4.6839 Mono loss 6.9642
+  Batch 300 Loss 4.2987 Mono loss 7.9105
+  Batch 400 Loss 4.0386 Mono loss 6.4808
+  Batch 500 Loss 2.7563 Mono loss 6.1078
+  Batch 600 Loss 4.1201 Mono loss 6.6222
+  Batch 700 Loss 2.4096 Mono loss 6.4830
+Resetting 25551 PBs
+Finished epoch 132 in 849.0 seconds
+Perplexity training: 3.189
+
+==== Starting epoch 133 ====
+  Batch 0 Loss 4.3589 Mono loss 4.6316
+  Batch 100 Loss 2.7564 Mono loss 8.4149
+  Batch 200 Loss 4.5788 Mono loss 5.6365
+  Batch 300 Loss 4.0102 Mono loss 6.4295
+  Batch 400 Loss 3.8886 Mono loss 8.6695
+  Batch 500 Loss 2.2868 Mono loss 5.9779
+  Batch 600 Loss 3.1443 Mono loss 5.1865
+  Batch 700 Loss 1.3793 Mono loss 7.3058
+Resetting 25212 PBs
+Finished epoch 133 in 862.0 seconds
+Perplexity training: 3.163
+Measuring development set...
+Recognition iteration 0 Loss 22.993
+Recognition finished, iteration 100 Loss 0.005
+Recognition iteration 0 Loss 21.770
+Recognition finished, iteration 57 Loss 0.002
+Recognition iteration 0 Loss 22.871
+Recognition finished, iteration 68 Loss 0.003
+Recognition iteration 0 Loss 24.246
+Recognition finished, iteration 89 Loss 0.004
+Perplexity dev: 1.629
+
+==== Starting epoch 134 ====
+  Batch 0 Loss 3.8074 Mono loss 6.5503
+  Batch 100 Loss 2.6564 Mono loss 6.8239
+  Batch 200 Loss 5.1412 Mono loss 8.4594
+  Batch 300 Loss 4.2771 Mono loss 5.3938
+  Batch 400 Loss 3.4863 Mono loss 9.3660
+  Batch 500 Loss 3.1344 Mono loss 5.7446
+  Batch 600 Loss 3.3124 Mono loss 5.0098
+  Batch 700 Loss 1.5439 Mono loss 5.9385
+Resetting 25518 PBs
+Finished epoch 134 in 815.0 seconds
+Perplexity training: 3.077
+
+==== Starting epoch 135 ====
+  Batch 0 Loss 3.4054 Mono loss 6.1110
+  Batch 100 Loss 2.2988 Mono loss 7.4102
+  Batch 200 Loss 4.7735 Mono loss 5.4462
+  Batch 300 Loss 5.0191 Mono loss 6.8019
+  Batch 400 Loss 3.0977 Mono loss 6.5339
+  Batch 500 Loss 4.8113 Mono loss 6.3663
+  Batch 600 Loss 3.0480 Mono loss 5.2187
+  Batch 700 Loss 1.9167 Mono loss 6.4276
+Resetting 25396 PBs
+Finished epoch 135 in 848.0 seconds
+Perplexity training: 3.128
+Measuring development set...
+Recognition iteration 0 Loss 23.369
+Recognition finished, iteration 100 Loss 0.004
+Recognition iteration 0 Loss 22.205
+Recognition finished, iteration 51 Loss 0.002
+Recognition iteration 0 Loss 23.299
+Recognition finished, iteration 61 Loss 0.002
+Recognition iteration 0 Loss 24.761
+Recognition finished, iteration 81 Loss 0.004
+Perplexity dev: 1.612
+
+==== Starting epoch 136 ====
+  Batch 0 Loss 3.7833 Mono loss -1.0000
+  Batch 100 Loss 3.3159 Mono loss 7.2884
+  Batch 200 Loss 4.5659 Mono loss 7.6860
+  Batch 300 Loss 4.0461 Mono loss 6.6614
+  Batch 400 Loss 2.7384 Mono loss 6.2765
+  Batch 500 Loss 3.7026 Mono loss 7.0224
+  Batch 600 Loss 2.9374 Mono loss 5.1412
+  Batch 700 Loss 2.2155 Mono loss 7.5890
+Resetting 25496 PBs
+Finished epoch 136 in 884.0 seconds
+Perplexity training: 3.142
+
+==== Starting epoch 137 ====
+  Batch 0 Loss 4.4814 Mono loss 5.2018
+  Batch 100 Loss 2.9267 Mono loss 4.9491
+  Batch 200 Loss 5.2604 Mono loss 8.0216
+  Batch 300 Loss 2.8930 Mono loss 5.9294
+  Batch 400 Loss 1.8729 Mono loss 4.9147
+  Batch 500 Loss 3.5658 Mono loss 5.2988
+  Batch 600 Loss 3.3532 Mono loss 4.9832
+  Batch 700 Loss 2.7330 Mono loss 5.5898
+Resetting 25627 PBs
+Finished epoch 137 in 813.0 seconds
+Perplexity training: 3.135
+Measuring development set...
+Recognition iteration 0 Loss 23.261
+Recognition finished, iteration 95 Loss 0.004
+Recognition iteration 0 Loss 21.720
+Recognition finished, iteration 53 Loss 0.002
+Recognition iteration 0 Loss 23.177
+Recognition finished, iteration 62 Loss 0.003
+Recognition iteration 0 Loss 24.413
+Recognition finished, iteration 82 Loss 0.004
+Perplexity dev: 1.538
+
+==== Starting epoch 138 ====
+  Batch 0 Loss 3.0886 Mono loss 5.4195
+  Batch 100 Loss 4.9739 Mono loss 5.2420
+  Batch 200 Loss 5.0249 Mono loss 4.9214
+  Batch 300 Loss 4.1634 Mono loss 6.8004
+  Batch 400 Loss 2.1905 Mono loss 7.2787
+  Batch 500 Loss 3.9524 Mono loss 7.0986
+  Batch 600 Loss 4.3139 Mono loss 6.9469
+  Batch 700 Loss 3.9690 Mono loss 5.4550
+Resetting 25742 PBs
+Finished epoch 138 in 812.0 seconds
+Perplexity training: 3.136
+
+==== Starting epoch 139 ====
+  Batch 0 Loss 4.6844 Mono loss 6.6550
+  Batch 100 Loss 3.8984 Mono loss 6.6371
+  Batch 200 Loss 3.0877 Mono loss 6.7901
+  Batch 300 Loss 4.0855 Mono loss 6.6327
+  Batch 400 Loss 2.9882 Mono loss 4.7897
+  Batch 500 Loss 3.1546 Mono loss 5.3790
+  Batch 600 Loss 3.8391 Mono loss 6.2044
+  Batch 700 Loss 3.7804 Mono loss 7.3066
+Resetting 25351 PBs
+Finished epoch 139 in 808.0 seconds
+Perplexity training: 3.103
+Measuring development set...
+Recognition iteration 0 Loss 22.888
+Recognition finished, iteration 82 Loss 0.003
+Recognition iteration 0 Loss 21.464
+Recognition finished, iteration 47 Loss 0.002
+Recognition iteration 0 Loss 22.774
+Recognition finished, iteration 60 Loss 0.002
+Recognition iteration 0 Loss 24.182
+Recognition finished, iteration 78 Loss 0.004
+Perplexity dev: 1.544
+
+==== Starting epoch 140 ====
+  Batch 0 Loss 6.2734 Mono loss -1.0000
+  Batch 100 Loss 3.7183 Mono loss 6.9212
+  Batch 200 Loss 3.0928 Mono loss 5.3608
+  Batch 300 Loss 3.1701 Mono loss 7.5327
+  Batch 400 Loss 2.3781 Mono loss 7.0463
+  Batch 500 Loss 3.2468 Mono loss 6.3502
+  Batch 600 Loss 4.5741 Mono loss 5.7280
+  Batch 700 Loss 3.7337 Mono loss 10.3261
+Resetting 25376 PBs
+Finished epoch 140 in 891.0 seconds
+Perplexity training: 3.111
+
+==== Starting epoch 141 ====
+  Batch 0 Loss 6.4260 Mono loss 5.6697
+  Batch 100 Loss 4.0017 Mono loss 6.4873
+  Batch 200 Loss 5.7506 Mono loss 7.4294
+  Batch 300 Loss 4.3673 Mono loss 6.9097
+  Batch 400 Loss 2.2033 Mono loss 6.5820
+  Batch 500 Loss 2.3341 Mono loss 4.7538
+  Batch 600 Loss 5.2270 Mono loss 6.1603
+  Batch 700 Loss 3.1825 Mono loss 4.9359
+Resetting 25255 PBs
+Finished epoch 141 in 927.0 seconds
+Perplexity training: 3.165
+Measuring development set...
+Recognition iteration 0 Loss 22.771
+Recognition finished, iteration 95 Loss 0.004
+Recognition iteration 0 Loss 21.591
+Recognition finished, iteration 51 Loss 0.002
+Recognition iteration 0 Loss 22.591
+Recognition finished, iteration 61 Loss 0.003
+Recognition iteration 0 Loss 24.143
+Recognition finished, iteration 75 Loss 0.004
+Perplexity dev: 1.612
+
+==== Starting epoch 142 ====
+  Batch 0 Loss 3.9561 Mono loss -1.0000
+  Batch 100 Loss 2.8818 Mono loss 6.6424
+  Batch 200 Loss 4.0868 Mono loss 7.5570
+  Batch 300 Loss 3.6784 Mono loss 4.4808
+  Batch 400 Loss 2.0150 Mono loss 6.1537
+  Batch 500 Loss 3.1796 Mono loss 5.5664
+  Batch 600 Loss 4.4806 Mono loss 4.5628
+  Batch 700 Loss 2.6633 Mono loss 5.7702
+Resetting 25778 PBs
+Finished epoch 142 in 927.0 seconds
+Perplexity training: 3.114
+
+==== Starting epoch 143 ====
+  Batch 0 Loss 4.1445 Mono loss 4.8602
+  Batch 100 Loss 2.6965 Mono loss 5.4659
+  Batch 200 Loss 2.9296 Mono loss 5.3594
+  Batch 300 Loss 3.3587 Mono loss 4.2387
+  Batch 400 Loss 4.3047 Mono loss 4.5416
+  Batch 500 Loss 3.5643 Mono loss 6.3796
+  Batch 600 Loss 3.9194 Mono loss 5.6603
+  Batch 700 Loss 1.8463 Mono loss 6.4469
+Resetting 25261 PBs
+Finished epoch 143 in 897.0 seconds
+Perplexity training: 3.109
+Measuring development set...
+Recognition iteration 0 Loss 22.837
+Recognition finished, iteration 91 Loss 0.003
+Recognition iteration 0 Loss 21.966
+Recognition finished, iteration 51 Loss 0.002
+Recognition iteration 0 Loss 23.099
+Recognition finished, iteration 62 Loss 0.002
+Recognition iteration 0 Loss 24.518
+Recognition finished, iteration 77 Loss 0.004
+Perplexity dev: 1.522
+
+==== Starting epoch 144 ====
+  Batch 0 Loss 3.7611 Mono loss 6.1879
+  Batch 100 Loss 2.8685 Mono loss 5.0058
+  Batch 200 Loss 4.0936 Mono loss 5.6655
+  Batch 300 Loss 5.3187 Mono loss 6.2612
+  Batch 400 Loss 3.5474 Mono loss 5.1730
+  Batch 500 Loss 3.8356 Mono loss 5.0634
+  Batch 600 Loss 2.7913 Mono loss 5.4694
+  Batch 700 Loss 2.7720 Mono loss 3.8909
+Resetting 25281 PBs
+Finished epoch 144 in 881.0 seconds
+Perplexity training: 3.059
+
+==== Starting epoch 145 ====
+  Batch 0 Loss 4.5137 Mono loss 3.8875
+  Batch 100 Loss 2.7811 Mono loss 5.8161
+  Batch 200 Loss 3.7673 Mono loss 7.2784
+  Batch 300 Loss 2.7226 Mono loss 6.6321
+  Batch 400 Loss 3.5707 Mono loss 5.7655
+  Batch 500 Loss 3.0689 Mono loss 7.0863
+  Batch 600 Loss 2.2750 Mono loss 4.3982
+  Batch 700 Loss 2.9316 Mono loss 12.0664
+Resetting 25390 PBs
+Finished epoch 145 in 969.0 seconds
+Perplexity training: 3.138
+Measuring development set...
+Recognition iteration 0 Loss 23.207
+Recognition finished, iteration 100 Loss 0.006
+Recognition iteration 0 Loss 22.163
+Recognition finished, iteration 61 Loss 0.002
+Recognition iteration 0 Loss 23.261
+Recognition finished, iteration 77 Loss 0.003
+Recognition iteration 0 Loss 24.729
+Recognition finished, iteration 100 Loss 0.005
+Perplexity dev: 1.637
+
+==== Starting epoch 146 ====
+  Batch 0 Loss 3.9188 Mono loss 4.5140
+  Batch 100 Loss 3.0041 Mono loss 6.3952
+  Batch 200 Loss 5.6800 Mono loss 4.6957
+  Batch 300 Loss 2.4628 Mono loss 6.6435
+  Batch 400 Loss 3.5523 Mono loss 5.8661
+  Batch 500 Loss 3.6185 Mono loss 4.6906
+  Batch 600 Loss 3.1515 Mono loss 6.0577
+  Batch 700 Loss 3.4870 Mono loss 6.2175
+Resetting 25587 PBs
+Finished epoch 146 in 831.0 seconds
+Perplexity training: 3.096
+
+==== Starting epoch 147 ====
+  Batch 0 Loss 4.8434 Mono loss 3.9431
+  Batch 100 Loss 4.7535 Mono loss 5.9834
+  Batch 200 Loss 4.9459 Mono loss 6.5296
+  Batch 300 Loss 4.0563 Mono loss 5.6143
+  Batch 400 Loss 3.7928 Mono loss 7.2653
+  Batch 500 Loss 2.8245 Mono loss 7.8424
+  Batch 600 Loss 4.2098 Mono loss 6.0110
+  Batch 700 Loss 2.5205 Mono loss 6.6639
+Resetting 25313 PBs
+Finished epoch 147 in 795.0 seconds
+Perplexity training: 3.135
+Measuring development set...
+Recognition iteration 0 Loss 23.077
+Recognition finished, iteration 82 Loss 0.004
+Recognition iteration 0 Loss 22.198
+Recognition finished, iteration 49 Loss 0.002
+Recognition iteration 0 Loss 23.253
+Recognition finished, iteration 60 Loss 0.002
+Recognition iteration 0 Loss 24.515
+Recognition finished, iteration 72 Loss 0.003
+Perplexity dev: 1.554
+
+==== Starting epoch 148 ====
+  Batch 0 Loss 4.0043 Mono loss 4.9505
+  Batch 100 Loss 4.0220 Mono loss 5.1469
+  Batch 200 Loss 3.8496 Mono loss 5.4723
+  Batch 300 Loss 2.2699 Mono loss 6.1853
+  Batch 400 Loss 3.7361 Mono loss 5.8677
+  Batch 500 Loss 3.6210 Mono loss 6.0689
+  Batch 600 Loss 3.9742 Mono loss 5.3456
+  Batch 700 Loss 2.6881 Mono loss 8.7609
+Resetting 25428 PBs
+Finished epoch 148 in 849.0 seconds
+Perplexity training: 3.089
+
+==== Starting epoch 149 ====
+  Batch 0 Loss 3.4870 Mono loss -1.0000
+  Batch 100 Loss 4.1330 Mono loss 6.2388
+  Batch 200 Loss 3.0115 Mono loss 6.2996
+  Batch 300 Loss 3.2018 Mono loss 6.3134
+  Batch 400 Loss 3.0423 Mono loss 5.3395
+  Batch 500 Loss 2.9350 Mono loss 5.4076
+  Batch 600 Loss 4.3878 Mono loss 5.7429
+  Batch 700 Loss 3.3504 Mono loss 7.1577
+Resetting 25678 PBs
+Finished epoch 149 in 829.0 seconds
+Perplexity training: 3.122
+Measuring development set...
+Recognition iteration 0 Loss 23.582
+Recognition finished, iteration 83 Loss 0.004
+Recognition iteration 0 Loss 22.450
+Recognition finished, iteration 49 Loss 0.002
+Recognition iteration 0 Loss 23.712
+Recognition finished, iteration 58 Loss 0.002
+Recognition iteration 0 Loss 25.022
+Recognition finished, iteration 74 Loss 0.003
+Perplexity dev: 1.515
+
+==== Starting epoch 150 ====
+  Batch 0 Loss 3.5453 Mono loss 4.4423
+  Batch 100 Loss 2.2812 Mono loss 5.0613
+  Batch 200 Loss 3.0275 Mono loss 3.9763
+  Batch 300 Loss 4.3012 Mono loss 6.2894
+  Batch 400 Loss 3.6799 Mono loss 5.6452
+  Batch 500 Loss 3.0767 Mono loss 4.0252
+  Batch 600 Loss 4.4897 Mono loss 7.7309
+  Batch 700 Loss 2.7857 Mono loss 5.4281
+Resetting 25383 PBs
+Finished epoch 150 in 785.0 seconds
+Perplexity training: 3.123
+
+==== Starting epoch 151 ====
+  Batch 0 Loss 4.0208 Mono loss 5.0579
+  Batch 100 Loss 4.6097 Mono loss 5.9787
+  Batch 200 Loss 3.1099 Mono loss 5.1768
+  Batch 300 Loss 4.1481 Mono loss 6.3813
+  Batch 400 Loss 3.0632 Mono loss 7.1265
+  Batch 500 Loss 4.5718 Mono loss 5.4080
+  Batch 600 Loss 3.4889 Mono loss 6.0851
+  Batch 700 Loss 1.4731 Mono loss 5.9602
+Resetting 25356 PBs
+Finished epoch 151 in 806.0 seconds
+Perplexity training: 3.056
+Measuring development set...
+Recognition iteration 0 Loss 22.408
+Recognition finished, iteration 86 Loss 0.003
+Recognition iteration 0 Loss 21.278
+Recognition finished, iteration 50 Loss 0.002
+Recognition iteration 0 Loss 22.649
+Recognition finished, iteration 56 Loss 0.002
+Recognition iteration 0 Loss 23.886
+Recognition finished, iteration 72 Loss 0.003
+Perplexity dev: 1.503
+
+==== Starting epoch 152 ====
+  Batch 0 Loss 3.0576 Mono loss 4.4337
+  Batch 100 Loss 3.8225 Mono loss 7.5538
+  Batch 200 Loss 4.4978 Mono loss 3.7935
+  Batch 300 Loss 4.9355 Mono loss 4.3461
+  Batch 400 Loss 2.1191 Mono loss 4.0688
+  Batch 500 Loss 3.4554 Mono loss 6.8516
+  Batch 600 Loss 4.3636 Mono loss 6.7575
+  Batch 700 Loss 3.2638 Mono loss 8.2660
+Resetting 25277 PBs
+Finished epoch 152 in 802.0 seconds
+Perplexity training: 3.137
+
+==== Starting epoch 153 ====
+  Batch 0 Loss 3.5102 Mono loss -1.0000
+  Batch 100 Loss 4.1580 Mono loss 4.9359
+  Batch 200 Loss 2.9355 Mono loss 9.0293
+  Batch 300 Loss 3.9887 Mono loss 5.4208
+  Batch 400 Loss 3.0219 Mono loss 5.5012
+  Batch 500 Loss 2.8383 Mono loss 5.3535
+  Batch 600 Loss 4.9038 Mono loss 5.4105
+  Batch 700 Loss 2.8602 Mono loss 5.5500
+Resetting 25227 PBs
+Finished epoch 153 in 817.0 seconds
+Perplexity training: 3.058
+Measuring development set...
+Recognition iteration 0 Loss 22.688
+Recognition finished, iteration 85 Loss 0.003
+Recognition iteration 0 Loss 21.634
+Recognition finished, iteration 51 Loss 0.002
+Recognition iteration 0 Loss 22.689
+Recognition finished, iteration 59 Loss 0.002
+Recognition iteration 0 Loss 24.185
+Recognition finished, iteration 73 Loss 0.003
+Perplexity dev: 1.506
+
+==== Starting epoch 154 ====
+  Batch 0 Loss 3.5453 Mono loss 5.4024
+  Batch 100 Loss 2.4319 Mono loss 6.4798
+  Batch 200 Loss 6.8073 Mono loss 7.6189
+  Batch 300 Loss 3.5183 Mono loss 6.3485
+  Batch 400 Loss 2.0939 Mono loss 5.3463
+  Batch 500 Loss 3.3489 Mono loss 5.9350
+  Batch 600 Loss 4.1198 Mono loss 8.2131
+  Batch 700 Loss 3.6467 Mono loss 7.5314
+Resetting 25642 PBs
+Finished epoch 154 in 757.0 seconds
+Perplexity training: 3.017
+
+==== Starting epoch 155 ====
+  Batch 0 Loss 4.7282 Mono loss 7.2615
+  Batch 100 Loss 3.3688 Mono loss 5.5782
+  Batch 200 Loss 4.1352 Mono loss 6.1839
+  Batch 300 Loss 2.0624 Mono loss 4.6357
+  Batch 400 Loss 2.7391 Mono loss 6.1598
+  Batch 500 Loss 4.0168 Mono loss 7.4954
+  Batch 600 Loss 4.2240 Mono loss 4.1541
+  Batch 700 Loss 4.8342 Mono loss 7.7894
+Resetting 25367 PBs
+Finished epoch 155 in 828.0 seconds
+Perplexity training: 3.119
+Measuring development set...
+Recognition iteration 0 Loss 22.929
+Recognition finished, iteration 83 Loss 0.003
+Recognition iteration 0 Loss 22.227
+Recognition finished, iteration 51 Loss 0.002
+Recognition iteration 0 Loss 23.220
+Recognition finished, iteration 59 Loss 0.002
+Recognition iteration 0 Loss 24.727
+Recognition finished, iteration 71 Loss 0.003
+Perplexity dev: 1.545
+
+==== Starting epoch 156 ====
+  Batch 0 Loss 5.6682 Mono loss -1.0000
+  Batch 100 Loss 3.2685 Mono loss 5.8180
+  Batch 200 Loss 4.6285 Mono loss 5.9120
+  Batch 300 Loss 3.7030 Mono loss 6.9988
+  Batch 400 Loss 1.2988 Mono loss 5.9158
+  Batch 500 Loss 3.6617 Mono loss 6.8657
+  Batch 600 Loss 3.1899 Mono loss 4.0693
+  Batch 700 Loss 3.3974 Mono loss 4.6107
+Resetting 25390 PBs
+Finished epoch 156 in 814.0 seconds
+Perplexity training: 3.096
+
+==== Starting epoch 157 ====
+  Batch 0 Loss 3.6869 Mono loss 5.1945
+  Batch 100 Loss 5.1955 Mono loss 6.1819
+  Batch 200 Loss 3.5226 Mono loss 5.8270
+  Batch 300 Loss 3.4686 Mono loss 6.9568
+  Batch 400 Loss 3.4058 Mono loss 6.3503
+  Batch 500 Loss 2.3114 Mono loss 4.7292
+  Batch 600 Loss 5.0395 Mono loss 4.5850
+  Batch 700 Loss 3.2412 Mono loss 6.3020
+Resetting 25391 PBs
+Finished epoch 157 in 806.0 seconds
+Perplexity training: 3.053
+Measuring development set...
+Recognition iteration 0 Loss 22.981
+Recognition finished, iteration 79 Loss 0.003
+Recognition iteration 0 Loss 22.055
+Recognition finished, iteration 46 Loss 0.002
+Recognition iteration 0 Loss 23.452
+Recognition finished, iteration 55 Loss 0.002
+Recognition iteration 0 Loss 24.836
+Recognition finished, iteration 68 Loss 0.003
+Perplexity dev: 1.526
+
+==== Starting epoch 158 ====
+  Batch 0 Loss 3.0629 Mono loss -1.0000
+  Batch 100 Loss 4.7835 Mono loss 5.8937
+  Batch 200 Loss 3.0794 Mono loss 5.5025
+  Batch 300 Loss 3.8735 Mono loss 6.7556
+  Batch 400 Loss 3.1950 Mono loss 6.3231
+  Batch 500 Loss 2.9471 Mono loss 3.3431
+  Batch 600 Loss 2.6006 Mono loss 5.6463
+  Batch 700 Loss 3.1792 Mono loss 8.2558
+Resetting 25560 PBs
+Finished epoch 158 in 806.0 seconds
+Perplexity training: 3.076
+
+==== Starting epoch 159 ====
+  Batch 0 Loss 3.5561 Mono loss -1.0000
+  Batch 100 Loss 3.3349 Mono loss 7.4350
+  Batch 200 Loss 4.6079 Mono loss 7.6494
+  Batch 300 Loss 3.6354 Mono loss 6.4112
+  Batch 400 Loss 4.0208 Mono loss 7.6261
+  Batch 500 Loss 2.3390 Mono loss 6.0940
+  Batch 600 Loss 3.0731 Mono loss 8.7621
+  Batch 700 Loss 2.3649 Mono loss 6.3325
+Resetting 25216 PBs
+Finished epoch 159 in 777.0 seconds
+Perplexity training: 3.097
+Measuring development set...
+Recognition iteration 0 Loss 22.562
+Recognition finished, iteration 76 Loss 0.003
+Recognition iteration 0 Loss 21.489
+Recognition finished, iteration 46 Loss 0.002
+Recognition iteration 0 Loss 22.646
+Recognition finished, iteration 58 Loss 0.002
+Recognition iteration 0 Loss 24.164
+Recognition finished, iteration 72 Loss 0.003
+Perplexity dev: 1.469
+
+==== Starting epoch 160 ====
+  Batch 0 Loss 4.0753 Mono loss 5.3866
+  Batch 100 Loss 3.2668 Mono loss 6.7381
+  Batch 200 Loss 3.5795 Mono loss 6.2618
+  Batch 300 Loss 2.2187 Mono loss 7.2312
+  Batch 400 Loss 3.2299 Mono loss 6.1291
+  Batch 500 Loss 2.0656 Mono loss 6.3916
+  Batch 600 Loss 3.3100 Mono loss 6.9733
+  Batch 700 Loss 2.8166 Mono loss 5.7314
+Resetting 25527 PBs
+Finished epoch 160 in 832.0 seconds
+Perplexity training: 3.081
+
+==== Starting epoch 161 ====
+  Batch 0 Loss 4.4947 Mono loss 5.4008
+  Batch 100 Loss 3.3545 Mono loss 6.3012
+  Batch 200 Loss 3.8997 Mono loss 7.4264
+  Batch 300 Loss 4.8290 Mono loss 8.0461
+  Batch 400 Loss 3.3025 Mono loss 5.4513
+  Batch 500 Loss 3.1155 Mono loss 6.3558
+  Batch 600 Loss 5.0718 Mono loss 5.7134
+  Batch 700 Loss 3.6500 Mono loss 5.9222
+Resetting 25192 PBs
+Finished epoch 161 in 784.0 seconds
+Perplexity training: 3.129
+Measuring development set...
+Recognition iteration 0 Loss 22.533
+Recognition finished, iteration 76 Loss 0.003
+Recognition iteration 0 Loss 21.607
+Recognition finished, iteration 48 Loss 0.001
+Recognition iteration 0 Loss 22.795
+Recognition finished, iteration 57 Loss 0.002
+Recognition iteration 0 Loss 24.075
+Recognition finished, iteration 68 Loss 0.003
+Perplexity dev: 1.468
+
+==== Starting epoch 162 ====
+  Batch 0 Loss 2.7641 Mono loss 4.5273
+  Batch 100 Loss 2.3347 Mono loss 6.8507
+  Batch 200 Loss 4.1991 Mono loss 4.8374
+  Batch 300 Loss 3.2497 Mono loss 6.3484
+  Batch 400 Loss 3.5227 Mono loss 5.7806
+  Batch 500 Loss 4.4066 Mono loss 5.0767
+  Batch 600 Loss 4.1818 Mono loss 6.0240
+  Batch 700 Loss 2.6923 Mono loss 7.6035
+Resetting 25415 PBs
+Finished epoch 162 in 834.0 seconds
+Perplexity training: 3.050
+
+==== Starting epoch 163 ====
+  Batch 0 Loss 2.1393 Mono loss 3.7065
+  Batch 100 Loss 2.2091 Mono loss 4.8596
+  Batch 200 Loss 3.2493 Mono loss 7.4652
+  Batch 300 Loss 2.6663 Mono loss 7.0036
+  Batch 400 Loss 2.8578 Mono loss 7.0107
+  Batch 500 Loss 4.5246 Mono loss 7.2797
+  Batch 600 Loss 4.4003 Mono loss 5.9386
+  Batch 700 Loss 2.5246 Mono loss 4.4470
+Resetting 25409 PBs
+Finished epoch 163 in 834.0 seconds
+Perplexity training: 3.062
+Measuring development set...
+Recognition iteration 0 Loss 23.047
+Recognition finished, iteration 70 Loss 0.003
+Recognition iteration 0 Loss 21.955
+Recognition finished, iteration 45 Loss 0.002
+Recognition iteration 0 Loss 23.396
+Recognition finished, iteration 55 Loss 0.002
+Recognition iteration 0 Loss 24.703
+Recognition finished, iteration 69 Loss 0.003
+Perplexity dev: 1.482
+
+==== Starting epoch 164 ====
+  Batch 0 Loss 2.5818 Mono loss -1.0000
+  Batch 100 Loss 1.6809 Mono loss 4.5028
+  Batch 200 Loss 5.9170 Mono loss 5.6898
+  Batch 300 Loss 2.8522 Mono loss 8.1979
+  Batch 400 Loss 4.2743 Mono loss 5.0885
+  Batch 500 Loss 3.3495 Mono loss 8.7977
+  Batch 600 Loss 4.7520 Mono loss 4.8869
+  Batch 700 Loss 2.5515 Mono loss 5.6132
+Resetting 25597 PBs
+Finished epoch 164 in 882.0 seconds
+Perplexity training: 3.074
+
+==== Starting epoch 165 ====
+  Batch 0 Loss 2.4117 Mono loss -1.0000
+  Batch 100 Loss 3.2501 Mono loss 6.6220
+  Batch 200 Loss 4.7284 Mono loss 4.8753
+  Batch 300 Loss 2.4060 Mono loss 6.0482
+  Batch 400 Loss 5.5269 Mono loss 4.9734
+  Batch 500 Loss 2.9280 Mono loss 5.4148
+  Batch 600 Loss 5.0597 Mono loss 5.6911
+  Batch 700 Loss 3.9967 Mono loss 9.5581
+Resetting 25543 PBs
+Finished epoch 165 in 814.0 seconds
+Perplexity training: 3.068
+Measuring development set...
+Recognition iteration 0 Loss 22.437
+Recognition finished, iteration 74 Loss 0.003
+Recognition iteration 0 Loss 21.584
+Recognition finished, iteration 46 Loss 0.002
+Recognition iteration 0 Loss 22.705
+Recognition finished, iteration 51 Loss 0.002
+Recognition iteration 0 Loss 24.022
+Recognition finished, iteration 68 Loss 0.003
+Perplexity dev: 1.451

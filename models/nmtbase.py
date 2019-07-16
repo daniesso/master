@@ -29,7 +29,7 @@ class NMTBase:
         self.dropout = dropout
 
 
-    def do_training(self, train, dev, early_stopping_steps = 0, max_epochs = 0, warm_start=False):
+    def do_training(self, train, dev, mono, early_stopping_steps = 0, max_epochs = 0, warm_start=False):
 
         epoch_it = range(max_epochs) if max_epochs is not 0 else itertools.count()
 
@@ -65,7 +65,7 @@ class NMTBase:
             start = time.time()
             epoch_perplexity = 0
 
-            epoch_perplexity, batch_losses, epoch_state = self.do_epoch(train, epoch_state)
+            epoch_perplexity, batch_losses, epoch_state = self.do_epoch(train, mono, epoch_state)
 
             self.handle_post_epoch()
 
@@ -120,7 +120,7 @@ class NMTBase:
         return stagnation_steps >= early_stopping_steps
 
 
-    def do_epoch(self, train, epoch_state = None):
+    def do_epoch(self, train, _, epoch_state = None):
 
         if epoch_state is None:
             print("Initializing epoch state")

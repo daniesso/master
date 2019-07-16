@@ -16,7 +16,7 @@ class Vocab:
 
 class Dataset:
 
-    def __init__(self, path1, path2, batch_size, vocab1_max=10**6, vocab2_max=10**6, length_limit=10**3, sample=None, vocab=None, reverse_source=False, easy_subset = None, shuffle=True):
+    def __init__(self, path1, path2, batch_size, vocab1_max=10**6, vocab2_max=10**6, length_limit=10**3, sample=None, vocab=None, reverse_source=False, easy_subset = None, shuffle=True, mono=None):
 
         X, Y = self.load(path1), self.load(path2)
 
@@ -56,6 +56,13 @@ class Dataset:
 
         self.tf_dataset, self.batch_size, self.num_batches = tf_dataset, batch_size, num_batches
         self.reverse_source = reverse_source
+
+        if mono is not None:
+            offset1, bind_hard = mono
+            offset2 = offset1 if not bind_hard else offset1 + len(X)
+        else:
+            offset1, offset2 = 0, 0
+        self.offset1, self.offset2 = offset1, offset2
 
 
     def load(self, path):
