@@ -1,0 +1,1 @@
+{"model_name": "encdec", "length_limit": 1000, "vocab1_max": 30000, "vocab2_max": 30000, "reverse_source": true, "model_params": {"embedding_size": 512, "units": 1024, "num_layers": 4, "learning_rate": 0.001, "batch_size": 64, "max_trans_ratio": 1.5, "num_dev_prints": 0, "gradient_clip": 1.0, "beam_size": 10, "checkpoint_all": true, "num_training_sequences": 200000}}
