@@ -111,6 +111,10 @@ class RNNPB(tf.keras.Model):
 
             variables = [pbs]
             gradients = tape.gradient(X_loss, variables)
+
+            if tf.math.sqrt(tf.reduce_sum(gradients[0]**2)) < 1:
+                break
+
             gradients, _ = tf.clip_by_global_norm(gradients, self.gradient_clip)
             optimizer.apply_gradients(zip(gradients, variables))
 
@@ -118,7 +122,7 @@ class RNNPB(tf.keras.Model):
                 print("Recognition iteration {} Loss {:.3f}".format(n, X_loss))
 
             if step is not None and n % step == 0:
-                pbs_list.append(pb[0])
+                pbs_list.append(pbs.numpy())
 
             if X_loss < best_loss - eps:
                 best_loss = X_loss
