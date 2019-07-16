@@ -1,0 +1,985 @@
+2019-07-02 17:29:27.969756: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcuda.so.1
+2019-07-02 17:29:27.979273: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties: 
+name: Tesla V100-PCIE-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.38
+pciBusID: 0000:3b:00.0
+2019-07-02 17:29:27.980184: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 1 with properties: 
+name: Tesla V100-PCIE-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.38
+pciBusID: 0000:d8:00.0
+2019-07-02 17:29:27.980474: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0
+2019-07-02 17:29:27.982192: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcublas.so.10.0
+2019-07-02 17:29:27.983540: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcufft.so.10.0
+2019-07-02 17:29:27.983845: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcurand.so.10.0
+2019-07-02 17:29:27.985261: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusolver.so.10.0
+2019-07-02 17:29:27.986488: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusparse.so.10.0
+2019-07-02 17:29:27.989383: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudnn.so.7
+2019-07-02 17:29:27.992240: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1763] Adding visible gpu devices: 0, 1
+Starting training procedure.
+Loading training set...
+2019-07-02 17:29:32.525123: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2019-07-02 17:29:32.858632: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x24191b0 executing computations on platform CUDA. Devices:
+2019-07-02 17:29:32.858675: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): Tesla V100-PCIE-32GB, Compute Capability 7.0
+2019-07-02 17:29:32.880976: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2600000000 Hz
+2019-07-02 17:29:32.883924: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x23997c0 executing computations on platform Host. Devices:
+2019-07-02 17:29:32.883970: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+2019-07-02 17:29:32.885026: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties: 
+name: Tesla V100-PCIE-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.38
+pciBusID: 0000:d8:00.0
+2019-07-02 17:29:32.885178: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0
+2019-07-02 17:29:32.885194: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcublas.so.10.0
+2019-07-02 17:29:32.885204: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcufft.so.10.0
+2019-07-02 17:29:32.885216: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcurand.so.10.0
+2019-07-02 17:29:32.885226: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusolver.so.10.0
+2019-07-02 17:29:32.885237: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusparse.so.10.0
+2019-07-02 17:29:32.885250: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudnn.so.7
+2019-07-02 17:29:32.886819: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1763] Adding visible gpu devices: 1
+2019-07-02 17:29:32.886849: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0
+2019-07-02 17:29:32.888714: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-07-02 17:29:32.888729: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1187]      1 
+2019-07-02 17:29:32.888735: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1200] 1:   N 
+2019-07-02 17:29:32.890801: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1326] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 29685 MB memory) -> physical GPU (device: 1, name: Tesla V100-PCIE-32GB, pci bus id: 0000:d8:00.0, compute capability: 7.0)
+Saving vocab defined by training set...
+Loading development set...
+Writing params file...
+Instantiating model...
+Ready for training.
+
+Training summery:
+
+=== Data ===
+
+Training set:
+Source language:
+  Num sentences: 190624 (2978 batches)
+  Num words: 1872370
+  Num UNKS: 0 (0.0 per sentence)
+  Vocab size: 17749 (original 17745)
+  Longest: 53
+  Reversed: True
+
+Target language:
+  Num sentences: 190624 (2978 batches)
+  Num words: 1861579
+  Num UNKS: 6706 (0.0 per sentence)
+  Vocab size: 30004 (original 36706)
+  Longest: 64
+
+
+Development set:
+Source language:
+  Num sentences: 256 (4 batches)
+  Num words: 2509
+  Num UNKS: 4 (0.0 per sentence)
+  Vocab size: 17749 (original 17745)
+  Longest: 53
+  Reversed: True
+
+Target language:
+  Num sentences: 256 (4 batches)
+  Num words: 2498
+  Num UNKS: 23 (0.1 per sentence)
+  Vocab size: 30004 (original 36706)
+  Longest: 64
+
+
+=== Model ===
+Name: encdec
+Num layers: 2
+Units per layer: 256
+Embedding size: 128
+Batch size: 64
+Learning rate: 0.001
+Max translation ratio: 1.5
+Gradient clip: 1.0
+Dropout: 0
+
+
+=== Training ===
+Max epochs: 0
+Early stopping steps: 20
+Warm start: False
+
+
+==== Starting epoch 1 ====
+Initializing epoch state
+2019-07-02 17:30:01.995065: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudnn.so.7
+2019-07-02 17:30:03.261234: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcublas.so.10.0
+WARNING: Logging before flag parsing goes to stderr.
+W0702 17:30:03.540794 140443106498368 deprecation.py:323] From /lhome/daniesso/venv/lib/python3.6/site-packages/tensorflow/python/ops/clip_ops.py:286: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+  Batch 0 Loss 92.2985
+  Batch 100 Loss 51.7580
+  Batch 200 Loss 50.5638
+  Batch 300 Loss 42.8797
+  Batch 400 Loss 40.4466
+  Batch 500 Loss 41.6820
+  Batch 600 Loss 36.4773
+  Batch 700 Loss 34.0825
+  Batch 800 Loss 41.2779
+  Batch 900 Loss 36.9110
+  Batch 1000 Loss 35.4117
+  Batch 1100 Loss 37.6525
+  Batch 1200 Loss 32.0553
+  Batch 1300 Loss 33.2907
+  Batch 1400 Loss 34.0387
+  Batch 1500 Loss 31.5438
+  Batch 1600 Loss 35.9443
+  Batch 1700 Loss 30.0648
+  Batch 1800 Loss 29.8125
+  Batch 1900 Loss 30.5657
+  Batch 2000 Loss 31.1994
+  Batch 2100 Loss 30.1719
+  Batch 2200 Loss 28.6590
+  Batch 2300 Loss 27.7780
+  Batch 2400 Loss 30.8872
+  Batch 2500 Loss 33.0837
+  Batch 2600 Loss 28.4353
+  Batch 2700 Loss 33.0333
+  Batch 2800 Loss 26.6484
+  Batch 2900 Loss 29.1247
+Finished epoch 1 in 176.0 seconds
+Perplexity training: 295.223
+Measuring development set...
+Perplexity dev: 42.785
+
+==== Starting epoch 2 ====
+  Batch 0 Loss 30.2396
+  Batch 100 Loss 26.4723
+  Batch 200 Loss 27.2043
+  Batch 300 Loss 23.6969
+  Batch 400 Loss 23.4576
+  Batch 500 Loss 25.5949
+  Batch 600 Loss 23.3345
+  Batch 700 Loss 22.5114
+  Batch 800 Loss 28.7292
+  Batch 900 Loss 25.4104
+  Batch 1000 Loss 24.2490
+  Batch 1100 Loss 26.3865
+  Batch 1200 Loss 22.2344
+  Batch 1300 Loss 23.2589
+  Batch 1400 Loss 25.0112
+  Batch 1500 Loss 22.7387
+  Batch 1600 Loss 26.9993
+  Batch 1700 Loss 21.1853
+  Batch 1800 Loss 21.7054
+  Batch 1900 Loss 20.9343
+  Batch 2000 Loss 22.9880
+  Batch 2100 Loss 22.5771
+  Batch 2200 Loss 21.2702
+  Batch 2300 Loss 20.3502
+  Batch 2400 Loss 23.8205
+  Batch 2500 Loss 26.0461
+  Batch 2600 Loss 21.8839
+  Batch 2700 Loss 25.6292
+  Batch 2800 Loss 19.7590
+  Batch 2900 Loss 21.9959
+Finished epoch 2 in 175.0 seconds
+Perplexity training: 31.752
+
+==== Starting epoch 3 ====
+  Batch 0 Loss 23.4528
+  Batch 100 Loss 20.2401
+  Batch 200 Loss 21.0672
+  Batch 300 Loss 18.1134
+  Batch 400 Loss 17.9619
+  Batch 500 Loss 20.0898
+  Batch 600 Loss 18.1666
+  Batch 700 Loss 17.7683
+  Batch 800 Loss 23.5738
+  Batch 900 Loss 20.1013
+  Batch 1000 Loss 19.4614
+  Batch 1100 Loss 21.0665
+  Batch 1200 Loss 17.3588
+  Batch 1300 Loss 18.4692
+  Batch 1400 Loss 20.2483
+  Batch 1500 Loss 18.3100
+  Batch 1600 Loss 21.6110
+  Batch 1700 Loss 16.4253
+  Batch 1800 Loss 17.0772
+  Batch 1900 Loss 16.0943
+  Batch 2000 Loss 18.5778
+  Batch 2100 Loss 17.8982
+  Batch 2200 Loss 17.0988
+  Batch 2300 Loss 16.2879
+  Batch 2400 Loss 19.0586
+  Batch 2500 Loss 21.7371
+  Batch 2600 Loss 17.8052
+  Batch 2700 Loss 20.4282
+  Batch 2800 Loss 15.6246
+  Batch 2900 Loss 17.8241
+Finished epoch 3 in 173.0 seconds
+Perplexity training: 16.254
+Measuring development set...
+Perplexity dev: 17.600
+
+==== Starting epoch 4 ====
+  Batch 0 Loss 19.0924
+  Batch 100 Loss 16.0714
+  Batch 200 Loss 17.0448
+  Batch 300 Loss 14.3982
+  Batch 400 Loss 14.2658
+  Batch 500 Loss 16.6803
+  Batch 600 Loss 14.9264
+  Batch 700 Loss 14.8114
+  Batch 800 Loss 19.5714
+  Batch 900 Loss 16.2288
+  Batch 1000 Loss 15.9508
+  Batch 1100 Loss 17.1206
+  Batch 1200 Loss 14.3297
+  Batch 1300 Loss 15.3345
+  Batch 1400 Loss 17.0027
+  Batch 1500 Loss 15.4758
+  Batch 1600 Loss 18.0571
+  Batch 1700 Loss 13.1098
+  Batch 1800 Loss 14.0387
+  Batch 1900 Loss 12.6752
+  Batch 2000 Loss 15.5879
+  Batch 2100 Loss 14.4343
+  Batch 2200 Loss 14.2485
+  Batch 2300 Loss 13.6145
+  Batch 2400 Loss 15.6249
+  Batch 2500 Loss 18.4453
+  Batch 2600 Loss 14.8626
+  Batch 2700 Loss 17.3289
+  Batch 2800 Loss 12.5872
+  Batch 2900 Loss 14.3668
+Finished epoch 4 in 175.0 seconds
+Perplexity training: 10.109
+
+==== Starting epoch 5 ====
+  Batch 0 Loss 15.8676
+  Batch 100 Loss 13.1872
+  Batch 200 Loss 13.9791
+  Batch 300 Loss 11.7331
+  Batch 400 Loss 11.4462
+  Batch 500 Loss 13.9845
+  Batch 600 Loss 12.4153
+  Batch 700 Loss 12.3838
+  Batch 800 Loss 16.4793
+  Batch 900 Loss 13.3871
+  Batch 1000 Loss 13.2083
+  Batch 1100 Loss 14.5183
+  Batch 1200 Loss 11.9990
+  Batch 1300 Loss 12.9683
+  Batch 1400 Loss 14.4655
+  Batch 1500 Loss 13.2723
+  Batch 1600 Loss 15.7897
+  Batch 1700 Loss 10.8769
+  Batch 1800 Loss 11.8729
+  Batch 1900 Loss 10.3858
+  Batch 2000 Loss 13.2550
+  Batch 2100 Loss 11.9952
+  Batch 2200 Loss 12.0366
+  Batch 2300 Loss 11.2907
+  Batch 2400 Loss 13.1200
+  Batch 2500 Loss 16.2628
+  Batch 2600 Loss 12.9980
+  Batch 2700 Loss 15.0722
+  Batch 2800 Loss 10.5022
+  Batch 2900 Loss 11.9318
+Finished epoch 5 in 176.0 seconds
+Perplexity training: 7.051
+Measuring development set...
+Perplexity dev: 16.652
+
+==== Starting epoch 6 ====
+  Batch 0 Loss 13.5287
+  Batch 100 Loss 11.2287
+  Batch 200 Loss 11.7452
+  Batch 300 Loss 9.8281
+  Batch 400 Loss 9.4240
+  Batch 500 Loss 11.9865
+  Batch 600 Loss 10.5028
+  Batch 700 Loss 10.5395
+  Batch 800 Loss 14.1986
+  Batch 900 Loss 11.2389
+  Batch 1000 Loss 11.3034
+  Batch 1100 Loss 12.2107
+  Batch 1200 Loss 10.2534
+  Batch 1300 Loss 11.0341
+  Batch 1400 Loss 12.4994
+  Batch 1500 Loss 11.6561
+  Batch 1600 Loss 13.8065
+  Batch 1700 Loss 9.1759
+  Batch 1800 Loss 10.1883
+  Batch 1900 Loss 8.6654
+  Batch 2000 Loss 11.5376
+  Batch 2100 Loss 10.2333
+  Batch 2200 Loss 10.0918
+  Batch 2300 Loss 9.6098
+  Batch 2400 Loss 11.2050
+  Batch 2500 Loss 13.9491
+  Batch 2600 Loss 11.4187
+  Batch 2700 Loss 13.2109
+  Batch 2800 Loss 8.9819
+  Batch 2900 Loss 10.0879
+Finished epoch 6 in 177.0 seconds
+Perplexity training: 5.360
+
+==== Starting epoch 7 ====
+  Batch 0 Loss 11.7902
+  Batch 100 Loss 9.8311
+  Batch 200 Loss 10.0523
+  Batch 300 Loss 8.5337
+  Batch 400 Loss 8.0401
+  Batch 500 Loss 10.5189
+  Batch 600 Loss 9.1491
+  Batch 700 Loss 9.2001
+  Batch 800 Loss 12.4837
+  Batch 900 Loss 9.6467
+  Batch 1000 Loss 9.8176
+  Batch 1100 Loss 10.4731
+  Batch 1200 Loss 8.9722
+  Batch 1300 Loss 9.7712
+  Batch 1400 Loss 10.8147
+  Batch 1500 Loss 10.2403
+  Batch 1600 Loss 12.3773
+  Batch 1700 Loss 7.8534
+  Batch 1800 Loss 8.9651
+  Batch 1900 Loss 7.4470
+  Batch 2000 Loss 10.0793
+  Batch 2100 Loss 8.7841
+  Batch 2200 Loss 8.7696
+  Batch 2300 Loss 8.4879
+  Batch 2400 Loss 9.8250
+  Batch 2500 Loss 12.4137
+  Batch 2600 Loss 10.3302
+  Batch 2700 Loss 11.8803
+  Batch 2800 Loss 7.8589
+  Batch 2900 Loss 8.6264
+Finished epoch 7 in 175.0 seconds
+Perplexity training: 4.340
+Measuring development set...
+Perplexity dev: 27.453
+
+==== Starting epoch 8 ====
+  Batch 0 Loss 10.4323
+  Batch 100 Loss 8.7409
+  Batch 200 Loss 8.8165
+  Batch 300 Loss 7.4921
+  Batch 400 Loss 7.0409
+  Batch 500 Loss 9.3912
+  Batch 600 Loss 7.9688
+  Batch 700 Loss 8.3015
+  Batch 800 Loss 11.2270
+  Batch 900 Loss 8.3677
+  Batch 1000 Loss 8.6142
+  Batch 1100 Loss 9.1973
+  Batch 1200 Loss 7.8906
+  Batch 1300 Loss 8.7905
+  Batch 1400 Loss 9.4089
+  Batch 1500 Loss 9.0900
+  Batch 1600 Loss 11.1005
+  Batch 1700 Loss 6.8083
+  Batch 1800 Loss 8.0522
+  Batch 1900 Loss 6.4035
+  Batch 2000 Loss 8.9006
+  Batch 2100 Loss 7.5143
+  Batch 2200 Loss 7.8459
+  Batch 2300 Loss 7.5100
+  Batch 2400 Loss 8.6641
+  Batch 2500 Loss 11.3177
+  Batch 2600 Loss 9.4344
+  Batch 2700 Loss 10.8380
+  Batch 2800 Loss 7.0701
+  Batch 2900 Loss 7.4417
+Finished epoch 8 in 178.0 seconds
+Perplexity training: 3.673
+
+==== Starting epoch 9 ====
+  Batch 0 Loss 9.4504
+  Batch 100 Loss 7.7755
+  Batch 200 Loss 7.7757
+  Batch 300 Loss 6.6989
+  Batch 400 Loss 6.2880
+  Batch 500 Loss 8.4718
+  Batch 600 Loss 7.0867
+  Batch 700 Loss 7.5428
+  Batch 800 Loss 10.2107
+  Batch 900 Loss 7.3685
+  Batch 1000 Loss 7.6363
+  Batch 1100 Loss 8.2709
+  Batch 1200 Loss 7.0290
+  Batch 1300 Loss 8.0382
+  Batch 1400 Loss 8.4069
+  Batch 1500 Loss 8.1544
+  Batch 1600 Loss 10.1801
+  Batch 1700 Loss 6.0504
+  Batch 1800 Loss 7.2163
+  Batch 1900 Loss 5.5259
+  Batch 2000 Loss 7.9457
+  Batch 2100 Loss 6.6586
+  Batch 2200 Loss 7.0505
+  Batch 2300 Loss 6.8221
+  Batch 2400 Loss 7.6877
+  Batch 2500 Loss 10.3882
+  Batch 2600 Loss 8.5579
+  Batch 2700 Loss 9.9316
+  Batch 2800 Loss 6.3761
+  Batch 2900 Loss 6.6474
+Finished epoch 9 in 180.0 seconds
+Perplexity training: 3.208
+Measuring development set...
+Perplexity dev: 58.912
+
+==== Starting epoch 10 ====
+  Batch 0 Loss 8.5957
+  Batch 100 Loss 7.0717
+  Batch 200 Loss 7.1207
+  Batch 300 Loss 6.1302
+  Batch 400 Loss 5.6382
+  Batch 500 Loss 7.5846
+  Batch 600 Loss 6.4609
+  Batch 700 Loss 6.8818
+  Batch 800 Loss 9.2951
+  Batch 900 Loss 6.5472
+  Batch 1000 Loss 6.8794
+  Batch 1100 Loss 7.4590
+  Batch 1200 Loss 6.3999
+  Batch 1300 Loss 7.3031
+  Batch 1400 Loss 7.6525
+  Batch 1500 Loss 7.4550
+  Batch 1600 Loss 9.2044
+  Batch 1700 Loss 5.4077
+  Batch 1800 Loss 6.4992
+  Batch 1900 Loss 4.8507
+  Batch 2000 Loss 7.1780
+  Batch 2100 Loss 5.9325
+  Batch 2200 Loss 6.4939
+  Batch 2300 Loss 6.2685
+  Batch 2400 Loss 6.8976
+  Batch 2500 Loss 9.4639
+  Batch 2600 Loss 7.7767
+  Batch 2700 Loss 9.1431
+  Batch 2800 Loss 5.6691
+  Batch 2900 Loss 5.8837
+Finished epoch 10 in 182.0 seconds
+Perplexity training: 2.865
+
+==== Starting epoch 11 ====
+  Batch 0 Loss 7.8867
+  Batch 100 Loss 6.3426
+  Batch 200 Loss 6.5304
+  Batch 300 Loss 5.4931
+  Batch 400 Loss 5.1731
+  Batch 500 Loss 6.9965
+  Batch 600 Loss 5.7071
+  Batch 700 Loss 6.3571
+  Batch 800 Loss 8.6341
+  Batch 900 Loss 5.8999
+  Batch 1000 Loss 6.1961
+  Batch 1100 Loss 6.8948
+  Batch 1200 Loss 5.8101
+  Batch 1300 Loss 6.7485
+  Batch 1400 Loss 7.0207
+  Batch 1500 Loss 6.9572
+  Batch 1600 Loss 8.5349
+  Batch 1700 Loss 4.8069
+  Batch 1800 Loss 5.9132
+  Batch 1900 Loss 4.3252
+  Batch 2000 Loss 6.5786
+  Batch 2100 Loss 5.5579
+  Batch 2200 Loss 5.6507
+  Batch 2300 Loss 5.7124
+  Batch 2400 Loss 6.1841
+  Batch 2500 Loss 8.8785
+  Batch 2600 Loss 7.1294
+  Batch 2700 Loss 8.3287
+  Batch 2800 Loss 5.1798
+  Batch 2900 Loss 5.4098
+Finished epoch 11 in 182.0 seconds
+Perplexity training: 2.599
+Measuring development set...
+Perplexity dev: 112.698
+
+==== Starting epoch 12 ====
+  Batch 0 Loss 7.3527
+  Batch 100 Loss 5.8399
+  Batch 200 Loss 5.9796
+  Batch 300 Loss 5.0108
+  Batch 400 Loss 4.7111
+  Batch 500 Loss 6.3813
+  Batch 600 Loss 5.3357
+  Batch 700 Loss 5.6263
+  Batch 800 Loss 8.1175
+  Batch 900 Loss 5.3944
+  Batch 1000 Loss 5.5541
+  Batch 1100 Loss 6.1389
+  Batch 1200 Loss 5.2146
+  Batch 1300 Loss 6.0287
+  Batch 1400 Loss 6.3931
+  Batch 1500 Loss 6.4023
+  Batch 1600 Loss 8.0869
+  Batch 1700 Loss 4.2741
+  Batch 1800 Loss 5.4942
+  Batch 1900 Loss 3.9445
+  Batch 2000 Loss 6.0331
+  Batch 2100 Loss 5.0489
+  Batch 2200 Loss 5.1457
+  Batch 2300 Loss 5.2955
+  Batch 2400 Loss 5.6195
+  Batch 2500 Loss 8.2606
+  Batch 2600 Loss 6.5417
+  Batch 2700 Loss 7.7239
+  Batch 2800 Loss 4.5661
+  Batch 2900 Loss 4.7521
+Finished epoch 12 in 183.0 seconds
+Perplexity training: 2.392
+
+==== Starting epoch 13 ====
+  Batch 0 Loss 6.6957
+  Batch 100 Loss 5.4436
+  Batch 200 Loss 5.6176
+  Batch 300 Loss 4.6374
+  Batch 400 Loss 4.2612
+  Batch 500 Loss 6.1550
+  Batch 600 Loss 4.9549
+  Batch 700 Loss 5.1833
+  Batch 800 Loss 7.6847
+  Batch 900 Loss 5.0609
+  Batch 1000 Loss 5.2131
+  Batch 1100 Loss 5.7772
+  Batch 1200 Loss 4.6995
+  Batch 1300 Loss 5.4474
+  Batch 1400 Loss 5.9259
+  Batch 1500 Loss 6.0026
+  Batch 1600 Loss 7.5761
+  Batch 1700 Loss 3.9794
+  Batch 1800 Loss 5.1455
+  Batch 1900 Loss 3.6269
+  Batch 2000 Loss 5.6340
+  Batch 2100 Loss 4.6560
+  Batch 2200 Loss 4.6440
+  Batch 2300 Loss 4.8457
+  Batch 2400 Loss 5.0947
+  Batch 2500 Loss 7.5454
+  Batch 2600 Loss 6.0210
+  Batch 2700 Loss 7.2897
+  Batch 2800 Loss 4.2435
+  Batch 2900 Loss 4.5379
+Finished epoch 13 in 183.0 seconds
+Perplexity training: 2.228
+Measuring development set...
+Perplexity dev: 185.994
+
+==== Starting epoch 14 ====
+  Batch 0 Loss 6.2254
+  Batch 100 Loss 5.0275
+  Batch 200 Loss 5.2698
+  Batch 300 Loss 4.3396
+  Batch 400 Loss 3.9925
+  Batch 500 Loss 5.6557
+  Batch 600 Loss 4.5512
+  Batch 700 Loss 4.7271
+  Batch 800 Loss 7.2356
+  Batch 900 Loss 4.5278
+  Batch 1000 Loss 4.9076
+  Batch 1100 Loss 5.2534
+  Batch 1200 Loss 4.3004
+  Batch 1300 Loss 4.9262
+  Batch 1400 Loss 5.5012
+  Batch 1500 Loss 5.5124
+  Batch 1600 Loss 7.0930
+  Batch 1700 Loss 3.6222
+  Batch 1800 Loss 4.7764
+  Batch 1900 Loss 3.3381
+  Batch 2000 Loss 5.2085
+  Batch 2100 Loss 4.2916
+  Batch 2200 Loss 4.2960
+  Batch 2300 Loss 4.6143
+  Batch 2400 Loss 4.7192
+  Batch 2500 Loss 6.8168
+  Batch 2600 Loss 5.7316
+  Batch 2700 Loss 6.8940
+  Batch 2800 Loss 3.7969
+  Batch 2900 Loss 4.2939
+Finished epoch 14 in 184.0 seconds
+Perplexity training: 2.090
+
+==== Starting epoch 15 ====
+  Batch 0 Loss 5.9710
+  Batch 100 Loss 4.5842
+  Batch 200 Loss 5.1927
+  Batch 300 Loss 3.8939
+  Batch 400 Loss 3.5232
+  Batch 500 Loss 5.0881
+  Batch 600 Loss 4.2325
+  Batch 700 Loss 4.5128
+  Batch 800 Loss 6.5602
+  Batch 900 Loss 4.0778
+  Batch 1000 Loss 4.5554
+  Batch 1100 Loss 4.9433
+  Batch 1200 Loss 3.9691
+  Batch 1300 Loss 4.7311
+  Batch 1400 Loss 5.3437
+  Batch 1500 Loss 5.1722
+  Batch 1600 Loss 6.8772
+  Batch 1700 Loss 3.3451
+  Batch 1800 Loss 4.3418
+  Batch 1900 Loss 3.0690
+  Batch 2000 Loss 4.7628
+  Batch 2100 Loss 3.8710
+  Batch 2200 Loss 3.8425
+  Batch 2300 Loss 4.3512
+  Batch 2400 Loss 4.3929
+  Batch 2500 Loss 6.3611
+  Batch 2600 Loss 5.4073
+  Batch 2700 Loss 6.5585
+  Batch 2800 Loss 3.3842
+  Batch 2900 Loss 4.1961
+Finished epoch 15 in 188.0 seconds
+Perplexity training: 1.977
+Measuring development set...
+Perplexity dev: 362.179
+
+==== Starting epoch 16 ====
+  Batch 0 Loss 5.4189
+  Batch 100 Loss 4.2476
+  Batch 200 Loss 4.9332
+  Batch 300 Loss 3.6092
+  Batch 400 Loss 3.0587
+  Batch 500 Loss 4.6998
+  Batch 600 Loss 3.8234
+  Batch 700 Loss 4.1301
+  Batch 800 Loss 6.0838
+  Batch 900 Loss 3.7457
+  Batch 1000 Loss 4.1245
+  Batch 1100 Loss 4.6039
+  Batch 1200 Loss 3.6420
+  Batch 1300 Loss 4.2500
+  Batch 1400 Loss 4.9369
+  Batch 1500 Loss 4.8809
+  Batch 1600 Loss 6.5093
+  Batch 1700 Loss 3.0283
+  Batch 1800 Loss 4.1575
+  Batch 1900 Loss 2.7475
+  Batch 2000 Loss 4.4444
+  Batch 2100 Loss 3.4112
+  Batch 2200 Loss 3.5705
+  Batch 2300 Loss 4.3163
+  Batch 2400 Loss 4.0332
+  Batch 2500 Loss 6.0653
+  Batch 2600 Loss 5.0668
+  Batch 2700 Loss 6.1739
+  Batch 2800 Loss 3.2966
+  Batch 2900 Loss 3.6117
+Finished epoch 16 in 189.0 seconds
+Perplexity training: 1.879
+
+==== Starting epoch 17 ====
+  Batch 0 Loss 5.1923
+  Batch 100 Loss 3.9350
+  Batch 200 Loss 4.4880
+  Batch 300 Loss 3.3397
+  Batch 400 Loss 2.8457
+  Batch 500 Loss 4.2800
+  Batch 600 Loss 3.5339
+  Batch 700 Loss 4.1427
+  Batch 800 Loss 5.7486
+  Batch 900 Loss 3.4950
+  Batch 1000 Loss 3.7903
+  Batch 1100 Loss 4.3083
+  Batch 1200 Loss 3.3722
+  Batch 1300 Loss 4.1476
+  Batch 1400 Loss 4.5829
+  Batch 1500 Loss 4.7543
+  Batch 1600 Loss 5.9901
+  Batch 1700 Loss 2.9644
+  Batch 1800 Loss 3.7689
+  Batch 1900 Loss 2.4465
+  Batch 2000 Loss 4.0443
+  Batch 2100 Loss 3.1276
+  Batch 2200 Loss 3.2798
+  Batch 2300 Loss 4.2278
+  Batch 2400 Loss 3.6390
+  Batch 2500 Loss 5.6673
+  Batch 2600 Loss 4.7375
+  Batch 2700 Loss 5.7702
+  Batch 2800 Loss 2.9429
+  Batch 2900 Loss 3.3273
+Finished epoch 17 in 190.0 seconds
+Perplexity training: 1.798
+Measuring development set...
+Perplexity dev: 385.201
+
+==== Starting epoch 18 ====
+  Batch 0 Loss 4.9254
+  Batch 100 Loss 3.7157
+  Batch 200 Loss 4.1595
+  Batch 300 Loss 3.1347
+  Batch 400 Loss 2.7238
+  Batch 500 Loss 4.2736
+  Batch 600 Loss 3.3103
+  Batch 700 Loss 3.8511
+  Batch 800 Loss 5.5398
+  Batch 900 Loss 3.2311
+  Batch 1000 Loss 3.4469
+  Batch 1100 Loss 4.0964
+  Batch 1200 Loss 3.0669
+  Batch 1300 Loss 3.7346
+  Batch 1400 Loss 4.2541
+  Batch 1500 Loss 4.6341
+  Batch 1600 Loss 5.7792
+  Batch 1700 Loss 2.7728
+  Batch 1800 Loss 3.6365
+  Batch 1900 Loss 2.3457
+  Batch 2000 Loss 4.0067
+  Batch 2100 Loss 2.9997
+  Batch 2200 Loss 3.1025
+  Batch 2300 Loss 4.1859
+  Batch 2400 Loss 3.4455
+  Batch 2500 Loss 5.4751
+  Batch 2600 Loss 4.3745
+  Batch 2700 Loss 5.3804
+  Batch 2800 Loss 2.5939
+  Batch 2900 Loss 3.2818
+Finished epoch 18 in 191.0 seconds
+Perplexity training: 1.729
+
+==== Starting epoch 19 ====
+  Batch 0 Loss 4.5356
+  Batch 100 Loss 3.5055
+  Batch 200 Loss 3.7748
+  Batch 300 Loss 3.0430
+  Batch 400 Loss 2.4371
+  Batch 500 Loss 4.0029
+  Batch 600 Loss 3.1757
+  Batch 700 Loss 3.7647
+  Batch 800 Loss 5.2543
+  Batch 900 Loss 2.8788
+  Batch 1000 Loss 3.1422
+  Batch 1100 Loss 3.8675
+  Batch 1200 Loss 2.9160
+  Batch 1300 Loss 3.5833
+  Batch 1400 Loss 3.9925
+  Batch 1500 Loss 4.1828
+  Batch 1600 Loss 5.5578
+  Batch 1700 Loss 2.5848
+  Batch 1800 Loss 3.2723
+  Batch 1900 Loss 2.1058
+  Batch 2000 Loss 3.8597
+  Batch 2100 Loss 2.7195
+  Batch 2200 Loss 2.8767
+  Batch 2300 Loss 3.7555
+  Batch 2400 Loss 3.1289
+  Batch 2500 Loss 4.8678
+  Batch 2600 Loss 4.1441
+  Batch 2700 Loss 5.0392
+  Batch 2800 Loss 2.7361
+  Batch 2900 Loss 3.1377
+Finished epoch 19 in 192.0 seconds
+Perplexity training: 1.672
+Measuring development set...
+Perplexity dev: 535.313
+
+==== Starting epoch 20 ====
+  Batch 0 Loss 4.4002
+  Batch 100 Loss 3.2438
+  Batch 200 Loss 3.5849
+  Batch 300 Loss 2.8083
+  Batch 400 Loss 2.4036
+  Batch 500 Loss 3.7420
+  Batch 600 Loss 2.9676
+  Batch 700 Loss 3.4077
+  Batch 800 Loss 5.0713
+  Batch 900 Loss 2.7684
+  Batch 1000 Loss 3.0839
+  Batch 1100 Loss 3.7375
+  Batch 1200 Loss 2.7739
+  Batch 1300 Loss 3.2644
+  Batch 1400 Loss 3.6696
+  Batch 1500 Loss 3.8223
+  Batch 1600 Loss 4.9701
+  Batch 1700 Loss 2.4086
+  Batch 1800 Loss 3.0087
+  Batch 1900 Loss 1.9011
+  Batch 2000 Loss 3.4786
+  Batch 2100 Loss 2.4633
+  Batch 2200 Loss 2.8486
+  Batch 2300 Loss 3.6563
+  Batch 2400 Loss 2.9981
+  Batch 2500 Loss 4.8037
+  Batch 2600 Loss 3.9267
+  Batch 2700 Loss 4.8062
+  Batch 2800 Loss 2.5651
+  Batch 2900 Loss 2.9472
+Finished epoch 20 in 193.0 seconds
+Perplexity training: 1.622
+
+==== Starting epoch 21 ====
+  Batch 0 Loss 4.1203
+  Batch 100 Loss 3.0510
+  Batch 200 Loss 3.4420
+  Batch 300 Loss 2.5649
+  Batch 400 Loss 2.3000
+  Batch 500 Loss 3.2916
+  Batch 600 Loss 2.8285
+  Batch 700 Loss 3.3027
+  Batch 800 Loss 5.0202
+  Batch 900 Loss 2.5649
+  Batch 1000 Loss 2.6355
+  Batch 1100 Loss 3.5199
+  Batch 1200 Loss 2.6118
+  Batch 1300 Loss 3.2663
+  Batch 1400 Loss 3.4529
+  Batch 1500 Loss 3.3679
+  Batch 1600 Loss 4.6328
+  Batch 1700 Loss 2.4149
+  Batch 1800 Loss 2.8755
+  Batch 1900 Loss 1.9810
+  Batch 2000 Loss 3.3272
+  Batch 2100 Loss 2.5379
+  Batch 2200 Loss 2.5950
+  Batch 2300 Loss 3.3869
+  Batch 2400 Loss 2.6844
+  Batch 2500 Loss 4.4574
+  Batch 2600 Loss 3.7728
+  Batch 2700 Loss 4.4966
+  Batch 2800 Loss 2.3574
+  Batch 2900 Loss 2.7211
+Finished epoch 21 in 195.0 seconds
+Perplexity training: 1.579
+Measuring development set...
+Perplexity dev: 1046.352
+
+==== Starting epoch 22 ====
+  Batch 0 Loss 4.0630
+  Batch 100 Loss 3.0656
+  Batch 200 Loss 3.4524
+  Batch 300 Loss 2.6379
+  Batch 400 Loss 2.1576
+  Batch 500 Loss 3.2937
+  Batch 600 Loss 2.5345
+  Batch 700 Loss 3.1726
+  Batch 800 Loss 4.8842
+  Batch 900 Loss 2.4900
+  Batch 1000 Loss 2.4983
+  Batch 1100 Loss 3.3049
+  Batch 1200 Loss 2.4312
+  Batch 1300 Loss 3.0434
+  Batch 1400 Loss 3.1937
+  Batch 1500 Loss 3.3778
+  Batch 1600 Loss 4.4405
+  Batch 1700 Loss 2.1404
+  Batch 1800 Loss 2.7003
+  Batch 1900 Loss 1.8805
+  Batch 2000 Loss 3.0317
+  Batch 2100 Loss 2.3220
+  Batch 2200 Loss 2.6966
+  Batch 2300 Loss 3.0018
+  Batch 2400 Loss 2.6477
+  Batch 2500 Loss 4.5873
+  Batch 2600 Loss 3.5866
+  Batch 2700 Loss 4.4025
+  Batch 2800 Loss 2.3164
+  Batch 2900 Loss 2.4809
+Finished epoch 22 in 195.0 seconds
+Perplexity training: 1.540
+
+==== Starting epoch 23 ====
+  Batch 0 Loss 3.6248
+  Batch 100 Loss 2.4892
+  Batch 200 Loss 3.3242
+  Batch 300 Loss 2.2296
+  Batch 400 Loss 2.1326
+  Batch 500 Loss 3.0334
+  Batch 600 Loss 2.4745
+  Batch 700 Loss 3.1474
+  Batch 800 Loss 4.5965
+  Batch 900 Loss 2.3020
+  Batch 1000 Loss 2.3336
+  Batch 1100 Loss 3.1789
+  Batch 1200 Loss 2.4709
+  Batch 1300 Loss 3.1314
+  Batch 1400 Loss 3.0439
+  Batch 1500 Loss 3.2156
+  Batch 1600 Loss 4.2178
+  Batch 1700 Loss 2.1384
+  Batch 1800 Loss 2.6473
+  Batch 1900 Loss 1.6485
+  Batch 2000 Loss 2.9704
+  Batch 2100 Loss 2.4147
+  Batch 2200 Loss 2.3477
+  Batch 2300 Loss 2.9797
+  Batch 2400 Loss 2.4842
+  Batch 2500 Loss 4.5048
+  Batch 2600 Loss 3.3766
+  Batch 2700 Loss 4.1665
+  Batch 2800 Loss 2.1549
+  Batch 2900 Loss 2.3783
+Finished epoch 23 in 204.0 seconds
+Perplexity training: 1.506
+Measuring development set...
+Perplexity dev: 2120.542
+
+==== Starting epoch 24 ====
+  Batch 0 Loss 3.4920
+  Batch 100 Loss 2.6949
+  Batch 200 Loss 3.0016
+  Batch 300 Loss 2.4267
+  Batch 400 Loss 1.9849
+  Batch 500 Loss 2.8626
+  Batch 600 Loss 2.2554
+  Batch 700 Loss 2.8794
+  Batch 800 Loss 4.2067
+  Batch 900 Loss 2.3385
+  Batch 1000 Loss 2.2340
+  Batch 1100 Loss 2.9946
+  Batch 1200 Loss 2.5758
+  Batch 1300 Loss 2.9217
+  Batch 1400 Loss 3.0581
+  Batch 1500 Loss 2.9046
+  Batch 1600 Loss 3.6758
+  Batch 1700 Loss 1.9398
+  Batch 1800 Loss 2.5576
+  Batch 1900 Loss 1.7108
+  Batch 2000 Loss 2.7424
+  Batch 2100 Loss 2.0689
+  Batch 2200 Loss 2.1420
+  Batch 2300 Loss 2.9905
+  Batch 2400 Loss 2.4759
+  Batch 2500 Loss 4.1924
+  Batch 2600 Loss 3.5304
+  Batch 2700 Loss 4.0265
+  Batch 2800 Loss 1.9404
+  Batch 2900 Loss 2.3509
+Finished epoch 24 in 211.0 seconds
+Perplexity training: 1.477
+
+==== Starting epoch 25 ====
+  Batch 0 Loss 3.4600
+  Batch 100 Loss 2.3884
+  Batch 200 Loss 2.8561
+  Batch 300 Loss 2.1776
+  Batch 400 Loss 1.7520
+  Batch 500 Loss 3.0151
+  Batch 600 Loss 2.2436
+  Batch 700 Loss 3.0992
+  Batch 800 Loss 4.1772
+  Batch 900 Loss 2.2230
+  Batch 1000 Loss 2.0445
+  Batch 1100 Loss 2.9283
+  Batch 1200 Loss 2.3428
+  Batch 1300 Loss 2.7808
+  Batch 1400 Loss 2.9177
+  Batch 1500 Loss 2.8617
+  Batch 1600 Loss 3.6490
+  Batch 1700 Loss 1.7378
+  Batch 1800 Loss 2.8441
+  Batch 1900 Loss 1.6605
+  Batch 2000 Loss 2.3890
+  Batch 2100 Loss 1.9608
+  Batch 2200 Loss 2.1215
+  Batch 2300 Loss 2.9686
+  Batch 2400 Loss 2.4708
+  Batch 2500 Loss 3.7643
+  Batch 2600 Loss 3.3123
+  Batch 2700 Loss 3.9228
+  Batch 2800 Loss 1.8337
+  Batch 2900 Loss 2.4552
+Finished epoch 25 in 211.0 seconds
+Perplexity training: 1.451
+Measuring development set...
+Perplexity dev: 3024.799
+Finished training in 4672.72 seconds
+Finished training after development set stopped improving.
